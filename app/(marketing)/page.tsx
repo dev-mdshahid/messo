@@ -1,11 +1,10 @@
-import { Button } from '@/components/ui/button';
-import React from 'react';
+import React from "react";
+import Header from "./_components/Header/Header";
 
 export default function MarketingPage() {
   return (
-    <div>
-      MarketingPage
-      <Button>Go to dashboard</Button>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
