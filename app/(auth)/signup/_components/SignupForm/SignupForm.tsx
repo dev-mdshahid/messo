@@ -2,17 +2,24 @@
 import InputField from "@/components/shared/form/InputField";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { TbAccessible } from "react-icons/tb";
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "@/components/ui/toast";
 
 export default function SignupForm() {
   const [gender, setGender] = useState("");
-
+  const [loading, setLoading] = useState(false);
+  const submitRef = useRef<HTMLButtonElement>(null);
+  const router = useRouter();
+  const { toast } = useToast();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
     const formElement = event.target as HTMLFormElement;
 
-    const formData = {
+    const user = {
       fname: formElement.fname?.value,
       lname: formElement.lname?.value,
       gender: gender,
@@ -22,7 +29,47 @@ export default function SignupForm() {
       height: parseInt(formElement.height?.value),
       weight: parseInt(formElement.weight?.value),
     };
-    console.log(formData);
+
+    try {
+      const res = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await res.json();
+
+      if (data.okay) {
+        toast({
+          title: "Account created successfully!",
+          description: "Now login to your account.",
+        });
+        router.push("/login");
+      } else {
+        console.log(data);
+        toast({
+          variant: "destructive",
+          description: data.message,
+        });
+        setLoading(false);
+      }
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        description: error.message,
+        action: (
+          <ToastAction
+            altText="Try again"
+            onClick={() => submitRef.current?.click()}
+          >
+            Try again
+          </ToastAction>
+        ),
+      });
+      console.log(error.message);
+    }
   };
   return (
     <div className="grid place-items-center p-10">
@@ -159,14 +206,22 @@ export default function SignupForm() {
                 max={120}
               />
             </div>
-            <Button type="submit" className="mt-4">
-              Create Account
+            <Button
+              ref={submitRef}
+              disabled={loading}
+              type="submit"
+              className="mt-4"
+            >
+              {loading ? "Submitting..." : "Create Account"}
             </Button>
           </form>
 
           <small className="mt-10 block text-center text-gray-600">
             Already have an account?{" "}
-            <Link href="/login" className="font-bold text-blue-600">
+            <Link
+              href="/login"
+              className="font-bold text-blue-600 hover:underline"
+            >
               Log In
             </Link>
           </small>

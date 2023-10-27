@@ -1,29 +1,54 @@
 "use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { siteName } from "@/data/siteData";
 import InputField from "@/components/shared/form/InputField";
 import { TbAccessible } from "react-icons/tb";
+import { signIn } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 type LoginFormProps = {
   className?: string;
 };
 
 export default function LoginForm({ className }: LoginFormProps) {
-  const handleSubmit = (event: React.FormEvent) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect") || "/dashboard";
+
+  const { toast } = useToast();
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    setLoading(true);
     event.preventDefault();
 
     const formElement = event.target as HTMLFormElement;
 
-    const formData = {
+    const user = {
       email: formElement.email.value,
       password: formElement.password.value,
     };
 
-    // signIn('credentials', {
-    //   redirect: false,
-    //   ...formData,
-    // });
+    const res = await signIn("credentials", {
+      ...user,
+      redirect: false,
+    });
+
+    if (res?.error) {
+      toast({
+        variant: "destructive",
+        description: res.error,
+      });
+      setLoading(false);
+    } else {
+      router.push(redirectUrl);
+      toast({
+        description: "Logged in successfully!",
+      });
+    }
   };
   return (
     <section
@@ -60,8 +85,8 @@ export default function LoginForm({ className }: LoginFormProps) {
               type={"password"}
               placeholder={"Choose a strong password"}
             />
-            <Button type="submit" className="mt-4">
-              Login
+            <Button disabled={loading} type="submit" className="mt-4">
+              {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
 

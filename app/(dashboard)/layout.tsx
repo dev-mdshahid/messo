@@ -1,4 +1,5 @@
-import React from 'react';
+import ProtectedRoute from "@/next-auth/ProtectedRoute";
+import React from "react";
 
 export default function DashboardLayout({
   children,
@@ -6,9 +7,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <p>Hi I am from dashboard layout</p>
-      {children}
-    </div>
+    <ProtectedRoute>
+      <div>
+        <p>Hi I am from dashboard layout</p>
+        {children}
+      </div>
+    </ProtectedRoute>
   );
 }
