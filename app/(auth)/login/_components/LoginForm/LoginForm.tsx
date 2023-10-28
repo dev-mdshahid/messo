@@ -5,8 +5,8 @@ import Link from "next/link";
 import { siteName } from "@/data/siteData";
 import InputField from "@/components/shared/form/InputField";
 import { TbAccessible } from "react-icons/tb";
-import { signIn } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 
 type LoginFormProps = {
@@ -15,11 +15,13 @@ type LoginFormProps = {
 
 export default function LoginForm({ className }: LoginFormProps) {
   const [loading, setLoading] = useState<boolean>(false);
-  const router = useRouter();
+  const { toast } = useToast();
+
+  // Protection
+  const { status } = useSession();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get("redirect") || "/dashboard";
-
-  const { toast } = useToast();
+  if (status === "authenticated") redirect(redirectUrl);
 
   const handleSubmit = async (event: React.FormEvent) => {
     setLoading(true);
@@ -44,12 +46,12 @@ export default function LoginForm({ className }: LoginFormProps) {
       });
       setLoading(false);
     } else {
-      router.push(redirectUrl);
       toast({
         description: "Logged in successfully!",
       });
     }
   };
+
   return (
     <section
       className={

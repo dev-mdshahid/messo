@@ -2,11 +2,13 @@
 import InputField from "@/components/shared/form/InputField";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import React, { MutableRefObject, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TbAccessible } from "react-icons/tb";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
+import { useSession } from "next-auth/react";
+import { useSearchParams, redirect } from "next/navigation";
 
 export default function SignupForm() {
   const [gender, setGender] = useState("");
@@ -14,6 +16,13 @@ export default function SignupForm() {
   const submitRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
   const { toast } = useToast();
+
+  // Protection
+  const { status } = useSession();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect") || "/dashboard";
+  if (status === "authenticated") redirect(redirectUrl);
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
@@ -77,7 +86,7 @@ export default function SignupForm() {
         <div>
           <div className="text-center md:text-left">
             <TbAccessible
-              className={"mx-auto mb-5 text-6xl  text-messo-600 md:hidden"}
+              className={"mx-auto mb-5 text-6xl text-messo-600 md:hidden"}
             />
             <h1 className="text-2xl font-semibold md:text-3xl">
               Create your account

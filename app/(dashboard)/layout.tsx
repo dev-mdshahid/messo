@@ -9,16 +9,14 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ProtectedRoute>
-      <main className="grid h-screen grid-cols-[auto_1fr]">
-        <Sidebar />
-        <section className="grid grid-rows-[auto_1fr] overflow-y-auto">
-          <Topbar />
-          <div className="rounded-tl-xl bg-messo-50 bg-opacity-70 p-6">
-            {children}
-          </div>
-        </section>
-      </main>
-    </ProtectedRoute>
+    <main className="grid h-screen grid-cols-[auto_1fr]">
+      <Sidebar />
+      <section className="grid h-full grid-rows-[auto_1fr] overflow-y-auto">
+        <Topbar />
+        <div className="overflow-y-auto rounded-tl-xl bg-messo-50/80 p-6">
+          {children}
+        </div>
+      </section>
+    </main>
   );
 }

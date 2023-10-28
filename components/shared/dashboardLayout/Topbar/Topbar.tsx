@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 export default function Topbar() {
   const pathname = usePathname();
   return (
-    <section className="flex h-fit items-center justify-between  p-5 py-3">
+    <section className="flex h-fit items-center justify-between p-5">
       {/* left title */}
       <div className="mr-5 flex items-center">
         <IoArrowBack className="mr-5 cursor-pointer text-2xl text-gray-500" />
