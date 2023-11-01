@@ -8,6 +8,7 @@ import { TbAccessible } from "react-icons/tb";
 import { signIn, useSession } from "next-auth/react";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import ButtonLoader from "@/components/shared/ButtonLoader/ButtonLoader";
 
 type LoginFormProps = {
   className?: string;
@@ -88,7 +89,7 @@ export default function LoginForm({ className }: LoginFormProps) {
               placeholder={"Choose a strong password"}
             />
             <Button disabled={loading} type="submit" className="mt-4">
-              {loading ? "Logging in..." : "Login"}
+              {loading ? <ButtonLoader text="Authenticating..." /> : "Login"}
             </Button>
           </form>
 

@@ -8,17 +8,20 @@ export default function ProfileBanner() {
   const email = "mdshahidulridoy@gmail.com";
   return (
     <div>
-      <div className="h-[200px] w-full rounded-xl bg-[url('https://png.pngtree.com/background/20211217/original/pngtree-geometric-cross-logo-health-care-light-effect-blue-gradient-background-picture-image_1592436.jpg')] bg-cover bg-center bg-no-repeat"></div>
+      <div className="h-[200px] w-full rounded-xl bg-gradient-to-r from-messo-500 to-messo-400"></div>
 
       <div className="relative h-28">
-        <Image
+        <div className="absolute bottom-6 left-4 flex h-32 w-32 items-center justify-center rounded-full border-4 border-white bg-messo-500 text-5xl capitalize text-white">
+          {fname[0]}
+        </div>
+        {/* <Image
           src={dummyDp}
           alt={fname + "dummy dp"}
-          className="absolute bottom-6 left-4 h-32 w-32 rounded-full border-2 border-white"
-        />
-        <div className="absolute left-40 top-3">
+          className="absolute bottom-6 left-4 h-32 w-32 rounded-full border-4 border-white"
+        /> */}
+        <div className="absolute left-40 top-4">
           {/* Name */}
-          <h2 className="text-2xl font-bold text-blue-900">
+          <h2 className="text-2xl font-bold text-messo-900">
             {fname + " " + lname}
           </h2>
 

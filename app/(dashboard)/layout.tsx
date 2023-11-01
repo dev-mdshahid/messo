@@ -1,5 +1,5 @@
-import Sidebar from "@/components/shared/dashboardLayout/Sidebar/Sidebar";
-import Topbar from "@/components/shared/dashboardLayout/Topbar/Topbar";
+import Sidebar from "@/app/(dashboard)/_components/Sidebar/Sidebar";
+import Topbar from "@/app/(dashboard)/_components/Topbar/Topbar";
 import ProtectedRoute from "@/next-auth/ProtectedRoute";
 import React from "react";
 

@@ -1,5 +1,13 @@
-import React from 'react';
+"use client";
+import React from "react";
 
-export default function DietPlan() {
+type DietPlanProps = {
+  data?: {
+    [key: string]: any;
+  };
+};
+
+export default function DietPlan({ data }: DietPlanProps) {
+  console.log(data);
   return <div>DietPlan</div>;
 }

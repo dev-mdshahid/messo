@@ -9,6 +9,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { useSession } from "next-auth/react";
 import { useSearchParams, redirect } from "next/navigation";
+import ButtonLoader from "@/components/shared/ButtonLoader/ButtonLoader";
 
 export default function SignupForm() {
   const [gender, setGender] = useState("");
@@ -221,7 +222,7 @@ export default function SignupForm() {
               type="submit"
               className="mt-4"
             >
-              {loading ? "Submitting..." : "Create Account"}
+              {loading ? <ButtonLoader /> : "Create Account"}
             </Button>
           </form>
 

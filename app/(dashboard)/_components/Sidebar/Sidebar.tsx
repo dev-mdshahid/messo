@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import SidebarMenu from "./SidebarMenu/SidebarMenu";
+
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
 // Importing ions
@@ -10,6 +11,7 @@ import { MdFaceRetouchingNatural } from "react-icons/md";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
+import ButtonLoader from "@/components/shared/ButtonLoader/ButtonLoader";
 
 const Sidebar = () => {
   const [loading, setLoading] = useState(false);
@@ -25,7 +27,7 @@ const Sidebar = () => {
           <div className="bg-messo mr-2 flex h-9 w-9 items-center justify-center rounded-xl rounded-br">
             <FaChild className="text-2xl text-white" />
           </div>
-          <h1 className="hidden text-xl font-bold xl:inline-block">MessO</h1>
+          <h1 className="hidden text-xl font-bold lg:inline-block">MessO</h1>
         </div>
 
         {/* Main menu */}
@@ -59,7 +61,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="mb-5 pr-5">
+      <div className="mb-5 pr-3 lg:pr-5">
         {status === "authenticated" ? (
           <Button
             disabled={loading}
@@ -71,10 +73,14 @@ const Sidebar = () => {
             }}
           >
             {loading ? (
-              "Logging out..."
+              <ButtonLoader
+                className="hidden lg:inline-block"
+                text="Logging out..."
+              />
             ) : (
               <span className=" flex w-full items-center justify-center gap-2">
-                Logout
+                <span className="hidden lg:inline-block">Logout</span>
+
                 <FaArrowRightFromBracket size={20} />
               </span>
             )}
