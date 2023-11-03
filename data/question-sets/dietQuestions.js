@@ -399,32 +399,4 @@ export const dietQuestions = [
       },
     ],
   },
-
-  // {
-  //   type: "select",
-  //   question: "What is your type?",
-  //   description:
-  //     "Knowing your food preference will help us to build the best diet plan",
-  //   id: "type",
-  //   options: [
-  //     {
-  //       value: "vegetarian",
-  //       icon: vegetarian,
-  //       text: "Vegetarian",
-  //       description: "Eat only vegetables",
-  //     },
-  //     {
-  //       value: "nonVegetarian",
-  //       icon: nonVegetarian,
-  //       text: "Non Vegetarian",
-  //       description: "Eat fish, meat or chicken",
-  //     },
-  //     {
-  //       value: "noPreference",
-  //       icon: peraNai,
-  //       text: "No preference",
-  //       description: "Okay with everything",
-  //     },
-  //   ],
-  // },
 ];

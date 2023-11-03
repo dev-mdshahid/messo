@@ -28,7 +28,7 @@ export default function InfoSelectCard({ option }: InfoSelectCardProps) {
         <Image
           src={checkMark}
           alt=""
-          className="absolute left-3 top-2 mr-3 h-[35px] w-[35px]"
+          className="absolute right-0 top-2 mr-3 h-[35px] w-[35px]"
         />
       ) : (
         ""

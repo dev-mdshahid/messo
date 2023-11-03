@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { dietQuestions } from "@/data/questionnaires";
+import { dietQuestions } from "@/data/question-sets/dietQuestions";
+import { exerciseQuestions } from "@/data/question-sets/exerciseQuestions";
+import { beautyQuestions } from "@/data/question-sets/beautyQuestions";
 import InfoInputField from "./InfoInputField/InfoInputField";
 import InfoSelect from "./InfoSelect/InfoSelect";
 import DietPlan from "@/app/(dashboard)/diet/[dietChartId]/_components/DietPlan/DietPlan";
@@ -25,6 +27,11 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
 
   // Selecting question set
   let questions = dietQuestions;
+  if (variant === "exercise") {
+    questions = exerciseQuestions;
+  } else if (variant === "beauty") {
+    questions = beautyQuestions;
+  }
 
   // Length of the question set
   const numOfQuestions = questions.length;
