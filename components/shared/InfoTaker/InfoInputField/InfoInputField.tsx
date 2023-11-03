@@ -14,6 +14,8 @@ type InfoInputFieldProps = {
     [key: string]: any;
   };
   setData: (value: { [key: string]: any }) => void;
+  step: number;
+  setStep: (value: number) => void;
 };
 
 export default function InfoInputField({
@@ -25,10 +27,13 @@ export default function InfoInputField({
   max,
   data,
   setData,
+  step,
+  setStep,
 }: InfoInputFieldProps) {
   // Handler functon
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    console.log("button hit");
     const formElement = event.target as HTMLFormElement;
     const value = formElement.info;
     const updatedData = {
@@ -36,6 +41,7 @@ export default function InfoInputField({
       [questionId]: value,
     };
     setData(updatedData);
+    setStep(step + 1);
   };
   return (
     <form onSubmit={handleSubmit} className="mt-10 space-y-5">
@@ -47,7 +53,9 @@ export default function InfoInputField({
         min={min}
         max={max}
       />
-      <Button className="w-full">Continue</Button>
+      <Button type="submit" className="w-full">
+        Continue
+      </Button>
     </form>
   );
 }

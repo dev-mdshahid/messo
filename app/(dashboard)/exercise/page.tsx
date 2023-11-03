@@ -1,5 +1,11 @@
-import React from 'react';
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React from "react";
 
 export default function ExercisePage() {
-  return <div>ExercisePage</div>;
+  return (
+    <Button>
+      <Link href={"exercise/create-exercise-plan"}>Create exercise plan</Link>
+    </Button>
+  );
 }

@@ -33,7 +33,9 @@ export default function InfoSelectCard({ option }: InfoSelectCardProps) {
       ) : (
         ""
       )}
-      <h3 className="text-center text-2xl font-semibold">{option.text}</h3>
+      <h3 className="whitespace-nowrap text-center text-2xl font-semibold">
+        {option.text}
+      </h3>
       <p className="pt-1 text-center text-sm">({option.description})</p>
     </div>
   );

@@ -7,19 +7,19 @@ type InfoSelectListProps = {
   option: {
     [key: string]: any;
   };
-  mini?: boolean;
-  type?: "single" | "multi";
+  size?: string;
+  type?: string;
 };
 
 export default function InfoSelectList({
   option,
-  mini,
+  size,
   type,
 }: InfoSelectListProps) {
   const [selected, setSelected] = useState(false);
-  return mini ? (
+  return size === "mini" ? (
     <div
-      className={`flex w-full cursor-pointer select-none items-center justify-between gap-10 rounded-lg border border-messo-50  capitalize text-messo-900 transition hover:border-messo-900/40 hover:bg-messo-100 ${
+      className={`mx-auto flex w-full max-w-[600px] cursor-pointer select-none items-center justify-between gap-10 rounded-lg border border-messo-50  capitalize text-messo-900 transition hover:border-messo-900/40 hover:bg-messo-100 ${
         selected ? "border-messo-900/40 bg-messo-100" : "bg-white"
       }`}
       onClick={() => setSelected(!selected)}
@@ -49,7 +49,7 @@ export default function InfoSelectList({
     </div>
   ) : (
     <div
-      className={`flex w-full cursor-pointer select-none items-center justify-between gap-10 rounded-lg capitalize transition hover:bg-messo-900 hover:text-white ${
+      className={`mx-auto flex w-full max-w-[600px] cursor-pointer select-none items-center justify-between gap-10 rounded-lg capitalize transition hover:bg-messo-900 hover:text-white ${
         selected ? "bg-messo-900 text-white" : "bg-white text-messo-900"
       }`}
       onClick={() => setSelected(!selected)}
@@ -66,7 +66,15 @@ export default function InfoSelectList({
           <p className="pt-1 text-xs">({option.description})</p>
         </div>
       </div>
-      <Image src={option.icon} alt="" className="mr-5 h-[80px] w-[80px]" />
+      {option.icon ? (
+        <Image
+          src={option.icon}
+          alt=""
+          className="mr-5 h-[80px] w-[80px] rounded-lg"
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
