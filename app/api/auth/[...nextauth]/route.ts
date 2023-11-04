@@ -26,7 +26,7 @@ const authOptions = {
             const matched = await bcrypt.compare(password, found.password);
             if (matched) {
               const user = {
-                ...credentials,
+                ...found,
                 id: "1",
               };
               return user;

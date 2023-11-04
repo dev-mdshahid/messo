@@ -1,11 +1,9 @@
 import React from "react";
-import dummyDp from "@/public/media/img/icons/dummy_avatar.png";
 import Image from "next/image";
+import { useGetUser } from "@/context/UserProvider";
 
 export default function ProfileBanner() {
-  const fname = "Md Shahidul";
-  const lname = "Islam";
-  const email = "mdshahidulridoy@gmail.com";
+  const { fname, lname, email } = useGetUser();
   return (
     <div>
       <div className="h-[200px] w-full rounded-xl bg-gradient-to-r from-messo-500 to-messo-400"></div>
