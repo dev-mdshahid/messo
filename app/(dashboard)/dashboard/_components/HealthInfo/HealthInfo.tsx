@@ -7,14 +7,24 @@ import { GiBodyHeight } from "react-icons/gi";
 import { TbCalendarTime } from "react-icons/tb";
 import { BiDumbbell } from "react-icons/bi";
 import { AiFillEdit } from "react-icons/ai";
+import { useGetUser } from "@/context/UserProvider";
 
 export default function HealthInfo() {
-  const weight = 64;
-  const height = 163;
-  const age = 24;
-  const bodyStatus = "underweight";
-  const bmi = 25;
-  const gender = "male";
+  const { weight, height, age, gender } = useGetUser();
+
+  let bmi = weight / ((height / 100) * (height / 100));
+  bmi = parseFloat(bmi.toFixed(2));
+  let bodyStatus;
+  if (bmi < 18.5) {
+    bodyStatus = "Underweight";
+  } else if (bmi >= 18.5 && bmi <= 24.9) {
+    bodyStatus = "normal";
+  } else if (bmi >= 25 && bmi <= 29.9) {
+    bodyStatus = "overweight";
+  } else {
+    bodyStatus = "obesity";
+  }
+
   return (
     <div className="mt-7 whitespace-nowrap">
       <h2 className="flex items-center justify-between pb-2 text-xl font-bold text-blue-900">
