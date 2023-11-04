@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useSession } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, redirect } from "next/navigation";
 
 type AuthProtectedRouteProps = {
   children: React.ReactNode;
@@ -15,9 +15,8 @@ const AuthProtectedRoute = ({ children }: AuthProtectedRouteProps) => {
 
   if (session.status === "authenticated") {
     router.push(redirectUrl);
-  } else {
-    return <>{children}</>;
   }
+  return children;
 };
 
 export default AuthProtectedRoute;

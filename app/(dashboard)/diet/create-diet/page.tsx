@@ -1,5 +1,10 @@
-import React from 'react';
+import InfoTaker from "@/components/shared/InfoTaker/InfoTaker";
+import React from "react";
 
 export default function CreateDietPage() {
-  return <div>CreateDietPage</div>;
+  return (
+    <div>
+      <InfoTaker variant="diet" />
+    </div>
+  );
 }

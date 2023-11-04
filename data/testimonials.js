@@ -1,6 +1,6 @@
-import shahid from "../public/media/img/shahid.jpg";
-import esha from "../public/media/img/esha.jpg";
-import fiona from "../public/media/img/fiona.jpg";
+import shahid from "../public/media/img/userdp/shahid.jpg";
+import esha from "../public/media/img/userdp/esha.jpg";
+import fiona from "../public/media/img/userdp/fiona.jpg";
 
 export const testimonials = [
   {

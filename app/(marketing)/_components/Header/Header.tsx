@@ -20,7 +20,7 @@ export default function Header() {
             With MessO, you&apos;ll tackle the chaos in your diet, exercise, and
             even add a touch of beauty – all in one fabulous app!
           </span>{" "}
-          Let&apos;s bring some order to the chaos, one laugh at a time
+          Let&apos;s bring some order to the chaos, one laugh at a time!
         </p>
       </div>
       <div>
