@@ -24,7 +24,7 @@ export default function InfoSelectList({
       }`}
       onClick={() => setSelected(!selected)}
     >
-      <div className="flex w-full items-center justify-between p-5">
+      <div className="flex w-full items-center justify-between gap-3 p-5">
         <div className="flex items-center">
           {option.icon ? (
             <Image
@@ -36,7 +36,7 @@ export default function InfoSelectList({
             ""
           )}
 
-          <h3 className="text-lg font-semibold">{option.text}</h3>
+          <h3 className="text-sm font-semibold sm:text-lg">{option.text}</h3>
         </div>
         {selected ? (
           <Image src={checkMark} alt="" className=" h-[35px] w-[35px]" />
@@ -49,7 +49,7 @@ export default function InfoSelectList({
     </div>
   ) : (
     <div
-      className={`mx-auto flex w-full max-w-[600px] cursor-pointer select-none items-center justify-between gap-10 rounded-lg capitalize transition hover:bg-messo-900 hover:text-white ${
+      className={`mx-auto flex w-full max-w-[600px] cursor-pointer select-none items-center justify-between gap-5 rounded-lg capitalize transition hover:bg-messo-900 hover:text-white sm:gap-10 ${
         selected ? "bg-messo-900 text-white" : "bg-white text-messo-900"
       }`}
       onClick={() => setSelected(!selected)}
@@ -62,15 +62,17 @@ export default function InfoSelectList({
         )}
 
         <div>
-          <h3 className="text-xl font-semibold">{option.text}</h3>
-          <p className="pt-1 text-xs">({option.description})</p>
+          <h3 className="text-base font-semibold sm:text-xl">{option.text}</h3>
+          <p className="pt-1 text-xs leading-relaxed sm:text-xs">
+            ({option.description})
+          </p>
         </div>
       </div>
       {option.icon ? (
         <Image
           src={option.icon}
           alt=""
-          className="mr-5 h-[80px] w-[80px] rounded-lg"
+          className="mr-5 h-[60px] w-[60px] rounded-lg sm:h-[80px] sm:w-[80px]"
         />
       ) : (
         ""

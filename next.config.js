@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["i.pinimg.com", "www.squareboxfitness.com"],
   },
   env: {
-    NEXTAUTH_URL: "http://localhost:3000/",
+    NEXTAUTH_URL: "https://messo.vercel.app/",
   },
 };
 

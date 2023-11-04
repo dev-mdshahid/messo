@@ -27,12 +27,12 @@ export default function HealthInfo() {
 
   return (
     <div className="mt-7 whitespace-nowrap">
-      <h2 className="flex items-center justify-between pb-2 text-xl font-bold text-blue-900">
+      <h2 className="flex items-center justify-between pb-2 text-lg font-bold text-blue-900 sm:text-xl">
         <span>Health information</span>
         <AiFillEdit />
       </h2>
 
-      <div className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
+      <div className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         <InfoCard
           title="Your current weight"
           data={weight + " kg"}

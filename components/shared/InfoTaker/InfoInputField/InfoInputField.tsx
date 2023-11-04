@@ -43,7 +43,7 @@ export default function InfoInputField({
     setStep(step + 1);
   };
   return (
-    <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+    <form onSubmit={handleSubmit} className="mt-10 space-y-5 px-5">
       <InputField
         name="info"
         label={label}

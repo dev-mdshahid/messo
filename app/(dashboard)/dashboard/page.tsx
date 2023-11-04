@@ -12,13 +12,13 @@ export default function DashboardPage() {
   const { email } = useGetUser();
   if (email) {
     return (
-      <main className="grid grid-cols-4 gap-6">
-        <section className="col-span-3 rounded-xl bg-white p-6">
+      <main className="grid  grid-cols-3 gap-6 2xl:grid-cols-[1fr_1fr_1fr_auto]">
+        <section className="col-span-3 rounded-xl bg-white p-4 sm:p-6">
           <ProfileBanner />
           <HealthInfo />
           <ActivePlans />
         </section>
-        <section className="flex flex-col gap-6">
+        <section className=" hidden flex-col gap-6 2xl:flex">
           <ProfileCompletion />
           <PremiumOfferCard />
         </section>
