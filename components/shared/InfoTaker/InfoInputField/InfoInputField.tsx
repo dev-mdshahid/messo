@@ -33,9 +33,8 @@ export default function InfoInputField({
   // Handler functon
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("button hit");
     const formElement = event.target as HTMLFormElement;
-    const value = formElement.info;
+    const value = formElement.info.value;
     const updatedData = {
       ...data,
       [questionId]: value,

@@ -1,11 +1,9 @@
+import { IngredientsType } from "@/lib/type";
 import React from "react";
 import { MdTipsAndUpdates } from "react-icons/md";
 
 type BeautyIngredientsProps = {
-  ingredients: {
-    [key: string]: any;
-    ingredients: string;
-  };
+  ingredients?: IngredientsType;
 };
 
 export default function BeautyIngredients({
@@ -18,15 +16,22 @@ export default function BeautyIngredients({
           <MdTipsAndUpdates className="text-3xl" /> Ingredients to look for
         </h2>
         <div className="h-px w-full bg-blue-900 opacity-20"></div>
-        <p className="p-5">
-          {ingredients?.ingredients.split("*").map((line, index) => (
-            <p key={index}>
-              {line}
-              <br />
-              <br />
-            </p>
-          ))}
-        </p>
+        {ingredients ? (
+          <div className="p-5">
+            {ingredients?.ingredients.split("*").map((line, index) => (
+              <p key={index}>
+                {line}
+                <br />
+                <br />
+              </p>
+            ))}
+          </div>
+        ) : (
+          <p className="p-5 text-red-500">
+            Sorry! No ingredient could be recommended! Consult with your
+            dermatologist please!
+          </p>
+        )}
       </div>
     </div>
   );

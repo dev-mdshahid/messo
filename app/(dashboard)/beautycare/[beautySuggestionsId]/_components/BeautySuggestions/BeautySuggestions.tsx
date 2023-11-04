@@ -1,13 +1,13 @@
+"use client";
 import React from "react";
-import { ingredients, products, suggestions } from "@/data/beautyData";
 import SuggestionsContainer from "./SuggestionsContainer/SuggestionsContainer";
 import BeautyProducts from "./BeautyProducts/BeautyProducts";
 import BeautyIngredients from "./BeautyIngredients/BeautyIngredients";
+import { useBeautySuggestions } from "@/hooks/useBeautySuggestions";
+import { BeautyCollectedDataType } from "@/lib/type";
 
 type BeautySuggestionsProps = {
-  data?: {
-    [key: string]: any;
-  };
+  data?: BeautyCollectedDataType;
   id?: string;
 };
 
@@ -15,9 +15,10 @@ export default function BeautySuggestions({
   data,
   id,
 }: BeautySuggestionsProps) {
-  const tempIngredients = ingredients[0];
-  const tempSuggestions = suggestions[0];
-  const tempProducts = [products[0], products[1]];
+  const { selectedIngredients, selectedProducts, selectedSuggestions } =
+    useBeautySuggestions(data ?? {});
+  console.log(selectedProducts);
+
   return (
     <div className="mx-auto flex max-w-[900px] justify-center">
       <div>
@@ -26,17 +27,15 @@ export default function BeautySuggestions({
         </h1>
 
         {/* Ingredients */}
-        {ingredients ? <BeautyIngredients ingredients={tempIngredients} /> : ""}
+
+        <BeautyIngredients ingredients={selectedIngredients} />
 
         {/* Recommended products */}
-        <BeautyProducts products={tempProducts} />
+        {data ? <BeautyProducts data={data} products={selectedProducts} /> : ""}
 
         {/* Suggestions */}
-        {suggestions ? (
-          <SuggestionsContainer suggestion={tempSuggestions} />
-        ) : (
-          ""
-        )}
+
+        <SuggestionsContainer suggestion={selectedSuggestions} />
       </div>
     </div>
   );

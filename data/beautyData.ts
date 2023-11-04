@@ -1,4 +1,5 @@
-export const products = [
+import { ProductsType, IngredientsType, SuggestionsType } from "@/lib/type";
+export const products: ProductsType[] = [
   {
     name: "Bioderma Cicabio Pommade",
     face_type: "Dry",
@@ -728,7 +729,7 @@ export const products = [
     name: " HTS Anti Hair Loss Scalp Tonic",
     hair_concern: "Hair Fall",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2021/05/HTS-Anti-Hair-Loss-Scalp-Tonic.jpg`,
   },
 
@@ -736,7 +737,7 @@ export const products = [
     name: "Ryo hair loss shampoo for sensitive scalp",
     hair_concern: "Hair Fall",
     scalp_type: "Sensitive",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skinnora.com/wp-content/uploads/2020/12/Ryo-hair-loss-shampoo-for-sensitive-scalp-400ml.jpg`,
   },
 
@@ -744,7 +745,7 @@ export const products = [
     name: "Some By Mi Cica Peptide Anti Hair Loss Derma Scalp Tonic",
     hair_concern: "Hair Fall",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://www.themallbd.com/backoffice/images/products/regular/some-by-mi-cica-peptide-anti-hair-loss-derma-scalp-tonic-150ml_regular_619cce9701427.jpg`,
   },
 
@@ -752,7 +753,7 @@ export const products = [
     name: "Masil 8 seconds Salon Hair Mask",
     hair_concern: "Hair Fall",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://m.media-amazon.com/images/I/411-xAOgNtL.jpg`,
   },
 
@@ -760,7 +761,7 @@ export const products = [
     name: " Ryo Hair Loss Care Shampoo for oily scalp",
     hair_concern: "Hair Fall",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skincarebd.com/wp-content/uploads/2021/06/199762969_544468363579107_314646235555446475_n.jpg`,
   },
 
@@ -768,7 +769,7 @@ export const products = [
     name: " Ryo Hair Loss Care Shampoo for normal and dry scalp",
     hair_concern: "Hair Fall",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://cloudshopbd.com/wp-content/uploads/2020/10/RYO-Hair-Loss-Care-Shampoo-For-Oily-Scalp-400ml.jpg `,
   },
 
@@ -776,7 +777,7 @@ export const products = [
     name: `A'pieu Raspberry Hair Vinegar`,
     hair_concern: "Rebonded Hair",
     scalp_type: "Oily",
-    allergy: "Vinegar",
+    allergic: "Vinegar",
     img: `https://m.media-amazon.com/images/I/71nAvAH9fzL.jpg`,
   },
 
@@ -784,7 +785,7 @@ export const products = [
     name: " Lador Before Care Keratin PPT",
     hair_concern: "Rebonded Hair",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skinnora.com/wp-content/uploads/2021/06/Lador-Eco-Before-Care-Keratin-PPT-30ml.jpg `,
   },
 
@@ -792,7 +793,7 @@ export const products = [
     name: " Innisfree My Hair Recipe Repairing Shampoo For Damaged",
     hair_concern: "Rebonded Hair",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skinnora.com/wp-content/uploads/2020/12/Innisfree-My-Hair-Recipe-Repairing-Shampoo-For-Damaged.jpg`,
   },
 
@@ -800,7 +801,7 @@ export const products = [
     name: " RAIP R3 Argan Hair Oil",
     hair_concern: "Hair Fall",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skinnora.com/wp-content/uploads/2021/08/Raip-R3-Argan-Hair-Oil-100-ml.jpg`,
   },
 
@@ -808,7 +809,7 @@ export const products = [
     name: "Ryo Dandruff Relief Shampoo",
     hair_concern: "Dandruff",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skinnora.com/wp-content/uploads/2020/12/Ryo-Dandruff-Relief-Shampoo.jpg`,
   },
 
@@ -816,7 +817,7 @@ export const products = [
     name: "Bioderma Node DS+ Anti Dandruff Intense Shampoo",
     hair_concern: "Dandruff",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2018/09/bioderma-shampoo-intense-anti_dandruff.jpg`,
   },
 
@@ -824,7 +825,7 @@ export const products = [
     name: `L'Oreal Elvive Anti Dandruff Shampoo`,
     hair_concern: "Dandruff",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2022/05/LOreal-Elvive-Anti-Dandruff-Shampoo.jpg`,
   },
 
@@ -832,7 +833,7 @@ export const products = [
     name: "Skincafe Anti Dandruff Treatment ",
     hair_concern: "Dandruff",
     scalp_type: "Oily",
-    allergy: "Neem",
+    allergic: "Neem",
     img: `https://shop.shajgoj.com/wp-content/uploads/2019/10/Skin-Cafe-Anti-Dandruff-Treatment-2-1.jpg`,
   },
 
@@ -840,7 +841,7 @@ export const products = [
     name: "Alpecin Anti Dandruff Shampoo A3",
     hair_concern: "Dandruff ",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2022/10/Alpecin-Anti-Dandruff-Shampoo-A3.jpg`,
   },
 
@@ -848,7 +849,7 @@ export const products = [
     name: " Xpel Anti Dandruff Medicated Shampoo",
     hair_concern: "Dandruff",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2021/11/Xpel-Anti-Dandruff-Medicated-Shampoo.jpg `,
   },
 
@@ -856,7 +857,7 @@ export const products = [
     name: "Farmasi Keratin Therapy Repairing serum ",
     hair_concern: "Rebonded Hair",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2022/02/Farmasi-Keratin-Therapy-Repairing-Serum-For-Dry-Damaged-Hair2_sku20510.jpg`,
   },
 
@@ -864,7 +865,7 @@ export const products = [
     name: "OGX Extra Strength Damage Remedy + Coconut Miracle Oil Hair Mask ",
     hair_concern: "Rebonded Hair",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2022/02/OGX-Extra-Strength-Damage-Remedy-Coconut-Miracle-Oil-Hair-Mask1.jpeg `,
   },
 
@@ -872,7 +873,7 @@ export const products = [
     name: "Matrix Total Results So Long Damaged Ceramide Shampoo",
     hair_concern: "Rebonded Hair",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: ` https://shop.shajgoj.com/wp-content/uploads/2022/03/Matrix-Total-Results-So-Long-Damage-Ceramide-Shampoo-2.jpeg`,
   },
 
@@ -880,7 +881,7 @@ export const products = [
     name: "Streax Professionals Argan Secrets Color Protect Conditioner For Color Treated Hair",
     hair_concern: "Colored Hair",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2022/07/Streax-Professionals-Argan-Secrets-Colour-Protect-Conditioner-for-Colour-Treated-Hair.jpg `,
   },
 
@@ -888,7 +889,7 @@ export const products = [
     name: `L'oreal Elvive Color Protect Color Care Mask`,
     hair_concern: "Colored Hair",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2019/12/LOREAL-ELVIVE-COLOUR-PROTECT-COLOUR-CARE-MASK-300ML.jpg `,
   },
 
@@ -896,7 +897,7 @@ export const products = [
     name: `L'oreal Elvive Color Protect Anti-Brasiness Hair Mask`,
     hair_concern: "Colored Hair",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://www.banglashoppers.com/media/catalog/product/cache/323f12c99b230d9cbd71d949e06824a6/l/o/loreal_elvive_colour_protect_intensive_purple_hair_mask_250ml.jpg`,
   },
 
@@ -904,7 +905,7 @@ export const products = [
     name: "Kaminomoto Hair Growth Accelerator",
     hair_concern: "Hair Growth ",
     scalp_type: "Dry",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shop.shajgoj.com/wp-content/uploads/2018/05/kaminomoto-hair-oil-growth-accelerator-640-1.jpg`,
   },
 
@@ -912,7 +913,7 @@ export const products = [
     name: "JNH Allives Hair Active Advance Therapy Tonic",
     hair_concern: "Hair Growth",
     scalp_type: "Oily",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://shineskinbd.com/wp-content/uploads/2021/01/136741429_409258633489193_3363329591812066646_n.jpg`,
   },
 
@@ -920,12 +921,12 @@ export const products = [
     name: " AROMATICA Rosemary Root Enhancer",
     hair_concern: "Hair Growth ",
     scalp_type: "Sensitive ",
-    allergy: "Hypoallergenic ",
+    allergic: "Hypoallergenic ",
     img: `https://skinnora.com/wp-content/uploads/2020/12/AROMATICA-Rosemary-Root-Enhancer-100ml.jpg`,
   },
 ];
 
-export const ingredients = [
+export const ingredients: IngredientsType[] = [
   {
     for: "skin",
     skin_concern: "brightening",
@@ -1126,7 +1127,7 @@ export const ingredients = [
   },
 ];
 
-export const suggestions = [
+export const suggestions: SuggestionsType[] = [
   {
     for: "hair",
     description: `Do not comb wet hair. Try to avoid hair dryer to dry your hair and straighter or curler to style your hair. Comb your hair thrice a day. Make sure your scalp remains clean. `,

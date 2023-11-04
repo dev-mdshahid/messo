@@ -17,7 +17,7 @@ export default function ProductPreviewCard({
   choicelist,
 }: ProductPreviewCardProps) {
   const {
-    type,
+    problemSource,
     scalpType,
     hairConcern,
     skinPart,
@@ -26,6 +26,7 @@ export default function ProductPreviewCard({
     bodyType,
     bodyConcern,
   } = choicelist;
+
   return (
     <div className=" m-3 flex cursor-pointer items-center justify-between gap-4 rounded-lg border bg-white p-2 transition hover:shadow-lg">
       <div className="flex items-center gap-4">
@@ -37,9 +38,9 @@ export default function ProductPreviewCard({
         />
         <div className="col-span-3 text-gray-600">
           <h3 className="text-lg font-semibold text-blue-900">{name} </h3>
-          <div className="mb-2 mt-1.5 flex gap-4 text-sm">
+          <div className="mb-2 mt-1.5 flex gap-4 text-sm capitalize">
             <p className="">
-              <span className="font-semibold">Type:</span> {type}
+              <span className="font-semibold">Type:</span> {problemSource}
             </p>
             {scalpType ? (
               <p className="">

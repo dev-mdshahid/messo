@@ -34,7 +34,6 @@ export default function InfoSelect({
   questionId,
 }: InfoSelectProps) {
   const [multiList, setMultiList] = useState<string[]>([]);
-  console.log(multiList);
 
   const handleSelect = (value: string, jump: number) => {
     if (type === "multi" && !multiList.includes(value)) {

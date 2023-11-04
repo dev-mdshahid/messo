@@ -24,6 +24,7 @@ type InfoTakerProps = {
 export default function InfoTaker({ variant }: InfoTakerProps) {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
+  console.log(data);
 
   // Selecting question set
   let questions = dietQuestions;

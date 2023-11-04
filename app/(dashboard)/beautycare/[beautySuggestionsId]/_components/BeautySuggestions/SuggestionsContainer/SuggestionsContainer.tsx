@@ -1,10 +1,9 @@
+import { SuggestionsType } from "@/lib/type";
 import React from "react";
 import { MdTipsAndUpdates } from "react-icons/md";
 
 type SuggestionsContainerProps = {
-  suggestion: {
-    [key: string]: any;
-  };
+  suggestion?: SuggestionsType;
 };
 
 export default function SuggestionsContainer({
@@ -18,7 +17,16 @@ export default function SuggestionsContainer({
           <span className="">MessO</span>
         </h2>
         <div className="h-px w-full bg-blue-900 opacity-20"></div>
-        <p className="p-5">{suggestion?.description}</p>
+        <p className="p-5">
+          {suggestion ? (
+            suggestion?.description
+          ) : (
+            <span className="text-red-500">
+              Sorry! This trait is considered as sensitive. Please talk to your
+              dermatologist for proper guideline.
+            </span>
+          )}
+        </p>
       </div>
     </div>
   );
