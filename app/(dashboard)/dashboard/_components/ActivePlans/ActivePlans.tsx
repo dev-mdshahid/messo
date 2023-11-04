@@ -6,7 +6,7 @@ export default function ActivePlans() {
     <div className="mt-12 whitespace-nowrap">
       <h2 className="pb-6 text-xl font-bold text-blue-900">Active Plans</h2>
 
-      <div className="grid grid-cols-1 gap-5 transition md:grid-cols-2 2xl:grid-cols-3 ">
+      <div className="grid grid-cols-1 gap-5 transition md:grid-cols-2 xl:grid-cols-3 ">
         {/* Single plan UI */}
         <PlanCard
           name="Exercise Plan"

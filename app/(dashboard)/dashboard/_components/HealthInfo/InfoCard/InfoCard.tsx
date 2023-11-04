@@ -40,7 +40,9 @@ export default function InfoCard({
         </span>
       </div>
       <div>
-        <h4 className="text-lg font-bold capitalize text-blue-900">{data}</h4>
+        <h4 className="text-base font-bold capitalize text-blue-900 sm:text-lg">
+          {data}
+        </h4>
         <p className="text-sm capitalize text-gray-500">{title}</p>
       </div>
     </div>

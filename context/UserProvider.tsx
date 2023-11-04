@@ -53,9 +53,6 @@ export default function UserProvider({
 
         if (data.ok) {
           setUser(data.data);
-          toast({
-            title: "User fetched successfully!",
-          });
         } else {
           toast({
             variant: "destructive",

@@ -20,10 +20,10 @@ const Sidebar = () => {
   if (status === "unauthenticated") redirect(`/login?redirect=${pathname}`);
 
   return (
-    <nav className="flex h-full w-full  flex-col justify-between rounded-l-xl bg-white p-4 pr-0 pt-2">
+    <nav className="fixed bottom-0 z-10 flex h-fit w-full flex-col justify-between rounded-l-xl border-t border-messo-50 bg-white p-4 pb-0 pr-0 pt-2 sm:relative sm:h-full sm:border-t-0">
       <div>
         {/* Logo */}
-        <div className="mt-4 flex items-center pl-4">
+        <div className="mt-4 hidden items-center pl-4 sm:flex">
           <div className="bg-messo mr-2 flex h-9 w-9 items-center justify-center rounded-xl rounded-br">
             <FaChild className="text-2xl text-white" />
           </div>
@@ -34,7 +34,7 @@ const Sidebar = () => {
         <h3 className="mt-10 hidden pl-4 text-sm font-semibold xl:block">
           Main Menu
         </h3>
-        <div className="child:whitespace-nowrap xl:child:pr-8 mt-12 flex flex-col gap-2 text-gray-500 transition xl:mt-4">
+        <div className="mt-0 flex w-full justify-evenly gap-2 bg-white text-gray-500 transition sm:relative sm:mt-12 sm:flex-col sm:justify-start xl:mt-4">
           {/* Navigation menu*/}
           <SidebarMenu
             icon={<IoBarChart />}
@@ -61,7 +61,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="mb-5 pr-3 lg:pr-5">
+      <div className=" mb-5 hidden pr-3 sm:block lg:pr-5">
         {status === "authenticated" ? (
           <Button
             disabled={loading}

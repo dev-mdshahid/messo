@@ -12,9 +12,9 @@ type SidebarMenuProps = {
 const SidebarMenu = ({ icon, name, href }: SidebarMenuProps) => {
   const pathname = usePathname();
   const regularStyle =
-    "flex items-center px-4 lg:pr-8 py-3 rounded-l-lg rounded-r border-r-4 border-white";
+    "flex items-center px-4 lg:pr-8 py-3 rounded-t-lg sm:rounded-t-none sm:rounded-l-lg rounded-r border-b-4 sm:border-b-0 sm:border-r-4 border-white";
   const activeStyle =
-    "flex items-center px-4 lg:pr-8 py-3 rounded-l-lg rounded-r bg-blue-100 text-messo-600 border-r-4 border-messo-600";
+    "flex items-center px-4 lg:pr-8 py-3 rounded-t-lg sm:rounded-t-none sm:rounded-l-lg rounded-r bg-blue-100 text-messo-600 border-b-4 sm:border-b-0 border-messo-600 sm:border-r-4 sm:border-messo-600";
   return (
     <Link
       href={href}

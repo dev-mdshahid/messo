@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const PremiumOfferCard = () => {
   return (
-    <div className="w-full whitespace-nowrap rounded-xl bg-white p-8 shadow shadow-messo-100">
+    <div className="w-full rounded-xl bg-white p-8 shadow shadow-messo-100">
       <div className="flex flex-col items-center">
         <div className="w-fit rounded-full bg-yellow-50 p-4">
           <Image src={discountBadge} alt="" className="w-20" />
@@ -34,9 +34,9 @@ const PremiumOfferCard = () => {
             <p className="text-sm text-gray-500">Feel free to cancel anytime</p>
           </div>
         </div>
-        <div className="rounded-full bg-amber-100 p-2 text-xl text-amber-500">
+        {/* <div className="rounded-full bg-amber-100 p-2 text-xl text-amber-500">
           <MdKeyboardArrowRight />
-        </div>
+        </div> */}
       </div>
       <div className="mt-6 flex items-center justify-between gap-8">
         <div className="flex items-center gap-5">
@@ -48,9 +48,9 @@ const PremiumOfferCard = () => {
             <p className="text-sm text-gray-500">Avail 15% discount</p>
           </div>
         </div>
-        <div className="rounded-full bg-green-100 p-2 text-xl text-green-500">
+        {/* <div className="rounded-full bg-green-100 p-2 text-xl text-green-500">
           <MdKeyboardArrowRight />
-        </div>
+        </div> */}
       </div>
 
       <div className="relative mt-8 rounded-lg bg-yellow-100 px-8 py-5">
