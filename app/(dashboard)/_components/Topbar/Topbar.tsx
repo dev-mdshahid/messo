@@ -14,7 +14,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Topbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { fname, lname } = useGetUser();
+  const {
+    user: { fname, lname },
+  } = useGetUser();
   return (
     <section className="flex h-fit items-center justify-between p-5">
       {/* left title */}
@@ -56,7 +58,7 @@ export default function Topbar() {
 
         {/* Profile */}
         {fname ? (
-          <div className="flex items-center gap-2 pr-5">
+          <div className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-messo-600 text-xl text-white">
               {fname[0]}
             </div>
@@ -70,9 +72,9 @@ export default function Topbar() {
             </div>
           </div>
         ) : (
-          <div className="flex w-48 items-center gap-2  pr-5">
-            <Skeleton className=" h-9 w-12 rounded-full bg-messo-200 "></Skeleton>
-            <div className="w-full">
+          <div className="flex items-center gap-2 sm:w-48  sm:pr-5">
+            <Skeleton className=" h-9 w-9 rounded-full bg-messo-200 sm:w-12 "></Skeleton>
+            <div className="hidden w-full sm:block">
               <Skeleton className="mb-1 h-3 w-full bg-messo-100"></Skeleton>
               <Skeleton className="h-2 w-1/3 bg-messo-100"></Skeleton>
             </div>

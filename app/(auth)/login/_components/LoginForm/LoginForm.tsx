@@ -56,7 +56,7 @@ export default function LoginForm({ className }: LoginFormProps) {
   return (
     <section
       className={
-        "grid place-items-center overflow-y-auto  px-8 py-16 md:p-16 lg:p-20 " +
+        "grid place-items-center overflow-y-auto px-6 py-16 md:p-16 lg:p-20 " +
         className
       }
     >

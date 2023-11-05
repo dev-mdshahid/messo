@@ -9,7 +9,9 @@ import { useGetUser } from "@/context/UserProvider";
 import DashboardSkeleton from "./_components/DashboardSkeleton/DashboardSkeleton";
 
 export default function DashboardPage() {
-  const { email } = useGetUser();
+  const {
+    user: { email },
+  } = useGetUser();
   if (email) {
     return (
       <main className="grid  grid-cols-3 gap-6 2xl:grid-cols-[1fr_1fr_1fr_auto]">

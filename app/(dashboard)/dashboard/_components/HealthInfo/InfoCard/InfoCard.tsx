@@ -25,16 +25,16 @@ export default function InfoCard({
         backgroundColor: bgColor,
       }}
       className={
-        "flex items-center rounded-xl bg-messo-100 p-3 shadow-lg transition hover:shadow-xl " +
+        "flex items-center rounded-xl bg-messo-100 p-2 shadow-lg transition hover:shadow-xl sm:p-3 " +
         className
       }
     >
-      <div className="mr-4 rounded-xl bg-white p-3">
+      <div className="mr-4 rounded-xl bg-white p-2 sm:p-3">
         <span
           style={{
             color: iconColor,
           }}
-          className="text-4xl text-messo-500"
+          className="text-3xl text-messo-500 sm:text-4xl"
         >
           {icon}
         </span>
@@ -43,7 +43,7 @@ export default function InfoCard({
         <h4 className="text-base font-bold capitalize text-blue-900 sm:text-lg">
           {data}
         </h4>
-        <p className="text-sm capitalize text-gray-500">{title}</p>
+        <p className="text-xs capitalize text-gray-500 sm:text-sm">{title}</p>
       </div>
     </div>
   );

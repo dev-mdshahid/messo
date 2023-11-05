@@ -4,7 +4,7 @@ import LoginSideBanner from "./_components/LoginSideBanner/LoginSideBanner";
 
 export default function LoginPage() {
   return (
-    <div className="grid w-full max-w-[1000px] overflow-hidden rounded-xl bg-white shadow-xl  md:grid-cols-2 ">
+    <div className="grid w-full max-w-[1000px] overflow-hidden rounded-xl bg-white sm:shadow-xl md:grid-cols-2 ">
       {/* Left column */}
       <LoginForm />
 
