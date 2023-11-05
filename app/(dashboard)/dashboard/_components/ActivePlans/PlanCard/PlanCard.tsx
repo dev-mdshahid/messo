@@ -25,34 +25,38 @@ export default function PlanCard({
 }: PlanCardProps) {
   return (
     <div className="cursor-pointer rounded-lg border bg-white py-4 transition hover:shadow-lg">
-      <div className="flex items-center justify-between">
+      <div className="grid grid-cols-[1fr_auto] items-center justify-between">
         <div>
-          <h3 className="rounded border-l-4 border-blue-600 px-4 text-[18px] font-semibold capitalize text-blue-900">
+          <h3 className="rounded border-l-4 border-blue-600 px-4 text-base font-semibold capitalize text-blue-900 sm:text-[18px]">
             {name}
           </h3>
-          <p className="px-5 text-[13px] text-gray-500">
+          <p className="px-5 text-xs text-gray-500 sm:text-[13px]">
             Started on {startDate}
           </p>
         </div>
         {type === "exercise" ? (
-          <BiDumbbell className="mx-5 text-4xl text-blue-600" />
+          <BiDumbbell className="mx-5 text-3xl text-blue-600 sm:text-4xl" />
         ) : (
-          <MdFastfood className="mx-5 text-4xl text-pink-600" />
+          <MdFastfood className="mx-5 text-3xl text-pink-600 sm:text-4xl" />
         )}
       </div>
 
       <div className="px-5">
         <div className="my-5 grid grid-cols-2">
           <div className="border-r text-center">
-            <h2 className="text-3xl font-semibold text-blue-700">{quantity}</h2>
+            <h2 className="text-2xl font-semibold text-blue-700 sm:text-3xl">
+              {quantity}
+            </h2>
             <p className="text-[13px] capitalize text-gray-500">
               total {type === "exercise" ? "exercises" : "calories"}
             </p>
           </div>
           <div className="border-l text-center">
-            <h2 className="text-3xl font-semibold text-green-700">{days}</h2>
-            <p className="text-[13px] capitalize text-gray-500">
-              Days completed
+            <h2 className="text-2xl font-semibold text-green-700 sm:text-3xl">
+              {days}
+            </h2>
+            <p className="text-xs capitalize text-gray-500 sm:text-[13px]">
+              Days tracked
             </p>
           </div>
         </div>

@@ -38,6 +38,7 @@ export default function SignupForm() {
       age: parseInt(formElement.age?.value),
       height: parseInt(formElement.height?.value),
       weight: parseInt(formElement.weight?.value),
+      img: "",
     };
 
     try {
@@ -197,6 +198,7 @@ export default function SignupForm() {
                 placeholder={"Ex. 25"}
                 min={18}
                 max={50}
+                step={0.01}
               />
 
               <InputField
@@ -205,6 +207,7 @@ export default function SignupForm() {
                 type={"number"}
                 placeholder={"Ex. 150"}
                 min={50}
+                step={0.01}
               />
 
               <InputField
@@ -214,6 +217,7 @@ export default function SignupForm() {
                 placeholder={"Ex. 50"}
                 min={40}
                 max={120}
+                step={0.01}
               />
             </div>
             <Button

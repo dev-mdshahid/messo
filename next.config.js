@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["i.pinimg.com", "www.squareboxfitness.com"],
+    domains: ["i.pinimg.com", "res.cloudinary.com", "www.squareboxfitness.com"],
   },
   env: {
-    NEXTAUTH_URL: "http://localhost:3000/",
+    NEXTAUTH_URL: "https://messo.vercel.app/",
+    NEXT_PUBLIC_CLOUD_NAME: "dfo9gj4ce",
   },
 };
 

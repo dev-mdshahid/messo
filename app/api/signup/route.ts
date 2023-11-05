@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     const user = {
       ...data,
       password: hashedPassword,
+      joinedAt: new Date(),
     };
     const inserted = await usersCollection.insertOne(user);
     if (inserted) {

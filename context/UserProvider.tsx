@@ -1,7 +1,14 @@
 "use client";
 import { toast } from "@/components/ui/use-toast";
 import { useSession } from "next-auth/react";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type UserType = {
   _id: string;
@@ -12,25 +19,18 @@ type UserType = {
   age: number;
   height: number;
   weight: number;
+  joinedAt: string;
+  img: string;
 };
 
-const USER_CONTEXT = createContext({
-  _id: "",
-  fname: "",
-  lname: "",
-  gender: "",
-  email: "",
-  age: 0,
-  height: 0,
-  weight: 0,
-});
+type DataType = { user: UserType; setUser: Dispatch<SetStateAction<UserType>> };
 
-export default function UserProvider({
-  children,
-}: {
+type UserProviderProps = {
   children: React.ReactNode;
-}) {
-  const [user, setUser] = useState<UserType>({
+};
+
+const USER_CONTEXT = createContext<DataType>({
+  user: {
     _id: "",
     fname: "",
     lname: "",
@@ -39,6 +39,24 @@ export default function UserProvider({
     age: 0,
     height: 0,
     weight: 0,
+    joinedAt: "",
+    img: "",
+  },
+  setUser: (data: object) => {},
+});
+
+export default function UserProvider({ children }: UserProviderProps) {
+  const [user, setUser] = useState({
+    _id: "",
+    fname: "",
+    lname: "",
+    gender: "",
+    email: "",
+    age: 0,
+    height: 0,
+    weight: 0,
+    joinedAt: "",
+    img: "",
   });
   const session = useSession();
   const email = session.data?.user?.email;
@@ -69,10 +87,12 @@ export default function UserProvider({
     getUser();
   }, [email]);
 
-  return <USER_CONTEXT.Provider value={user}>{children}</USER_CONTEXT.Provider>;
+  const data: DataType = { user, setUser };
+
+  return <USER_CONTEXT.Provider value={data}>{children}</USER_CONTEXT.Provider>;
 }
 
-export const useGetUser = (): UserType => {
-  const user = useContext(USER_CONTEXT);
-  return user;
+export const useGetUser = () => {
+  const data = useContext(USER_CONTEXT);
+  return data;
 };

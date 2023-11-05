@@ -5,8 +5,10 @@ type InputFieldProps = {
   type: string;
   label: string;
   placeholder: string;
+  defaultValue?: any;
   min?: number;
   max?: number;
+  step?: number;
 };
 
 const InputField = ({
@@ -16,6 +18,8 @@ const InputField = ({
   placeholder,
   min,
   max,
+  step,
+  defaultValue,
 }: InputFieldProps) => {
   return (
     <div className="w-full">
@@ -30,8 +34,10 @@ const InputField = ({
         name={name}
         type={type}
         placeholder={placeholder}
+        defaultValue={defaultValue}
         min={min}
         max={max}
+        step={step}
         required
       ></input>
     </div>
