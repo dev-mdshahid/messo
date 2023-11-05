@@ -12,7 +12,9 @@ export default function Header() {
           <br />
           Transform your life <br />
           From <span className="inline-block text-red-500">Messy</span> To{" "}
-          <span className="inline-block text-green-500">Organized</span>!
+          <span className="inline-block whitespace-nowrap text-green-500">
+            Organized!
+          </span>
         </h1>
         <p className="mx-auto mb-3 mt-5 inline-block w-full max-w-[90%] text-center text-sm leading-7 text-gray-500 md:max-w-[70%] lg:text-base lg:leading-7 xl:max-w-[60%]">
           Ready to turn your life from a hot mess to a sizzling success?{" "}

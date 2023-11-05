@@ -82,7 +82,7 @@ export default function SignupForm() {
     }
   };
   return (
-    <div className="grid place-items-center p-10">
+    <div className="grid place-items-center p-5 sm:p-10">
       <div>
         <div>
           <div className="text-center md:text-left">
