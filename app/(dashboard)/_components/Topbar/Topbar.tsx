@@ -18,7 +18,7 @@ export default function Topbar() {
     user: { fname, lname },
   } = useGetUser();
   return (
-    <section className="flex h-fit items-center justify-between p-5">
+    <section className="flex h-fit items-center justify-between p-5 py-2.5 sm:py-5">
       {/* left title */}
       <div className="mr-5 flex items-center">
         <IoArrowBack
