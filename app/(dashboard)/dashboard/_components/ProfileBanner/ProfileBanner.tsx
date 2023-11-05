@@ -116,7 +116,7 @@ export default function ProfileBanner() {
 
   return (
     <div>
-      <div className="h-[100px] w-full rounded-xl bg-gradient-to-r from-messo-400 to-messo-300 sm:h-[200px]"></div>
+      <div className="h-[100px] w-full rounded-xl bg-gradient-to-r from-messo-500 to-messo-400 sm:h-[200px]"></div>
 
       <div className="relative h-20 sm:h-28">
         {/* profile edit modal */}

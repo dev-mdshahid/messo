@@ -157,7 +157,7 @@ export default function HealthInfo() {
       </Dialog>
 
       {/* Displaying all the info */}
-      <div className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
         <InfoCard
           title="Your current weight"
           data={weight + " kg"}
