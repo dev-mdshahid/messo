@@ -25,7 +25,7 @@ export default function InfoCard({
         backgroundColor: bgColor,
       }}
       className={
-        "flex items-center rounded-xl bg-messo-100 p-2 shadow-lg transition hover:shadow-xl sm:p-3 sm:shadow-lg " +
+        "flex items-center rounded-xl bg-messo-100 p-3 shadow-lg transition hover:shadow-xl sm:shadow-lg " +
         className
       }
     >
