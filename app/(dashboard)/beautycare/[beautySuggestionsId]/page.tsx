@@ -7,5 +7,5 @@ export default function BeautySuggestionsPage({
   params: { beautySuggestionsId: string };
 }) {
   const beautySuggestionsId = params.beautySuggestionsId;
-  return <BeautySuggestions id={beautySuggestionsId} />;
+  return <BeautySuggestions data={{}} />;
 }

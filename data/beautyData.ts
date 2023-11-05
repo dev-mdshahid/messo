@@ -930,200 +930,415 @@ export const ingredients: IngredientsType[] = [
   {
     for: "skin",
     skin_concern: "brightening",
-    ingredients: `1. Kojic acid- The best place given to kojic acid and that is justice. Its strength and effective functionality fairly puts it in 1st place. Furthermore, kojic suppresses enzyme tyrosinase production in the body and impede melanin formation. With this, skin whitening guaranteed. Primarily, kojic acid produced from mushroom family and fermented by-product used to produce 'rice wines'. Additionally, lately, the ingredient has confirmed its excellence over other whitener substances.*
-      2. Mulberry: Mulberry awarded with silver medal, a compound produced from mulberry plant roots. Mulberry is far better than its other alternatives like hydroquinone and kojic acid. A small amount of mulberry has much stronger effect compared to high amounts of hydroquinone and kojic acid.*
-      3. Alpha Arbutin: Alpha arbutin is more effective and powerful unlike other arbutin.*
-      4. Beta Arbutin: Arbutin is a superb ingredient produced from the bearberry leaves, cranberry, and blueberry. Its primary goal is to prevent tyrosinase production in the body.*
-      5. Glutathione: Glutathione is really a pioneer in whitening systems. It often found in soaps, ointments, lotions and perhaps in pills. Its antioxidant properties help you to get whiter skin.*
-      6. Licorice Root: Licorice is a great ingredient for skin whitening purpose and well-known for its special ability to suppress tyrosinase (melanin production catalyst) production. The substance has anti-inflammatory components hence can lessen sunburn effects.*
-      7. Papaya: It is a great inclusion to your cream since it helps you to get glowing skin by removing the dead skins. Papaya enzymes can do amazing things and many beauty soaps have this substance.*
-      8. Vitamin A: Oftentimes it called as retinol. It boosts skin reproduction process and improves vision too. It can give healthy and restored skin along with whiter skin.*
-      9. Vitamin C: Vitamin C is a recognized anti-oxidant that decreases skin-aging process. Vitamin C is the safest way to brighten skin. Vitamin C can cut down melanin production in the skin a minimum of 10%. Additionally, Vitamin C contains magnesium phosphate, which is common in most whitening products. Moreover, vitamin C has the power to defend skin from the UV lights.*
-      10. Vitamin B3- It generally called niacin amide due to its antioxidant and anti-inflammatory abilities. It restrains melanin production. It gives you utterly lighter skin.*`,
+    ingredients: [
+      {
+        ingredient: "Kojic Acid",
+        description:
+          "The best place given to kojic acid and that is justice. Its strength and effective functionality fairly puts it in 1st place. Furthermore, kojic suppresses enzyme tyrosinase production in the body and impedes melanin formation. With this, skin whitening is guaranteed. Primarily, kojic acid is produced from the mushroom family and fermented by-product used to produce 'rice wines'. Additionally, lately, the ingredient has confirmed its excellence over other whitener substances.",
+      },
+      {
+        ingredient: "Mulberry",
+        description:
+          "Mulberry awarded with a silver medal, a compound produced from mulberry plant roots. Mulberry is far better than its other alternatives like hydroquinone and kojic acid. A small amount of mulberry has a much stronger effect compared to high amounts of hydroquinone and kojic acid.",
+      },
+      {
+        ingredient: "Alpha Arbutin",
+        description:
+          "Alpha arbutin is more effective and powerful unlike other arbutin.",
+      },
+      {
+        ingredient: "Beta Arbutin",
+        description:
+          "Arbutin is a superb ingredient produced from the bearberry leaves, cranberry, and blueberry. Its primary goal is to prevent tyrosinase production in the body.",
+      },
+      {
+        ingredient: "Glutathione",
+        description:
+          "Glutathione is really a pioneer in whitening systems. It is often found in soaps, ointments, lotions, and perhaps in pills. Its antioxidant properties help you to get whiter skin.",
+      },
+      {
+        ingredient: "Licorice Root",
+        description:
+          "Licorice is a great ingredient for skin whitening purposes and is well-known for its special ability to suppress tyrosinase (melanin production catalyst) production. The substance has anti-inflammatory components hence can lessen sunburn effects.",
+      },
+      {
+        ingredient: "Papaya",
+        description:
+          "It is a great inclusion to your cream since it helps you to get glowing skin by removing the dead skins. Papaya enzymes can do amazing things, and many beauty soaps have this substance.",
+      },
+      {
+        ingredient: "Vitamin A",
+        description:
+          "Oftentimes it is called retinol. It boosts the skin reproduction process and improves vision too. It can give healthy and restored skin along with whiter skin.",
+      },
+      {
+        ingredient: "Vitamin C",
+        description:
+          "Vitamin C is a recognized antioxidant that decreases the skin-aging process. Vitamin C is the safest way to brighten the skin. Vitamin C can cut down melanin production in the skin a minimum of 10%. Additionally, Vitamin C contains magnesium phosphate, which is common in most whitening products. Moreover, vitamin C has the power to defend the skin from the UV lights.",
+      },
+      {
+        ingredient: "Vitamin B3",
+        description:
+          "It is generally called niacinamide due to its antioxidant and anti-inflammatory abilities. It restrains melanin production. It gives you utterly lighter skin.",
+      },
+    ],
   },
   {
     for: "skin",
     skin_concern: "acne issue",
-    ingredients: `1. Benzoyl peroxide: Benzoyl peroxide is a widely used acne treatment. It can be found as over-the-counter or prescription medicine, in the form of a gel, cream, lotion, face wash, and soap.
-      Benzoyl peroxide works by killing the bacteria on your skin. It also helps to unclog pores by removing dead skin.
-      Doctors often recommend starting with skin care products that have benzoyl peroxide. It's usually well-tolerated by most people.
-      But one disadvantage of benzoyl peroxide is that it causes bleaching. This can lead to bleaching of hair and discoloration of fabrics like bed linens and clothes.
-      2. Salicylic acid: Many over-the-counter and prescription skin care products for acne-prone skin contain salicylic acid. It's a beta hydroxy acid, which is an exfoliant and removes dead skin. This helps prevent your pores from becoming clogged.* 
-      3. Alpha hydroxy acids: Alpha hydroxy acids treat acne by removing dead skin cells and reducing inflammation. They also improve the appearance of acne scars by stimulating the growth of new skin. Two types of alpha hydroxy acids found in acne products are glycolic acid and lactic acid.*
-      4. Sulphur: Sulphur is often combined with other ingredients like benzoyl peroxide or salicylic acid. It removes dead skin cells that clog your pores. It also helps remove excess oil (sebum) that may cause breakouts.*
-      Sulphur traditionally has a rotten egg smell, so you may want to test Sulphur products to make sure they don't smell unpleasant.*
-      5. Adapalene: Adapalene is a topical retinoid used to treat acne. Retinoids are Vitamin A-based products that are best known for treating aging skin. *
-      Adapalene can help prevent new breakouts and unclog pores. It's available in different forms and strengths. A 0.1% gel can be found as an over-the-counter treatment. You can get a prescription for a 0.1% lotion, cream, and 0.3% gel. *
-      6. Azelaic acid: A naturally occurring compound, azelaic acid has antibacterial and anti-inflammatory properties. It also helps prevent buildup of keratin, a protein that can clog pores.*
-      7. Vitamin C: Officially known as ascorbic acid, Vitamin C is an antioxidant and has anti-inflammatory properties. It can help decrease redness and swelling in acne-prone skin. *
-      8. Tea tree oil: This is an essential oil made from the leaves of the tea tree. A gel with 5% tea tree oil may be as effective on acne as one containing 5% benzoyl peroxide. But tea tree oil may not work as fast as other ingredients.*`,
+    ingredients: [
+      {
+        ingredient: "Benzoyl Peroxide",
+        description:
+          "Benzoyl peroxide is a widely used acne treatment. It can be found as over-the-counter or prescription medicine, in the form of a gel, cream, lotion, face wash, and soap. Benzoyl peroxide works by killing the bacteria on your skin. It also helps to unclog pores by removing dead skin. Doctors often recommend starting with skincare products that have benzoyl peroxide. It's usually well-tolerated by most people. But one disadvantage of benzoyl peroxide is that it causes bleaching. This can lead to bleaching of hair and discoloration of fabrics like bed linens and clothes.",
+      },
+      {
+        ingredient: "Salicylic Acid",
+        description:
+          "Many over-the-counter and prescription skincare products for acne-prone skin contain salicylic acid. It's a beta hydroxy acid, which is an exfoliant and removes dead skin. This helps prevent your pores from becoming clogged.",
+      },
+      {
+        ingredient: "Alpha Hydroxy Acids",
+        description:
+          "Alpha hydroxy acids treat acne by removing dead skin cells and reducing inflammation. They also improve the appearance of acne scars by stimulating the growth of new skin. Two types of alpha hydroxy acids found in acne products are glycolic acid and lactic acid.",
+      },
+      {
+        ingredient: "Sulfur",
+        description:
+          "Sulfur is often combined with other ingredients like benzoyl peroxide or salicylic acid. It removes dead skin cells that clog your pores. It also helps remove excess oil (sebum) that may cause breakouts. Sulfur traditionally has a rotten egg smell, so you may want to test sulfur products to make sure they don't smell unpleasant.",
+      },
+      {
+        ingredient: "Adapalene",
+        description:
+          "Adapalene is a topical retinoid used to treat acne. Retinoids are Vitamin A-based products that are best known for treating aging skin. Adapalene can help prevent new breakouts and unclog pores. It's available in different forms and strengths. A 0.1% gel can be found as an over-the-counter treatment. You can get a prescription for a 0.1% lotion, cream, and 0.3% gel.",
+      },
+      {
+        ingredient: "Azelaic Acid",
+        description:
+          "A naturally occurring compound, azelaic acid has antibacterial and anti-inflammatory properties. It also helps prevent the buildup of keratin, a protein that can clog pores.",
+      },
+      {
+        ingredient: "Vitamin C",
+        description:
+          "Officially known as ascorbic acid, Vitamin C is an antioxidant and has anti-inflammatory properties. It can help decrease redness and swelling in acne-prone skin.",
+      },
+      {
+        ingredient: "Tea Tree Oil",
+        description:
+          "This is an essential oil made from the leaves of the tea tree. A gel with 5% tea tree oil may be as effective on acne as one containing 5% benzoyl peroxide. But tea tree oil may not work as fast as other ingredients.",
+      },
+    ],
   },
-
   {
     for: "skin",
     skin_concern: "anti aging",
-    ingredients: `1. Broad-Spectrum Sunscreen: It's a certifiable fact that sun exposure is one of the primary causes of all the signs of aging, from spots to wrinkles and everything in between. That makes adequate, daily sun protection a must, which is exactly why broad-spectrum sunscreen is on this list.”A broad-spectrum sunscreen blocks both UVA rays, which cause aging, and UVB rays, which cause burning," explains dermatologist Rita Linkner, MD, of RVL Skincare in New York City. The recommended daily value is SPF 30, and it's important to remember that reapplication is also essential. You can find both mineral and chemical broad-spectrum sunscreens; the former work by sitting on top of the skin and deflecting the sun's rays, the latter absorb into the skin to prevent the rays from damaging the cells. It's a matter of personal preference, though mineral options are less likely to irritate sensitive skin, says Linkner. And, per some of the latest FDA findings, zinc oxide and titanium dioxide, two of the most commonly used mineral sunscreen ingredients, have been found to be both safe and effective.*
-      2. For Wrinkles: Retinol, Vitamin C:-
-      If you have fine lines, retinoids (which come from vitamin A) like retinol may make your skin smoother because they help your skin make more collagen. It's easier on your skin than the prescription-strength version, tretinoin (Retin-A), which can dry your skin. Products with vitamin C may help take away fine lines, as well as help lessen the damage the sun does to your skin. That could help keep wrinkles away.*
-      
-      3. For Sagging Skin: Peptides, Ceramides:- 
-      Treatments with topical growth factors or peptides could help firm sagging skin. Peptides are groups of amino acids that help make proteins, including collagen. That's the main protein found in your skin. 
-      Daily moisturizer with ceramides -- fats found in the layers of your skin that you lose as you age -- are an option, too -- and they're usually cheaper.*
-      
-      4. For Age Spots: Hydroquinone, Retinoids, Vitamin C, Kojic Acid, Hydroquinone, an over-the-counter drug that can bleach your skin, may fade dark spots. Retinoids may make your skin tone more even. One study says vitamin C helps  fade age spots when you use it for 12 weeks. Kojic acid -- a chemical that's often used as an skin-whitening ingredient in products -- can do it, too.
-      When you use any of these, make sure to wear sunscreen. Your dark spots may come back if your skin gets too much sunlight.*
-      
-      5.  For Uneven Skin Tone: AHAs, Retinoids:  Alpha hydroxy acids (AHAs) remove dead skin cells. This could help to reveal new ones with a more even tone. Retinoids can do the same thing. Both can irritate your skin, so use them with caution if yours is dry or sensitive.*`,
+    ingredients: [
+      {
+        purpose: "Broad-Spectrum Sunscreen",
+        description:
+          "It's a certifiable fact that sun exposure is one of the primary causes of all the signs of aging, from spots to wrinkles and everything in between. That makes adequate, daily sun protection a must, which is exactly why broad-spectrum sunscreen is on this list. A broad-spectrum sunscreen blocks both UVA rays, which cause aging, and UVB rays, which cause burning. The recommended daily value is SPF 30, and it's important to remember that reapplication is also essential. You can find both mineral and chemical broad-spectrum sunscreens; the former work by sitting on top of the skin and deflecting the sun's rays, the latter absorb into the skin to prevent the rays from damaging the cells. It's a matter of personal preference, though mineral options are less likely to irritate sensitive skin, says dermatologist Rita Linkner, MD, of RVL Skincare in New York City. And, per some of the latest FDA findings, zinc oxide and titanium dioxide, two of the most commonly used mineral sunscreen ingredients, have been found to be both safe and effective.",
+      },
+      {
+        purpose: "For Wrinkles",
+        description:
+          "If you have fine lines, retinoids (which come from vitamin A) like retinol may make your skin smoother because they help your skin make more collagen. It's easier on your skin than the prescription-strength version, tretinoin (Retin-A), which can dry your skin. Products with vitamin C may help take away fine lines, as well as help lessen the damage the sun does to your skin. That could help keep wrinkles away.",
+      },
+      {
+        purpose: "For Sagging Skin",
+        description:
+          "Treatments with topical growth factors or peptides could help firm sagging skin. Peptides are groups of amino acids that help make proteins, including collagen, the main protein found in your skin. Daily moisturizers with ceramides -- fats found in the layers of your skin that you lose as you age -- are an option, too, and they're usually cheaper.",
+      },
+      {
+        purpose: "For Age Spots",
+        description:
+          "Hydroquinone, an over-the-counter drug that can bleach your skin, may fade dark spots. Retinoids may make your skin tone more even. One study says vitamin C helps fade age spots when you use it for 12 weeks. Kojic acid, a chemical that's often used as a skin-whitening ingredient in products, can do it, too. When you use any of these, make sure to wear sunscreen. Your dark spots may come back if your skin gets too much sunlight.",
+      },
+      {
+        purpose: "For Uneven Skin Tone",
+        description:
+          "Alpha hydroxy acids (AHAs) remove dead skin cells. This could help to reveal new ones with a more even tone. Retinoids can do the same thing. Both can irritate your skin, so use them with caution if yours is dry or sensitive.",
+      },
+    ],
   },
   {
     for: "skin",
     skin_concern: "rashness",
-    ingredients: `1. Shea butter, glycerin, and lanolin. These moisturizing ingredients repair your skin and help it look healthier. Look for skin care products that list one of these first, second, or third on the ingredients list.*
-      2. Hyaluronic acid. It helps draw moisture from the air to your skin. Smooth on cream with hyaluronic acid for an extra boost of moisture and to ease flaky, dry skin.*
-      
-      3. Niacinamide. If red patches show through no matter how many layers of makeup you pile on, try a serum or cream that has this compound, also called vitamin B3. It can reduce redness from eczema by strengthening your skin's natural barrier. Apply niacinamide cream first, then put on cosmetics.*
-      
-      4. Aloe Vera:
-      You must be living after a rock if you don't know aloe vera is super soothing. When I was younger and didn't yet know the importance of sunscreen, aloe vera was my go-to on those rare occasions I got sunburnt. But it's good for all kinds of irritations.*
-      Aloe vera works because it has  glycoproteins that help speed up the healing process by reducing pain and inflammation, and polysaccharides that stimulate skin growth and repair.
-      But if the aloe vera you use hasn't been properly processed, its soothing properties go out the window. Always check the label to make sure your lotion uses cold-processed aloe vera derived from the whole-leaf.
-      
-      5. Avena Sativa (Oat) Extract:
-      Oats are one of the best things you can put on your skin. I kid you not. Oats (you'll find them hiding under the name Avena sativa on the label) are super soothing.
-      A 2002 study found oats can reduce skin irritations caused by contact with a high dose of Sodium Lauryl Sulfate. SLS is one of the most irritating things you can put on your skin. If oats can soothe that, they can soothe everything.*
-      
-      6.Tea:
-      Did you know your skin fancies a cup of tea, too?
-      Green and white tea are both rich in epigallocatechin gallate, a powerful antioxidant that does double duty: it stimulates collagen production and soothes irritations.*
-       
-      7. Zinc Oxide:
-      Zinc Oxide is my fave UV filter. Why? It's the only UV filter that protects from ALL UV rays on its own!
-      Plus, it's super gentle. Not only it doesn't irritate skin like most other UV filters tend to do, it also acts as an anti-irritant. You can use it to treat various forms of skin irritation, including diaper rash.
-      Yep, it's safe enough for babies, too. That's how gentle it is.*`,
+    ingredients: [
+      {
+        ingredient: "Shea Butter, Glycerin, and Lanolin",
+        description:
+          "These moisturizing ingredients repair your skin and help it look healthier. Look for skincare products that list one of these first, second, or third on the ingredients list.",
+      },
+      {
+        ingredient: "Hyaluronic Acid",
+        description:
+          "It helps draw moisture from the air to your skin. Smooth on cream with hyaluronic acid for an extra boost of moisture and to ease flaky, dry skin.",
+      },
+      {
+        ingredient: "Niacinamide",
+        description:
+          "If red patches show through no matter how many layers of makeup you pile on, try a serum or cream that has this compound, also called vitamin B3. It can reduce redness from eczema by strengthening your skin's natural barrier. Apply niacinamide cream first, then put on cosmetics.",
+      },
+      {
+        ingredient: "Aloe Vera",
+        description:
+          "You must be living under a rock if you don't know aloe vera is super soothing. Aloe vera works because it has glycoproteins that help speed up the healing process by reducing pain and inflammation, and polysaccharides that stimulate skin growth and repair. But if the aloe vera you use hasn't been properly processed, its soothing properties go out the window. Always check the label to make sure your lotion uses cold-processed aloe vera derived from the whole-leaf.",
+      },
+      {
+        ingredient: "Avena Sativa (Oat) Extract",
+        description:
+          "Oats are one of the best things you can put on your skin. Oats are super soothing and can reduce skin irritations caused by contact with irritating substances. If oats can soothe that, they can soothe everything.",
+      },
+      {
+        ingredient: "Tea",
+        description:
+          "Green and white tea are both rich in epigallocatechin gallate, a powerful antioxidant that stimulates collagen production and soothes irritations.",
+      },
+      {
+        ingredient: "Zinc Oxide",
+        description:
+          "Zinc Oxide is a versatile ingredient. It's a UV filter that protects from all UV rays and is gentle on the skin. It acts as an anti-irritant and can be used to treat various forms of skin irritation, including diaper rash. It's safe enough for babies.",
+      },
+    ],
   },
   {
     for: "skin",
     skin_concern: "Dehydration",
-    ingredients: `1. Use Oils and Butters-
-      Skin naturally produces sebum, an oil that locks in moisture and protects the skin from drying out. Some people produce less sebum than others. This may cause your skin to feel dry. You may notice that frequent washing, dry weather conditions, or certain medications leave your skin dry.
-      Rich ingredients like oils and butters help lock in moisture. They help keep skin protected from dry air and soothe irritation.
-      * Shea butter. Shea butter comes from the oils of the shea tree, which is native to Central Africa. The rich oils are used in skin care products as well as hair care products. It's an emollient that coats skin in healthy oils.
-      * Jojoba oil. Oils and wax from the jojoba shrub are effective moisturizing ingredients. There are also synthetic versions that are just as effective as the natural ingredient. You can find them in hair conditioners as well as in moisturizers for the skin.
-      * Lanolin. Lanolin is an oil that comes from sheep wool. It's a heavy ingredient that replaces lost moisture in the skin. It also has healing effects, so it may help cracked or sore skin feel better. ‌*
-      
-      2. Look for Helpful Acids
-      Certain acids are good for sensitive skin. They can clean dirt and dead skin cells without irritating your skin. They can also help repair the surface layers of your skin.
-      * Hyaluronic acid. This acid is a naturally occurring polysaccharide found in your hair and skin. It's used in moisturizers because it combines with water to swell and hold moisture in the skin. You can find it in many creams, lotions, and serums. ‌
-      * Lactic acid. This alpha hydroxy acid is a humectant, which means it draws moisture to it and collects the molecules around it. It's derived from milk. It's a mild exfoliant that clears dullness without drying or irritating your skin.
-      * Salicylic acid. Cleansers with alcohol can dry out your skin, so steer clear of them when choosing face and body washes. Alcohol strips away the oil that your skin produces naturally. It also dries out the surface of your skin, making it more prone to flaking, itching, or soreness. Look for ingredients like salicylic acid, which can dissolve dirt and oil without stripping the skin.‌*
-      
-      3. Find Products With Lubricating Ingredients
-      You want products with "slip" that are easy to spread on your skin. You won't need to rub hard to get good coverage when you apply them.
-      * Glycerin. Glycerin is a moisturizing ingredient derived from plants. It's another humectant that draws water to your skin. When used in skin care products, it draws water from the air, leaving the surface skin better moisturized. It's also very smooth and spreads easily.
-      * Dimethicone. This silicone is used in many skin and hair care products because it can help create smooth texture. It coats the skin and prevents water loss from evaporation. You can find it in many skin creams and lotions.*`,
+    ingredients: [
+      {
+        ingredient: "Shea Butter",
+        description:
+          "Shea butter comes from the oils of the shea tree, which is native to Central Africa. The rich oils are used in skin care products as well as hair care products. It's an emollient that coats skin in healthy oils.",
+      },
+      {
+        ingredient: "Jojoba Oil",
+        description:
+          "Oils and wax from the jojoba shrub are effective moisturizing ingredients. There are also synthetic versions that are just as effective as the natural ingredient. You can find them in hair conditioners as well as in moisturizers for the skin.",
+      },
+      {
+        ingredient: "Lanolin",
+        description:
+          "Lanolin is an oil that comes from sheep wool. It's a heavy ingredient that replaces lost moisture in the skin. It also has healing effects, so it may help cracked or sore skin feel better.",
+      },
+      {
+        ingredient: "Hyaluronic Acid",
+        description:
+          "Hyaluronic acid is a naturally occurring polysaccharide found in your hair and skin. It's used in moisturizers because it combines with water to swell and hold moisture in the skin. You can find it in many creams, lotions, and serums.",
+      },
+      {
+        ingredient: "Lactic Acid",
+        description:
+          "Lactic acid is an alpha hydroxy acid that is a humectant, which means it draws moisture to it and collects the molecules around it. It's derived from milk and is a mild exfoliant that clears dullness without drying or irritating your skin.",
+      },
+      {
+        ingredient: "Salicylic Acid",
+        description:
+          "Cleansers with alcohol can dry out your skin, so steer clear of them when choosing face and body washes. Alcohol strips away the oil that your skin produces naturally. It also dries out the surface of your skin, making it more prone to flaking, itching, or soreness. Look for ingredients like salicylic acid, which can dissolve dirt and oil without stripping the skin.",
+      },
+      {
+        ingredient: "Glycerin",
+        description:
+          "Glycerin is a moisturizing ingredient derived from plants. It's another humectant that draws water to your skin. When used in skin care products, it draws water from the air, leaving the surface skin better moisturized. It's also very smooth and spreads easily.",
+      },
+      {
+        ingredient: "Dimethicone",
+        description:
+          "Dimethicone is a silicone used in many skin and hair care products because it can help create a smooth texture. It coats the skin and prevents water loss from evaporation. You can find it in many skin creams and lotions.",
+      },
+    ],
   },
   {
     for: "hair",
     hair_concern: "colored hair",
-    ingredients: `1. Argan Oil
-      Morocco's famous Argan oil isn't new to the beauty world and finds inclusion in almost everything, from masks to serums. It's especially useful for coloured hair as it works as a deep conditioner to keep tress texture smooth and frizz-free.*
-      
-      2. Geranium
-      Geranium is more than just a pretty flower. Its essential oil is antibacterial, treats many skin problems and strengthens tresses; which coloured hair generally needs.*
-      
-      3. Linseed Oil
-      Linseed oil may be a common ingredient in more than beauty but is especially useful for hair that has been coloured. Linseed oil acts as a shield that protects from environmental damage and also promotes oxygenation to the follicles.*
-      
-      4. Rose
-      A favourite in skin care circles, rose is also very beneficial for coloured locks as it helps maintain hair's natural vibrancy and shine.*
-      
-      5. Citrus
-      When it comes to coloured hair, citrus plays an important role as it helps balance sebum production and keep the scalp clean.*`,
+    ingredients: [
+      {
+        ingredient: "Argan Oil",
+        description:
+          "Morocco's famous Argan oil isn't new to the beauty world and finds inclusion in almost everything, from masks to serums. It's especially useful for colored hair as it works as a deep conditioner to keep tress texture smooth and frizz-free.",
+      },
+      {
+        ingredient: "Geranium",
+        description:
+          "Geranium is more than just a pretty flower. Its essential oil is antibacterial, treats many skin problems, and strengthens tresses; which colored hair generally needs.",
+      },
+      {
+        ingredient: "Linseed Oil",
+        description:
+          "Linseed oil may be a common ingredient in more than beauty but is especially useful for hair that has been colored. Linseed oil acts as a shield that protects from environmental damage and also promotes oxygenation to the follicles.",
+      },
+      {
+        ingredient: "Rose",
+        description:
+          "A favorite in skin care circles, rose is also very beneficial for colored locks as it helps maintain hair's natural vibrancy and shine.",
+      },
+      {
+        ingredient: "Citrus",
+        description:
+          "When it comes to colored hair, citrus plays an important role as it helps balance sebum production and keep the scalp clean.",
+      },
+    ],
   },
   {
     for: "hair",
     hair_concern: "rebonded hair",
-    ingredients: `1. Shampoo
-      When selecting a shampoo for your rebonded hair, look for labels that specify “for chemically treated hair.” While these shampoos may be a little more expensive, they cater to the needs of your processed hair and help maintain the style while improving the health of your hair. They also help nourish your hair with the proteins that it might have lost during the hair rebonding process.*
-      2. Conditioner
-      Conditioning your hair becomes crucial after a hair rebonding treatment. This is because, after the treatment, your hair becomes dry and is in serious need of moisture. Co-washing your hair is also a good idea after a hair rebonding treatment.*
-      3. Hair Masks
-      The breaking and rebuilding of the bonds in your hair take a serious toll on its overall health. Your hair needs protein and moisture to regain health. Treating your hair with protein and deep conditioning treatments will help get rid of the damage while giving your hair a chance to heal.*
-      
-      4. Leave-In Conditioners And Serums
-      Leave-in conditioners and serums help form a protective barrier around your hair shaft, preventing moisture loss. They also help protect your hair from environmental factors.*
-      5. Oils
-      Regular oil treatments are important to help nurse your hair back to health. You can use oils, such as coconut, olive, almond, jojoba, and castor, or even a blend of these. Oiling helps moisturize and nourish your hair while also boosting scalp health.
-      Though rebonding is a great and effective way to straighten hair, it comes with a set of drawbacks.*`,
+    ingredients: [
+      {
+        ingredient: "Shampoo",
+        description:
+          "When selecting a shampoo for your rebonded hair, look for labels that specify “for chemically treated hair.” While these shampoos may be a little more expensive, they cater to the needs of your processed hair and help maintain the style while improving the health of your hair. They also help nourish your hair with the proteins that it might have lost during the hair rebonding process.",
+      },
+      {
+        ingredient: "Conditioner",
+        description:
+          "Conditioning your hair becomes crucial after a hair rebonding treatment. This is because, after the treatment, your hair becomes dry and is in serious need of moisture. Co-washing your hair is also a good idea after a hair rebonding treatment.",
+      },
+      {
+        ingredient: "Hair Masks",
+        description:
+          "The breaking and rebuilding of the bonds in your hair take a serious toll on its overall health. Your hair needs protein and moisture to regain health. Treating your hair with protein and deep conditioning treatments will help get rid of the damage while giving your hair a chance to heal.",
+      },
+      {
+        ingredient: "Leave-In Conditioners And Serums",
+        description:
+          "Leave-in conditioners and serums help form a protective barrier around your hair shaft, preventing moisture loss. They also help protect your hair from environmental factors.",
+      },
+      {
+        ingredient: "Oils",
+        description:
+          "Regular oil treatments are important to help nurse your hair back to health. You can use oils, such as coconut, olive, almond, jojoba, and castor, or even a blend of these. Oiling helps moisturize and nourish your hair while also boosting scalp health. Though rebonding is a great and effective way to straighten hair, it comes with a set of drawbacks.",
+      },
+    ],
   },
   {
     for: "hair",
     hair_concern: "hair growth",
-    ingredients: `There are only two ingredients approved by the Food and Drug Administration (FDA) for hair regrowth. Both are DHT blockers. These two ingredients can be found in various OTC and prescription medications.They are:
-      * minoxidil
-      * finasteride 
-      
-      Minoxidil is thought to work by partially enlarging hair follicles and lengthening the hair's growth phase. Finasteride works by decreasing the amount of the hormone dihydrotestosterone (DHT) in your body.
-      Here are a few other ingredients for hair growth:
-      * Biotin. Biotin has been shownTrusted Sourceto improve hair loss, especially in patients with alopecia.
-      * Zinc. Zinc is a micronutrient that can helpTrusted Sourcewith alopecia.
-      * Iron. An iron deficiency is often associated with hair loss. In some cases, iron supplements can help with regrowth.
-      * Collagen. Collagen is a protein that promotes hair health, though few studiesTrusted Sourceindicate that it can help with hair regrowth. Nevertheless, it's frequently found in hair products.
-      * Niacin. Niacin has been shown to help with hair fullness.
-      * Caffeine. Caffeine is frequently found in hair growth products, as it's been shownTrusted Sourceto improve follicle stimulation, especially when applied topically.
-      * Horsetail. ResearchTrusted Sourcesuggests that horsetail benefits hair growth due to silicon and antioxidant contents.
-      * Saw palmetto. Saw palmetto extract may block 5 alpha-reductase (5AR), an enzyme that converts testosterone to DHT.
-      * Ginseng. Ginseng contains saponins, which have been shown to encourage hair growth by inhibiting 5AR in mice, as well as gintonin, which may be a suitable treatment for alopecia in humans.
-      * MSM. Methylsulfonylmethane (MSM) is a sulfur chemical compound derived from plants. MSM supplementation has been found to lead to significant improvements in the appearance and condition of hair and nails, measured by expert grading and participant self-assessment.`,
+    ingredients: [
+      {
+        ingredient: "Minoxidil",
+        description:
+          "Minoxidil is thought to work by partially enlarging hair follicles and lengthening the hair's growth phase.",
+      },
+      {
+        ingredient: "Finasteride",
+        description:
+          "Finasteride works by decreasing the amount of the hormone dihydrotestosterone (DHT) in your body.",
+      },
+      {
+        ingredient: "Biotin",
+        description:
+          "Biotin has been shown to improve hair loss, especially in patients with alopecia.",
+      },
+      {
+        ingredient: "Zinc",
+        description: "Zinc is a micronutrient that can help with alopecia.",
+      },
+      {
+        ingredient: "Iron",
+        description:
+          "An iron deficiency is often associated with hair loss. In some cases, iron supplements can help with regrowth.",
+      },
+      {
+        ingredient: "Collagen",
+        description:
+          "Collagen is a protein that promotes hair health, though few studies indicate that it can help with hair regrowth. Nevertheless, it's frequently found in hair products.",
+      },
+      {
+        ingredient: "Niacin",
+        description: "Niacin has been shown to help with hair fullness.",
+      },
+      {
+        ingredient: "Caffeine",
+        description:
+          "Caffeine is frequently found in hair growth products, as it's been shown to improve follicle stimulation, especially when applied topically.",
+      },
+      {
+        ingredient: "Horsetail",
+        description:
+          "Research suggests that horsetail benefits hair growth due to silicon and antioxidant contents.",
+      },
+      {
+        ingredient: "Saw Palmetto",
+        description:
+          "Saw palmetto extract may block 5 alpha-reductase (5AR), an enzyme that converts testosterone to DHT.",
+      },
+      {
+        ingredient: "Ginseng",
+        description:
+          "Ginseng contains saponins, which have been shown to encourage hair growth by inhibiting 5AR in mice, as well as gintonin, which may be a suitable treatment for alopecia in humans.",
+      },
+      {
+        ingredient: "MSM",
+        description:
+          "Methylsulfonylmethane (MSM) is a sulfur chemical compound derived from plants. MSM supplementation has been found to lead to significant improvements in the appearance and condition of hair and nails, measured by expert grading and participant self-assessment.",
+      },
+    ],
   },
   {
     for: "hair",
     hair_concern: "hair fall",
-    ingredients: `1) Ketoconazole
-      This substance has anti-fungal properties that have been clinically proven to prevent testosterone from converting into DHT. Studies also show that it can disrupt the DHT pathway in the scalp. It is a common ingredient in shampoos that combat hair loss.
-      Studies beginning as far back as 1998 have shown that ketoconazole is an effective DHT inhibitor. It is also active against some scalp microflora that may inflame the scalp. Ketoconazole helps prevent hair loss from that inflammation.
-      On experiment published in 2005 showed that an area of clipped hair regrew more densely when treated with ketoconazole compared to a control treatment. Another determined that hair was less likely to shed when treated with the substance. Both these results are great news for people suffering from hair loss.*
-      
-      2) Caffeine
-      Research shows that treatments including caffeine are effective at slowing hair loss. This is believed to be because caffeine can help block DHT and even research its effects.
-      Starting in the early 2000s, several studies have been performed on using caffeine both alone and with other ingredients to treat androgenetic alopecia (male pattern baldness). The results strongly suggest that treatments including caffeine, such as Revita Shampoo and Spectral DNC-N, are highly effective.
-      In addition to blocking DHT, caffeine is an effective anti-inflammatory. Although you likely associate caffeine primarily with the cup of coffee or tea you drink in the morning, it is a powerful health ingredient. Furthermore, caffeine can help improve blood flow. This is associated with stimulating the growth of new hairs. Caffeine extends the life cycle of hair follicles, allowing them to grow more hair.
-      Counterintuitively, the caffeine you drink may promote hair loss. However, when applied topically, it can block DHT.*
-      
-      3) Azelaic Acid
-      Azelaic acid is another DHT-blocking ingredient. It is a highly potent inhibitor of the 5-alpha-reductase enzyme. Compared to other substances with similar effects, such as minoxidil, azelaic acid has higher bioavailability and a superior toxicological profile. In other words, it has fewer side effects while still effectively preventing the conversion of testosterone into DHT.
-      Studies dating back to 1988 have found that azelaic acid can inhibit DHT. It can be found in Spectral DNC-N and other hair loss treatments. It is one of the hair treatment ingredients with the best-established properties as a DHT-blocker. Whereas some other ingredients are believed to work by inhibiting DHT, azelaic acid has a clinically proven relationship with blocking 5-alpha-reductase and DHT.
-      Research also shows the azelaic acid may be effective at treating hair loss from alopecia areata, another form of hair loss not related to DHT. While the mechanisms are different, hair loss of any form needs proper treatment. Azelaic acid offers hope to people who are struggling with an even more challenging form of hair loss.*
-      
-      4) Saw Palmetto
-      Saw palmetto is another natural ingredient sometimes used to inhibit DHT. It has been shown to help slow hair loss and improve the appearance of hair. A 2001 study showed that an herbal blend including saw palmetto could reduce DHT by around 32%.
-      It is one of the most popular natural ingredients in hair loss treatments. Studies suggest that it blocks the 5-alpha-reductase enzyme. This enzyme converts testosterone into DHT. Therefore, saw palmetto functions similarly to ketoconazole.*
-      
-      5) Pumpkin Seed Oil
-      Many of the most effective DHT blockers are completely natural. For example, pumpkin seed oil has been shown to increase hair count significantly. One research found results as high as a 40% increase in about six months.
-      Pumpkin seed oil is believed to be a DHT blocker and to help stimulate hair growth. It has rare amino acids that have some DHT-blocking properties.*`,
+    ingredients: [
+      {
+        ingredient: "Ketoconazole",
+        description:
+          "This substance has anti-fungal properties that have been clinically proven to prevent testosterone from converting into DHT. Studies also show that it can disrupt the DHT pathway in the scalp. It is a common ingredient in shampoos that combat hair loss. Studies beginning as far back as 1998 have shown that ketoconazole is an effective DHT inhibitor. It is also active against some scalp microflora that may inflame the scalp. Ketoconazole helps prevent hair loss from that inflammation. On experiment published in 2005 showed that an area of clipped hair regrew more densely when treated with ketoconazole compared to a control treatment. Another determined that hair was less likely to shed when treated with the substance. Both these results are great news for people suffering from hair loss.",
+      },
+      {
+        ingredient: "Caffeine",
+        description:
+          "Research shows that treatments including caffeine are effective at slowing hair loss. This is believed to be because caffeine can help block DHT and even research its effects. Starting in the early 2000s, several studies have been performed on using caffeine both alone and with other ingredients to treat androgenetic alopecia (male pattern baldness). The results strongly suggest that treatments including caffeine, such as Revita Shampoo and Spectral DNC-N, are highly effective. In addition to blocking DHT, caffeine is an effective anti-inflammatory. Although you likely associate caffeine primarily with the cup of coffee or tea you drink in the morning, it is a powerful health ingredient. Furthermore, caffeine can help improve blood flow. This is associated with stimulating the growth of new hairs. Caffeine extends the life cycle of hair follicles, allowing them to grow more hair. Counterintuitively, the caffeine you drink may promote hair loss. However, when applied topically, it can block DHT.",
+      },
+      {
+        ingredient: "Azelaic Acid",
+        description:
+          "Azelaic acid is another DHT-blocking ingredient. It is a highly potent inhibitor of the 5-alpha-reductase enzyme. Compared to other substances with similar effects, such as minoxidil, azelaic acid has higher bioavailability and a superior toxicological profile. In other words, it has fewer side effects while still effectively preventing the conversion of testosterone into DHT. Studies dating back to 1988 have found that azelaic acid can inhibit DHT. It can be found in Spectral DNC-N and other hair loss treatments. It is one of the hair treatment ingredients with the best-established properties as a DHT-blocker. Whereas some other ingredients are believed to work by inhibiting DHT, azelaic acid has a clinically proven relationship with blocking 5-alpha-reductase and DHT. Research also shows the azelaic acid may be effective at treating hair loss from alopecia areata, another form of hair loss not related to DHT. While the mechanisms are different, hair loss of any form needs proper treatment. Azelaic acid offers hope to people who are struggling with an even more challenging form of hair loss.",
+      },
+      {
+        ingredient: "Saw Palmetto",
+        description:
+          "Saw palmetto is another natural ingredient sometimes used to inhibit DHT. It has been shown to help slow hair loss and improve the appearance of hair. A 2001 study showed that an herbal blend including saw palmetto could reduce DHT by around 32%. It is one of the most popular natural ingredients in hair loss treatments. Studies suggest that it blocks the 5-alpha-reductase enzyme. This enzyme converts testosterone into DHT. Therefore, saw palmetto functions similarly to ketoconazole.",
+      },
+      {
+        ingredient: "Pumpkin Seed Oil",
+        description:
+          "Many of the most effective DHT blockers are completely natural. For example, pumpkin seed oil has been shown to increase hair count significantly. One research found results as high as a 40% increase in about six months. Pumpkin seed oil is believed to be a DHT blocker and to help stimulate hair growth. It has rare amino acids that have some DHT-blocking properties.",
+      },
+    ],
   },
   {
     for: "hair",
     hair_concern: "dandruff",
-    ingredients: `1.Salicylic Acid:
-      This is an active ingredient whose main function is to remove scales and scalp build up. It works as a keratolytic, which is a fancy way of saying that it loosens the proteins that form the structure of skin. Salicylic acid can also be helpful in treating scalp build up, seborrheic dermatitis and psoriasis. It helps to relieve scalp irritation and itching. Products with this ingredient should be used 2-4 times per week, or as needed, on alternating days with another everyday product, such as a shampoo that contains zinc pyrithione. Salicylic acid is available in over-the-counter and prescription forms.*
-      
-      2. Coal Tar:
-      Shampoos that use coal tar as an active ingredient are aimed at ‘thick crust' problems, addressing dandruff as well as psoriasis and eczema. Coal tar works by slowing the production of skin cells, reducing redness, inflammation, and irritation. It is very effective, but make sure to rinse thoroughly; the treated scalp area can be sensitive to* sunlight. Coal tar also helps to relieve itching. Products with this ingredient should be used 2-4 times per week, or as needed, on alternating days with another everyday product, such as a shampoo that contains zinc pyrithione. Coal tar is available in over-the-counter and prescription forms. Denorex has a product that combines coal tar and menthol that work together to soothe and solve serious scalp problems.*
-      
-      3. Zinc Pyrithione:
-      This is an antifungal as well as an ingredient that targets dead skin cells. It is gentle enough for everyday use, but it needs to be used more often until the dandruff is under control. Zinc pyrithione does not decrease sebum emission like ketoconazole does, but it is an effective over-the-counter solution.*
-      
-      4.Ketoconazole:
-      This is a fungicide aimed at treating yeast infections on the scalp. Ketoconazole is a strong active ingredient. Products with this ingredient should be used 1-2 times per week for up to 8 weeks, or as directed by a medical doctor, on alternating days with another everyday product, such as a shampoo that contains zinc pyrithione. Consulting a doctor is recommended before using it. Some studies show that it can slow hair loss, but it is typically not marketed as a hair growth product. For dandruff shampoos, ketoconazole is available in both over-the-counter and prescription form.*
-      
-      5. Climbazole
-      Climbazole is another antifungal agent providing an alternative to ketoconazole while being in the same pharmacological ‘class'. A recent Cochrane meta-analysis concluded that there was little difference in performance between the imidazoles ,but it may be better tolerated if ketoconazole is too irritating.*
-      
-      6. Selenium Sulfide:
-      Selenium Sulfide  is a novel antifungal with a poorly understood mechanism.
-      In the USA and UK, selenium sulfide shampoos are a first-line alternative to ketoconazole, used particularly if the side effects of ketoconazole are problematic.*`,
+    ingredients: [
+      {
+        ingredient: "Salicylic Acid",
+        description:
+          "This is an active ingredient whose main function is to remove scales and scalp build up. It works as a keratolytic, which is a fancy way of saying that it loosens the proteins that form the structure of skin. Salicylic acid can also be helpful in treating scalp build up, seborrheic dermatitis and psoriasis. It helps to relieve scalp irritation and itching. Products with this ingredient should be used 2-4 times per week, or as needed, on alternating days with another everyday product, such as a shampoo that contains zinc pyrithione. Salicylic acid is available in over-the-counter and prescription forms.",
+      },
+      {
+        ingredient: "Coal Tar",
+        description:
+          "Shampoos that use coal tar as an active ingredient are aimed at ‘thick crust' problems, addressing dandruff as well as psoriasis and eczema. Coal tar works by slowing the production of skin cells, reducing redness, inflammation, and irritation. It is very effective, but make sure to rinse thoroughly; the treated scalp area can be sensitive to sunlight. Coal tar also helps to relieve itching. Products with this ingredient should be used 2-4 times per week, or as needed, on alternating days with another everyday product, such as a shampoo that contains zinc pyrithione. Coal tar is available in over-the-counter and prescription forms. Denorex has a product that combines coal tar and menthol that work together to soothe and solve serious scalp problems.",
+      },
+      {
+        ingredient: "Zinc Pyrithione",
+        description:
+          "This is an antifungal as well as an ingredient that targets dead skin cells. It is gentle enough for everyday use, but it needs to be used more often until the dandruff is under control. Zinc pyrithione does not decrease sebum emission like ketoconazole does, but it is an effective over-the-counter solution.",
+      },
+      {
+        ingredient: "Ketoconazole",
+        description:
+          "This is a fungicide aimed at treating yeast infections on the scalp. Ketoconazole is a strong active ingredient. Products with this ingredient should be used 1-2 times per week for up to 8 weeks, or as directed by a medical doctor, on alternating days with another everyday product, such as a shampoo that contains zinc pyrithione. Consulting a doctor is recommended before using it. Some studies show that it can slow hair loss, but it is typically not marketed as a hair growth product. For dandruff shampoos, ketoconazole is available in both over-the-counter and prescription form.",
+      },
+      {
+        ingredient: "Climbazole",
+        description:
+          "Climbazole is another antifungal agent providing an alternative to ketoconazole while being in the same pharmacological class'. A recent Cochrane meta-analysis concluded that there was little difference in performance between the imidazoles, but it may be better tolerated if ketoconazole is too irritating.",
+      },
+      {
+        ingredient: "Selenium Sulfide",
+        description:
+          "Selenium Sulfide is a novel antifungal with a poorly understood mechanism. In the USA and UK, selenium sulfide shampoos are a first-line alternative to ketoconazole, used particularly if the side effects of ketoconazole are problematic.",
+      },
+    ],
   },
 ];
 

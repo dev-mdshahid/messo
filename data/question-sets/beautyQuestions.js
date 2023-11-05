@@ -236,7 +236,7 @@ export const beautyQuestions = [
       {
         value: "antiAging",
         icon: antiAgingSkin,
-        text: "Acne issue",
+        text: "Anti aging",
         description: "Prevent aging to stay evergreen",
         jump: 3,
       },
@@ -321,7 +321,7 @@ export const beautyQuestions = [
       {
         value: "antiAging",
         icon: antiAgingSkin,
-        text: "Acne issue",
+        text: "Anti aging",
         description: "Prevent aging to stay evergreen",
         jump: 1,
       },
