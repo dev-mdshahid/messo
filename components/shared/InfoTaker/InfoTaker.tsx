@@ -89,10 +89,10 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
     <section className="mx-auto flex h-full w-full max-w-[800px] justify-center">
       <div className="mt-5 lg:mt-20">
         {/* Question */}
-        <h1 className="mb-2 px-2 text-center text-2xl font-semibold leading-relaxed text-messo-900 sm:text-3xl">
+        <h1 className="mb-2 px-2 text-center text-xl font-bold leading-relaxed text-messo-900 sm:text-3xl">
           {question.question}
         </h1>
-        <p className="mx-auto px-6 text-center text-sm leading-relaxed text-gray-600 sm:text-[15px]">
+        <p className="mx-auto px-6 text-center text-sm font-medium leading-relaxed text-gray-600 sm:text-[15px]">
           {question.description}
         </p>
         {QuestionComponent}

@@ -293,7 +293,7 @@ export const products: ProductsType[] = [
     face_type: "Oily",
     face_concern: "Brightening",
     allergic: "Licorice ",
-    img: `https://skinnora.com/wp-content/uploads/2020/11/ACWELL-Licorice-pH-Balancing-Cleansing-Toner-Price-in-Bangladesh.jpg`,
+    img: `https://atlantisdecora.com/public/products/prod-2048206.ACWELL-Licorice-pH-Balancing-Cleansing-Toner-Price-in-Bangladesh.jpg`,
   },
 
   {

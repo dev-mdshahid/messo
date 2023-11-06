@@ -14,12 +14,12 @@ export default function BeautyIngredients({
   return (
     <div className="mb-5">
       <div className="overflow-hidden rounded-xl border border-blue-100 bg-white">
-        <h2 className="flex items-center gap-2 p-5 pb-3 text-xl font-bold text-blue-900">
+        <h2 className="flex items-center gap-2 p-5 pb-3 text-lg font-bold text-blue-900 md:text-xl">
           <BiSelectMultiple className="text-2xl" /> Ingredients to look for
         </h2>
         <div className="h-px w-full bg-blue-900 opacity-20"></div>
         {ingredients ? (
-          <div className="grid grid-cols-2 gap-5 p-5">
+          <div className="grid grid-cols-1 gap-5 p-5 sm:grid-cols-2">
             {ingredients.ingredients.map((ingredient, index) => (
               <SingleIngredient
                 key={index}

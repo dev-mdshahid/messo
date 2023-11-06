@@ -1,4 +1,4 @@
-import { bgColorList, textColorList } from "@/helpers/getColorList";
+import { getColorList } from "@/helpers/getColorList";
 import React from "react";
 import Image from "next/image";
 
@@ -18,14 +18,16 @@ export default function SeletectedCategoryCard({
   index,
   dataKeys,
 }: SeletectedCategoryCardProps) {
+  const bgColorList = getColorList(50);
+  const textColorList = getColorList(800);
   return (
     <div
       key={index}
       style={{
-        backgroundColor: bgColorList[index],
+        backgroundColor: bgColorList[index % 15],
       }}
       className={
-        "flex flex-1 items-center gap-3 rounded-xl bg-messo-100 p-3 pl-4 pr-5 shadow transition hover:shadow-lg "
+        "flex items-center gap-3 rounded-xl bg-messo-100 p-3 pl-4 pr-5 shadow transition hover:shadow-lg xl:flex-1 "
       }
     >
       <Image
@@ -37,9 +39,9 @@ export default function SeletectedCategoryCard({
       <div>
         <h4
           style={{
-            color: textColorList[index],
+            color: textColorList[index % 15],
           }}
-          className="text-base font-bold capitalize text-blue-900 sm:text-lg"
+          className="whitespace-nowrap text-base font-bold capitalize text-blue-900 sm:text-lg"
         >
           {option.text}
         </h4>

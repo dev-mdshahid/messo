@@ -48,7 +48,7 @@ const PremiumOfferCard = () => {
           <RiUserAddFill className="text-3xl text-green-600" />
           <div>
             <h3 className="font-bold capitalize text-blue-900">
-              Joined in {months[month - 1]}, {year}
+              Joined in {months[month]}, {year}
             </h3>
             <p className="text-sm text-gray-500">
               You&apos;re one of our first users

@@ -1,4 +1,4 @@
-import { bgColorList, textColorList } from "@/helpers/getColorList";
+import { getColorList } from "@/helpers/getColorList";
 import { getRandom } from "@/helpers/getRandom";
 import React from "react";
 import colors from "tailwindcss/colors";
@@ -17,6 +17,8 @@ export default function SingleIngredient({
   serial,
 }: SingleIngredientProps) {
   const descriptionSentences = description.split(".");
+  const bgColorList = getColorList(50);
+  const textColorList = getColorList(800);
 
   return (
     <div

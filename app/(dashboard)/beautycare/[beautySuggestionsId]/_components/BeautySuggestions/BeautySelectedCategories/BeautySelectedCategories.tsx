@@ -1,9 +1,7 @@
 import { beautyQuestions } from "@/data/question-sets/beautyQuestions";
-import { bgColorList } from "@/helpers/getColorList";
 import { BeautyCollectedDataType } from "@/lib/type";
 import React from "react";
 import SeletectedCategoryCard from "./SelectedCategoryCard/SeletectedCategoryCard";
-import { MdTipsAndUpdates } from "react-icons/md";
 import { TbLayoutGrid } from "react-icons/tb";
 
 type BeautySelectedCategoriesProps = {
@@ -24,15 +22,13 @@ export default function BeautySelectedCategories({
         .options.filter((opt) => opt.value === dataValues[index])[0],
   );
 
-  console.log(selectedOptions);
-
   return (
     <section className="rounded-xl bg-white">
-      <h2 className="flex items-center gap-2 p-5 pb-3 text-xl font-bold text-blue-900">
+      <h2 className="flex items-center gap-2 p-5 pb-3 text-lg font-bold text-blue-900 sm:text-xl">
         <TbLayoutGrid className="text-2xl" /> Selected Categories
       </h2>
       <div className="h-px w-full bg-blue-900 opacity-20"></div>
-      <div className="mb-5 flex w-full flex-wrap justify-center gap-5 rounded-xl  p-4">
+      <div className="mb-5 grid w-full grid-cols-1 flex-wrap justify-center gap-5 rounded-xl p-4 sm:grid-cols-2 lg:flex">
         {selectedOptions.map((option, index) => (
           <SeletectedCategoryCard
             key={index}
