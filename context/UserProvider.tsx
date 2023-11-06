@@ -65,7 +65,7 @@ export default function UserProvider({ children }: UserProviderProps) {
     const getUser = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/get-user?email=${email}`,
+          `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/get-user?email=${email}`,
         );
         const data = await response.json();
 
