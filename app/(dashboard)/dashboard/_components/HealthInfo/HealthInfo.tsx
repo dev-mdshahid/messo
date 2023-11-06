@@ -59,13 +59,16 @@ export default function HealthInfo() {
       age: parseFloat(formElement.age.value),
     };
 
-    const res = await fetch(`${process.env.NEXTAUTH_URL}api/update-user`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}api/update-user`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
       },
-      body: JSON.stringify(info),
-    });
+    );
 
     const updated = await res.json();
     setLoading(false);

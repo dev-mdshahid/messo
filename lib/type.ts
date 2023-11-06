@@ -3,7 +3,11 @@ export type IngredientsType = {
   for: string;
   skin_concern?: string;
   hair_concern?: string;
-  ingredients: string;
+  ingredients: {
+    ingredient?: string;
+    purpose?: string;
+    description: string;
+  }[];
 };
 
 export type ProductsType = {

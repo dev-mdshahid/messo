@@ -1,21 +1,25 @@
+import { beautyQuestions } from "@/data/question-sets/beautyQuestions";
+import { getColorList } from "@/helpers/getColorList";
+import { BeautyCollectedDataType } from "@/lib/type";
 import React from "react";
-import { BiSearchAlt } from "react-icons/bi";
 
 type ProductPreviewCardProps = {
   name: string;
   img: string;
   index: number;
-  choicelist: {
-    [key: string]: any;
-  };
+  data: BeautyCollectedDataType;
 };
 
 export default function ProductPreviewCard({
   name,
   img,
   index,
-  choicelist,
+  data,
 }: ProductPreviewCardProps) {
+  const bgColorList = getColorList(50);
+  const borderColorList = getColorList(200);
+  const bgDeepColorList = getColorList(200);
+  const textColorList = getColorList(800);
   const {
     problemSource,
     scalpType,
@@ -25,90 +29,61 @@ export default function ProductPreviewCard({
     faceConcern,
     bodyType,
     bodyConcern,
-  } = choicelist;
+  } = data;
+
+  const dataKeys = Object.keys(data);
+  const dataValues = Object.values(data);
+
+  const selectedOptions = dataKeys.map(
+    (key, index) =>
+      beautyQuestions
+        .filter((ques) => ques.id === key)[0]
+        .options.filter((opt) => opt.value === dataValues[index])[0],
+  );
 
   return (
-    <div className=" m-3 flex cursor-pointer items-center justify-between gap-4 rounded-lg border bg-white p-2 transition hover:shadow-lg">
-      <div className="flex items-center gap-4">
-        <h1 className="pl-1 text-2xl text-blue-900 opacity-70">{index + 1}</h1>
-        <img
-          src={img}
-          alt={name}
-          className="h-[80px] w-[80px] rounded-lg shadow"
-        />
-        <div className="col-span-3 text-gray-600">
-          <h3 className="text-lg font-semibold text-blue-900">{name} </h3>
-          <div className="mb-2 mt-1.5 flex gap-4 text-sm capitalize">
-            <p className="">
-              <span className="font-semibold">Type:</span> {problemSource}
-            </p>
-            {scalpType ? (
-              <p className="">
-                <span className="font-semibold">Scalp type:</span> {scalpType}
-              </p>
-            ) : (
-              ""
-            )}
-            {hairConcern ? (
-              <p className="">
-                <span className="font-semibold">Hair concern:</span>{" "}
-                {hairConcern}
-              </p>
-            ) : (
-              ""
-            )}
-            {/* {skinPart ? (
-          <p className="">
-            <span className="font-semibold">Skin part:</span> {skinPart}
-          </p>
-        ) : (
-          ''
-        )} */}
-            {faceType ? (
-              <p className="">
-                <span className="font-semibold">Face type:</span> {faceType}
-              </p>
-            ) : (
-              ""
-            )}
-            {faceConcern ? (
-              <p className="">
-                <span className="font-semibold">Face concern:</span>{" "}
-                {faceConcern}
-              </p>
-            ) : (
-              ""
-            )}
-            {bodyType ? (
-              <p className="">
-                <span className="font-semibold">Body type:</span> {bodyType}
-              </p>
-            ) : (
-              ""
-            )}
-            {bodyConcern ? (
-              <p className="">
-                <span className="font-semibold">Body concern:</span>{" "}
-                {bodyConcern}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>
-          {/* <p className="font-bold text-blue-900">Details: </p> */}
+    <a
+      style={{
+        backgroundColor: bgColorList[index % 15],
+      }}
+      href={`https://www.google.com/search?q=${name.split(" ").join("+")}`}
+      target="_blank"
+      rel="noreferrer"
+      className="grid w-full gap-2 rounded-xl bg-yellow-50 p-4 hover:shadow "
+    >
+      <img
+        style={{
+          border: `1px solid ${borderColorList[index % 15]}`,
+        }}
+        src={img}
+        alt={name + " photo"}
+        className=" w-full rounded-xl border border-yellow-200"
+      />
+
+      <div className="flex flex-col justify-between p-2 text-center  ">
+        <h3
+          style={{
+            color: textColorList[index % 15],
+          }}
+          className="font-semibold text-messo-900"
+        >
+          {name}
+        </h3>
+        <div className="mt-3 flex flex-wrap justify-center gap-2 text-xs">
+          {selectedOptions.map((option) => (
+            <div
+              style={{
+                backgroundColor: bgDeepColorList[index % 15],
+                color: textColorList[index % 15],
+              }}
+              key={option.text}
+              className="rounded-xl bg-yellow-300 px-3 py-1 font-medium "
+            >
+              {option.text}
+            </div>
+          ))}
         </div>
       </div>
-      <div className="child:whitespace-nowrap flex items-center gap-3">
-        <a
-          href={`https://www.google.com/search?q=${name.split(" ").join("+")}`}
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-2 rounded-lg bg-blue-100 px-2 py-1 text-blue-500 transition hover:scale-105"
-        >
-          <BiSearchAlt />
-          <span className="text-sm font-semibold">Search this product</span>
-        </a>
-      </div>
-    </div>
+    </a>
   );
 }
