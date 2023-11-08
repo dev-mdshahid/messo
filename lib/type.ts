@@ -50,6 +50,7 @@ export type ExercisePlanType = {
   level: 1 | 2 | 3;
   duration: number;
   img: string;
+  description: string;
   workouts: {
     id: string;
     rep?: number;

@@ -17,13 +17,14 @@ export default function ExercisePlan({ planData }: ExercisePlanProps) {
         </h1>
 
         <p className="mx-auto w-4/5 text-center text-sm leading-relaxed sm:text-sm">
-          Developing a well-rounded physique includes giving due attention to
-          your back and shoulders.{" "}
-          <span className="hidden sm:inline">
-            To help you achieve your fitness goals, here&apos;s a comprehensive
-            list of exercises specifically designed to enhance and strengthen
-            these crucial muscle groups.
+          {planData.description}
+          {/* <span className="hidden sm:inline">
+            Developing a well-rounded physique includes giving due attention to
+            appropriate parts of your body. To help you achieve your fitness
+            goals, here&apos;s{" "}
           </span>
+          A comprehensive list of exercises specifically designed to enhance and
+          strengthen the crucial muscle groups. */}
         </p>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1fr_auto]">

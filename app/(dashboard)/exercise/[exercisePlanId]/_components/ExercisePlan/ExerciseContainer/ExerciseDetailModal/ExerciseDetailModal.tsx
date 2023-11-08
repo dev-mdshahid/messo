@@ -27,9 +27,7 @@ export default function ExerciseDetailModal({
         </TabsList>
         <TabsContent value="image" className="mt-4">
           <Image
-            src={
-              "https://res.cloudinary.com/dfo9gj4ce/image/upload/v1699319206/MessO/gcoxwm9qg1etxugt0ycs.gif"
-            }
+            src={`/media/img/exercises/${img}`}
             alt={name + " image"}
             height={600}
             width={600}

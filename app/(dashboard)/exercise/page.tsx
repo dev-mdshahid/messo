@@ -10,22 +10,22 @@ export default function ExercisePage() {
         key={1}
         creatable
         title="Your Exercise Plans"
-        planList={exercisePlans}
+        planList={[]}
       />
       <ExercisePlanListContainer
         key={2}
         title="Featured Beginner plans"
-        planList={exercisePlans}
+        planList={exercisePlans.filter((plan) => plan.level === 1)}
       />
       <ExercisePlanListContainer
         key={3}
         title="Featured Intermediate plans"
-        planList={exercisePlans}
+        planList={exercisePlans.filter((plan) => plan.level === 2)}
       />
       <ExercisePlanListContainer
         key={4}
         title="Featured Advanced plans"
-        planList={exercisePlans}
+        planList={exercisePlans.filter((plan) => plan.level === 3)}
       />
     </main>
   );

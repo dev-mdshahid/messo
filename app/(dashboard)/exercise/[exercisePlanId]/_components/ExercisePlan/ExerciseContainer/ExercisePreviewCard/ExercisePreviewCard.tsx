@@ -32,7 +32,7 @@ export default function ExercisePreviewCard({
   exercise,
   index,
 }: ExercisePreviewCardProps) {
-  const { target, name } = exercise;
+  const { target, name, img } = exercise;
   return (
     <Dialog>
       <DialogTrigger>
@@ -43,7 +43,7 @@ export default function ExercisePreviewCard({
             </h1>
 
             <Image
-              src={`https://res.cloudinary.com/dfo9gj4ce/image/upload/v1699319206/MessO/gcoxwm9qg1etxugt0ycs.gif`}
+              src={`/media/img/exercises/${img}`}
               alt={name}
               width={70}
               height={70}
@@ -81,7 +81,7 @@ export default function ExercisePreviewCard({
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="no-scrollbar max-h-screen overflow-y-auto sm:max-h-[600px]">
+      <DialogContent className="no-scrollbar max-h-[100dvh] overflow-y-auto sm:max-h-[600px]">
         {/* Dialog header */}
         <DialogHeader>
           <DialogTitle className="font-bold capitalize text-messo-900">

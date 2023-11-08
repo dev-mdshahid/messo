@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaNotesMedical } from "react-icons/fa6";
 import { RiDeleteBin3Line } from "react-icons/ri";
-import { exercisePlans } from "@/data/exercisePlans";
 import { ColorType, ExercisePlanType } from "@/lib/type";
 import colors from "tailwindcss/colors";
 
