@@ -3,7 +3,7 @@ import { ExercisePlanType } from "@/lib/type";
 export const exercisePlans: ExercisePlanType[] = [
   {
     id: "abs-beginner-1",
-    title: "Back & Shoulder beginner",
+    title: "Back & Shoulder Intermediate",
     target: "abs",
     level: 1,
     duration: 20,

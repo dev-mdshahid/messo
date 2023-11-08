@@ -15,11 +15,11 @@ export default function ExerciseContainer({
   return (
     <div className="mb-5">
       <div className="overflow-hidden rounded-xl border border-messo-100 bg-white">
-        <h2 className="flex items-center gap-2 p-5 pb-3 text-lg font-bold capitalize text-blue-900 sm:text-xl">
+        <h2 className="flex items-center gap-2 p-5 pb-3 text-base font-bold capitalize text-blue-900 sm:text-xl">
           <BsJournalBookmarkFill className="text-2xl" /> {title}
         </h2>
         <div className="h-px w-full bg-messo-900 opacity-20"></div>
-        <div className="grid gap-4 p-5">
+        <div className="grid gap-3 p-3 sm:gap-4 sm:p-5">
           {workouts?.map((exercise, index) => {
             const result = exerciseData?.find(
               (element) => element.id.trim() === exercise.id.trim(),

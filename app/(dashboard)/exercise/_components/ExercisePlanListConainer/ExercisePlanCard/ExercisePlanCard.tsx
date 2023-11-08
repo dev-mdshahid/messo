@@ -23,11 +23,11 @@ export default function ExercisePlanCard({ plan }: ExercisePlanCardProps) {
       style={{
         backgroundImage: `url(${img})`,
       }}
-      className={` h-40 min-w-[280px] overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat text-white`}
+      className={` h-40 overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat text-white sm:min-w-[300px]`}
     >
-      <div className="flex h-full w-full flex-col justify-center gap-2 bg-messo-800/50 p-5">
+      <div className="flex h-full w-full flex-col justify-center gap-2 bg-messo-800/50 p-5 sm:pr-10">
         <div className="flex gap-1 text-lg">{levelIconArray}</div>
-        <h1 className="text-xl font-bold uppercase ">{title}</h1>
+        <h1 className="text-base font-bold uppercase sm:text-xl ">{title}</h1>
         <p className="uppercase ">
           <span className="font-bold">{duration}</span> minutes -{" "}
           <span className="font-bold">{workouts.length}</span> exercises

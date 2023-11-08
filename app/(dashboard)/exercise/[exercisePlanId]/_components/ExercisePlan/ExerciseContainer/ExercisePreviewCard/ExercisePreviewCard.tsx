@@ -50,10 +50,10 @@ export default function ExercisePreviewCard({
               className="h-16 w-16 rounded-lg"
             />
             <div className="grid gap-1">
-              <h2 className=" font-bold capitalize text-messo-900/80">
+              <h2 className="text-left font-bold capitalize text-messo-900/80 sm:font-bold">
                 {name}
               </h2>
-              <div className="flex items-center gap-5 text-sm font-semibold capitalize text-gray-500">
+              <div className="flex items-center gap-5 text-sm capitalize text-gray-500 sm:font-semibold">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-messo-900"></div>{" "}
                   {target}
@@ -68,7 +68,7 @@ export default function ExercisePreviewCard({
           <div className="child:whitespace-nowrap flex items-center gap-3">
             <HoverCard>
               <HoverCardTrigger>
-                <div className="mr-2 flex items-center gap-2 rounded-xl  px-2 py-2 text-messo-900 transition hover:scale-105">
+                <div className="mr-2 hidden rounded-xl px-2  py-2 text-messo-900 transition hover:scale-105 sm:block">
                   <BsTextParagraph size={30} />
                 </div>
               </HoverCardTrigger>
@@ -81,7 +81,7 @@ export default function ExercisePreviewCard({
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="no-scrollbar max-h-[600px] overflow-y-auto">
+      <DialogContent className="no-scrollbar max-h-screen overflow-y-auto sm:max-h-[600px]">
         {/* Dialog header */}
         <DialogHeader>
           <DialogTitle className="font-bold capitalize text-messo-900">

@@ -27,7 +27,7 @@ export default function ExercisePlanListContainer({
       <div className="overflow-hidden rounded-lg border border-blue-100 bg-white">
         {/* Title bar */}
         <div className="flex items-center justify-between">
-          <h2 className="flex items-center gap-2 p-5 pb-3 text-lg font-bold text-blue-900 sm:text-xl">
+          <h2 className="flex items-center gap-2 p-5 pb-3 text-base font-bold text-blue-900 sm:text-xl">
             <BsJournalBookmarkFill className="text-2xl" /> {title}
           </h2>
           {creatable ? (
@@ -37,7 +37,7 @@ export default function ExercisePlanListContainer({
                 href={"exercise/create-exercise-plan"}
               >
                 <FaNotesMedical size={20} />
-                Create
+                <span className="hidden sm:inline-block">Create</span>
               </Link>
             </Button>
           ) : null}
@@ -52,14 +52,14 @@ export default function ExercisePlanListContainer({
                 }
               : {}
           }
-          className="m-5 flex flex-wrap gap-5 rounded-xl bg-messo-50 p-5 text-sm leading-relaxed text-messo-900"
+          className="m-3 grid grid-cols-1 flex-wrap gap-3 rounded-xl bg-messo-50 p-0 text-sm leading-relaxed text-messo-900 sm:m-5 sm:flex sm:gap-5 sm:p-5"
         >
           {planList.length ? (
             planList.map((plan) => (
               <ExercisePlanCard key={plan.id} plan={plan} />
             ))
           ) : (
-            <p className="m-5 flex flex-col items-center gap-3 rounded-xl text-xl font-semibold text-blue-800/50">
+            <p className="m-5 mx-auto flex flex-col items-center gap-3 rounded-xl p-5 text-center text-base font-semibold text-blue-800/50 sm:text-xl">
               <RiDeleteBin3Line size={50} />
               No exercise plan has been found!
             </p>
