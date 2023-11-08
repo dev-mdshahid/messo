@@ -1,47 +1,35 @@
 import React from "react";
 import ExercisePreviewCard from "./ExercisePreviewCard/ExercisePreviewCard";
-
-export type ExerciseType = {
-  _id: string;
-  name: string;
-  part: string[];
-  rep: number;
-  set: number;
-  time?: number;
-  description: string;
-  img: string;
-  video: string;
-  target: string;
-  health_complication: string[];
-};
+import { ExercisePlanType } from "@/lib/type";
+import { exerciseData } from "@/data/exerciseData";
+import { BsJournalBookmarkFill } from "react-icons/bs";
 
 type ExerciseContainerProps = {
-  title: string;
-  exercises: ExerciseType[];
-  level: string;
+  planData: ExercisePlanType;
 };
 
 export default function ExerciseContainer({
-  title,
-  exercises,
-  level,
+  planData,
 }: ExerciseContainerProps) {
+  const { id, title, target, level, duration, img, workouts } = planData;
   return (
     <div className="mb-5">
-      <div className="overflow-hidden rounded-lg border border-messo-100 bg-white">
-        <h2 className="p-5 pb-3 text-2xl font-semibold text-messo-900">
-          {title}
+      <div className="overflow-hidden rounded-xl border border-messo-100 bg-white">
+        <h2 className="flex items-center gap-2 p-5 pb-3 text-base font-bold capitalize text-blue-900 sm:text-xl">
+          <BsJournalBookmarkFill className="text-2xl" /> {title}
         </h2>
         <div className="h-px w-full bg-messo-900 opacity-20"></div>
-        <div className="grid p-2">
-          {exercises?.map((exercise, index) => {
-            const result = exercises?.find(
-              (element) => element?.name.trim() === exercise?.name.trim(),
+        <div className="grid gap-3 p-3 sm:gap-4 sm:p-5">
+          {workouts?.map((exercise, index) => {
+            const result = exerciseData?.find(
+              (element) => element.id.trim() === exercise.id.trim(),
             );
             if (result) {
               return (
                 <ExercisePreviewCard
-                  key={exercise._id}
+                  key={exercise.id}
+                  rep={exercise.rep}
+                  howLong={exercise.howLong}
                   exercise={result}
                   index={index}
                 />

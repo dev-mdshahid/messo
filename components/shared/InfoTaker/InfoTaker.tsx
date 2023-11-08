@@ -8,6 +8,7 @@ import InfoSelect from "./InfoSelect/InfoSelect";
 import DietPlan from "@/app/(dashboard)/diet/[dietChartId]/_components/DietPlan/DietPlan";
 import ExercisePlan from "@/app/(dashboard)/exercise/[exercisePlanId]/_components/ExercisePlan/ExercisePlan";
 import BeautySuggestions from "@/app/(dashboard)/beautycare/[beautySuggestionsId]/_components/BeautySuggestions/BeautySuggestions";
+import { ExercisePlanType } from "@/lib/type";
 
 type InfoTakerProps = {
   variant: "diet" | "exercise" | "beauty";
@@ -79,7 +80,7 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
 
   return step > numOfQuestions ? (
     variant === "exercise" ? (
-      <ExercisePlan data={data} />
+      <ExercisePlan planData={data as ExercisePlanType} />
     ) : variant === "beauty" ? (
       <BeautySuggestions data={data} />
     ) : (

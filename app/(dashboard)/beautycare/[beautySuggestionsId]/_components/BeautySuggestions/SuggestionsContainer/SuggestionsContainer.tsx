@@ -14,7 +14,7 @@ export default function SuggestionsContainer({
     <div className="mb-5">
       <div className="overflow-hidden rounded-lg border border-blue-100 bg-white">
         <h2 className="flex items-center gap-2 p-5 pb-3 text-lg font-bold text-blue-900 sm:text-xl">
-          <HiOutlineClipboardCheck className="text-2xl" /> Suggestions from{" "}
+          <HiOutlineClipboardCheck className="text-2xl" /> Suggestions from
           MessO
         </h2>
         <div className="h-px w-full bg-blue-900 opacity-20"></div>

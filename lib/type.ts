@@ -40,3 +40,61 @@ export type BeautyCollectedDataType = {
   faceType?: string;
   faceConcern?: string;
 };
+
+// Exercise
+
+export type ExercisePlanType = {
+  id: string;
+  title: string;
+  target: "abs" | "chest" | "arm" | "leg" | "shoulder-back";
+  level: 1 | 2 | 3;
+  duration: number;
+  img: string;
+  description: string;
+  workouts: {
+    id: string;
+    rep?: number;
+    howLong?: number;
+  }[];
+};
+
+export type ExerciseType = {
+  id: string;
+  target: string;
+  name: string;
+  howTo: string[];
+  focusArea: string[];
+  img: string;
+  video: string;
+};
+
+// tailwind color
+export type ColorValueType =
+  | 50
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900
+  | 950;
+
+export type ColorType =
+  | "pink"
+  | "purple"
+  | "red"
+  | "yellow"
+  | "cyan"
+  | "emerald"
+  | "fuchsia"
+  | "green"
+  | "indigo"
+  | "blue"
+  | "lime"
+  | "orange"
+  | "rose"
+  | "sky"
+  | "violet";

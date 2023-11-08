@@ -1,21 +1,34 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  IoArrowBack,
-  IoNotificationsOutline,
-  IoGiftOutline,
-} from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5";
 import { BiSearchAlt } from "react-icons/bi";
 import { usePathname } from "next/navigation";
 import { useGetUser } from "@/context/UserProvider";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import Image from "next/image";
+import {
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { FaArrowRightFromBracket } from "react-icons/fa6";
+import {
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "@radix-ui/react-dropdown-menu";
+import { signOut } from "next-auth/react";
+
 export default function Topbar() {
+  const [loading, setLoading] = useState<boolean>(false);
   const pathname = usePathname();
   const router = useRouter();
   const {
-    user: { fname, lname },
+    user: { fname, lname, img },
   } = useGetUser();
   return (
     <section className="flex h-fit items-center justify-between p-5 py-2.5 sm:py-5">
@@ -57,11 +70,54 @@ export default function Topbar() {
         </div> */}
 
         {/* Profile */}
+
         {fname ? (
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-messo-600 text-xl text-white">
-              {fname[0]}
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="rounded-full">
+                <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-messo-600 text-xl text-white">
+                  {img ? (
+                    <Image
+                      src={img}
+                      alt={fname + "img"}
+                      width={40}
+                      height={40}
+                    />
+                  ) : (
+                    fname[0]
+                  )}
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {/* <DropdownMenuLabel>
+                  <h3 className="px-3 py-1 text-sm font-semibold text-messo-900">
+                    Menu
+                  </h3>
+                </DropdownMenuLabel> */}
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <button
+                      onClick={() => {
+                        setLoading(true);
+                        signOut();
+                      }}
+                      disabled={loading}
+                      className="flex cursor-pointer items-center rounded-md bg-red-500 px-4 py-1.5 text-xs text-white hover:bg-red-600 disabled:bg-red-500/50 sm:px-5 sm:py-2 sm:text-sm"
+                    >
+                      {loading ? (
+                        <span className="loader"></span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          <FaArrowRightFromBracket size={16} />
+                          Logout
+                        </span>
+                      )}
+                    </button>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <div className="hidden text-xs sm:block">
               <p className="whitespace-nowrap font-bold text-messo-900">
                 {fname + " " + lname}
