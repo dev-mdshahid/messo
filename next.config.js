@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["i.pinimg.com", "res.cloudinary.com", "www.squareboxfitness.com"],
   },
   env: {
-    NEXT_PUBLIC_NEXTAUTH_URL: "https://messo.vercel.app/",
+    NEXT_PUBLIC_NEXTAUTH_URL: "http://192.168.0.106:3000/",
     NEXT_PUBLIC_CLOUD_NAME: "dfo9gj4ce",
   },
 };
