@@ -54,6 +54,7 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
           placeholder={question.placeholder ?? ""}
           min={question.min}
           max={question.max}
+          jump={question.jump ?? 1}
           data={data}
           setData={setData}
           step={step}

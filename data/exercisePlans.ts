@@ -1117,4 +1117,216 @@ export const exercisePlans: ExercisePlanType[] = [
       },
     ],
   },
+
+  {
+    id: "shoulder-back-beginner-1",
+    title: "Shoulder-Back Beginner",
+    description:
+      "Embark on your fitness journey by strengthening your shoulders and back. This beginner program is designed to build a solid foundation, ensuring you stand tall with confidence and grace.",
+    target: "shoulder-back",
+    level: 1,
+    duration: 20,
+    img: "https://www.muscleandfitness.com/wp-content/uploads/2019/05/Shoulder-Back-Pose-1109.jpg?quality=86&strip=all",
+    workouts: [
+      {
+        id: "abs-100",
+        howLong: 30,
+      },
+      {
+        id: "arm-100",
+        howLong: 16,
+      },
+      {
+        id: "shoulder-back-100",
+        rep: 14,
+      },
+      {
+        id: "arm-101",
+        howLong: 16,
+      },
+      {
+        id: "chest-104",
+        rep: 16,
+      },
+      {
+        id: "shoulder-back-101",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-104",
+        rep: 14,
+      },
+      {
+        id: "chest-100",
+        rep: 12,
+      },
+      {
+        id: "leg-102",
+        howLong: 30,
+      },
+      {
+        id: "leg-103",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-100",
+        rep: 12,
+      },
+      {
+        id: "shoulder-back-104",
+        rep: 14,
+      },
+
+      {
+        id: "chest-104",
+        rep: 12,
+      },
+      {
+        id: "shoulder-back-101",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-102",
+        howLong: 30,
+      },
+    ],
+  },
+  {
+    id: "shoulder-back-intermediate-2",
+    title: "Shoulder-Back Intermediate",
+    description:
+      "Elevate your fitness journey with this intermediate program, focusing on sculpting strong and defined shoulders and back. Embrace the challenge, and let your strength radiate from within.",
+    target: "shoulder-back",
+    level: 2,
+    duration: 19,
+    img: "https://www.iconicman.com/upload/img/posts/img/guide-the-ultimate-shoulder-workout-1559308011.jpg",
+    workouts: [
+      {
+        id: "abs-100",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-104",
+        rep: 14,
+      },
+      {
+        id: "chest-100",
+        rep: 14,
+      },
+      {
+        id: "shoulder-back-100",
+        rep: 12,
+      },
+      {
+        id: "arm-200",
+        rep: 16,
+      },
+      {
+        id: "shoulder-back-101",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-104",
+        rep: 14,
+      },
+      {
+        id: "chest-100",
+        rep: 12,
+      },
+      {
+        id: "shoulder-back-200",
+        rep: 10,
+      },
+      {
+        id: "leg-102",
+        howLong: 30,
+      },
+      {
+        id: "leg-103",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-201",
+        rep: 14,
+      },
+      {
+        id: "shoulder-back-201",
+        rep: 14,
+      },
+
+      {
+        id: "shoulder-back-201",
+        rep: 14,
+      },
+
+      {
+        id: "shoulder-back-102",
+        howLong: 30,
+      },
+    ],
+  },
+  {
+    id: "shoulder-back-advanced-3",
+    title: "Shoulder-Back Advanced",
+    description:
+      "Challenge your limits with this advanced program, designed to sculpt your shoulders and back to perfection. Elevate your fitness game and let every rep redefine your strength.",
+    target: "shoulder-back",
+    level: 3,
+    duration: 19,
+    img: "https://hips.hearstapps.com/hmg-prod/images/caucasian-man-exercising-with-dumbbells-royalty-free-image-1637099323.jpg",
+    workouts: [
+      {
+        id: "abs-100",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-301",
+        rep: 14,
+      },
+      {
+        id: "shoulder-back-301",
+        rep: 12,
+      },
+      {
+        id: "arm-111",
+        rep: 16,
+      },
+      {
+        id: "leg-102",
+        howLong: 30,
+      },
+      {
+        id: "leg-103",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-300",
+        rep: 12,
+      },
+      {
+        id: "shoulder-back-300",
+        rep: 12,
+      },
+      {
+        id: "arm-111",
+        rep: 16,
+      },
+      {
+        id: "shoulder-back-101",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-302",
+        rep: 14,
+      },
+      {
+        id: "shoulder-back-102",
+        howLong: 30,
+      },
+      {
+        id: "shoulder-back-102",
+        howLong: 30,
+      },
+    ],
+  },
 ];

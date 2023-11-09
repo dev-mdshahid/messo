@@ -1,5 +1,14 @@
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { getColorList } from "@/helpers/getColorList";
+import { ColorType } from "@/lib/type";
 import Image from "next/image";
 import React from "react";
+import { BsTextParagraph } from "react-icons/bs";
+import colors from "tailwindcss/colors";
 
 type FoodPreviewCardProps = {
   food: {
@@ -19,18 +28,40 @@ type FoodPreviewCardProps = {
   };
   quantity: number;
   index: number;
+  color?: ColorType;
 };
 
 export default function FoodPreviewCard({
   food,
   quantity,
   index,
+  color,
 }: FoodPreviewCardProps) {
   const { name, img, category, calories, nutrition } = food;
   const { protein, fat, carbs } = nutrition;
   return (
-    <div className="flex cursor-pointer items-center gap-3 rounded-xl border p-2 hover:shadow-lg">
-      <h1 className="pl-1 text-2xl text-blue-900 opacity-70">{index + 1}</h1>
+    <div
+      style={
+        color
+          ? {
+              backgroundColor: colors[color][50],
+            }
+          : {}
+      }
+      className="no-scrollbar flex cursor-pointer items-center gap-3 overflow-x-auto rounded-xl bg-messo-50 p-3 hover:shadow-lg"
+    >
+      <h1
+        style={
+          color
+            ? {
+                color: colors[color][900],
+              }
+            : {}
+        }
+        className="pl-1 text-2xl text-messo-900 opacity-70"
+      >
+        {index + 1}
+      </h1>
       <Image
         src={img}
         alt={name}
@@ -39,16 +70,76 @@ export default function FoodPreviewCard({
         className="w-12 rounded-full"
       />
       <div>
-        <h1 className="text-xl">
+        <h1
+          style={
+            color
+              ? {
+                  color: colors[color][900],
+                }
+              : {}
+          }
+          className="text-medium font-semibold"
+        >
           {name}{" "}
-          <span className="text-sm text-blue-900 opacity-70">({category})</span>
+          <span
+            style={
+              color
+                ? {
+                    color: colors[color][900],
+                  }
+                : {}
+            }
+            className="text-sm font-medium text-messo-900"
+          >
+            ({quantity} g - {calories} cal)
+          </span>
         </h1>
-        <h3 className="text-sm text-gray-500">
-          <span className="font-semibold">{quantity}</span> grams (
-          {((protein / 400) * quantity).toPrecision(2)}g protein,{" "}
-          {((fat / 900) * quantity).toPrecision(2)}g fat,{" "}
-          {((carbs / 900) * quantity).toPrecision(2)}g carbs){" "}
+        <h3 className="mt-1 flex items-center gap-2 text-xs text-gray-600">
+          {/* <span className="rounded bg-orange-100  px-2 py-px font-medium text-orange-800">
+            {calories} cal
+          </span> */}
+          <span className="flex-wrap whitespace-nowrap rounded-xl  bg-green-100  px-2 py-px font-medium text-green-800">
+            {((carbs / 900) * quantity).toFixed(2)}g carbs
+          </span>
+          <span className="whitespace-nowrap rounded-xl  bg-red-100  px-2 py-px font-medium text-red-800">
+            {((protein / 400) * quantity).toFixed(2)}g protein
+          </span>
+          <span className="whitespace-nowrap rounded-xl  bg-yellow-100  px-2 py-px font-medium text-yellow-800">
+            {((fat / 900) * quantity).toFixed(2)}g fat
+          </span>
         </h3>
+      </div>
+      <div className="ml-auto hidden items-center gap-3 xl:flex">
+        <HoverCard>
+          <HoverCardTrigger>
+            <div
+              style={
+                color
+                  ? {
+                      color: colors[color][900],
+                    }
+                  : {}
+              }
+              className="mr-2 hidden rounded-xl px-2  py-2 text-messo-900 transition hover:scale-105 sm:block"
+            >
+              <BsTextParagraph size={30} />
+            </div>
+          </HoverCardTrigger>
+          <HoverCardContent className="w-fit py-2">
+            <div
+              style={
+                color
+                  ? {
+                      color: colors[color][900],
+                    }
+                  : {}
+              }
+              className="text-sm font-medium text-messo-900"
+            >
+              See full detail
+            </div>
+          </HoverCardContent>
+        </HoverCard>
       </div>
     </div>
   );
