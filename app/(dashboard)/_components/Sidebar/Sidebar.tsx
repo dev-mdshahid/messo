@@ -85,9 +85,8 @@ const Sidebar = () => {
               />
             ) : (
               <span className=" flex w-full items-center justify-center gap-2">
+                <FaArrowRightFromBracket size={20} className={"rotate-180"} />
                 <span className="hidden lg:inline-block">Logout</span>
-
-                <FaArrowRightFromBracket size={20} />
               </span>
             )}
           </Button>

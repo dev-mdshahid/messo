@@ -1,12 +1,16 @@
-export const sampleDietChart = {
-  clientId: 32434,
+import { DietPlanType } from "@/lib/type";
+
+export const sampleDietChart: DietPlanType = {
+  id: "1",
+  client: "mdshahidulridoy@gmail.com",
+  name: "Weight Loss plan",
+  createdOn: "10 Nov, 2023",
   idealCalories: 2000,
   targetedCalories: 1500,
   water: 3,
   salt: 1,
   sugar: 3,
   oil: 5,
-  targetToLose: 5,
   breakfast: {
     title: "Breakfast",
     time: "8:00AM to 8:30AM",
@@ -26,8 +30,8 @@ export const sampleDietChart = {
       },
     ],
   },
-  midMeal: {
-    title: "Mid Meal",
+  snack1: {
+    title: "Snack 1",
     time: "10:30AM to 11:00 AM",
     calories: 200,
     foods: [
@@ -41,17 +45,6 @@ export const sampleDietChart = {
       },
       {
         id: "lp-1",
-        quantity: 200,
-      },
-    ],
-  },
-  beforeLunch: {
-    title: "Before Lunch",
-    time: "12:00PM",
-    calories: 200,
-    foods: [
-      {
-        id: "ld-11",
         quantity: 200,
       },
     ],
@@ -103,7 +96,7 @@ export const sampleDietChart = {
       },
     ],
   },
-  evening: {
+  snack2: {
     title: "Evening",
     time: "5:00 PM to 5:30PM",
     calories: 200,
@@ -161,17 +154,6 @@ export const sampleDietChart = {
       },
       {
         id: "ve-21",
-        quantity: 200,
-      },
-    ],
-  },
-  afterDinner: {
-    title: "After Dinner",
-    time: "10:00PM to 10:30PM",
-    calories: 200,
-    foods: [
-      {
-        id: "ld-11",
         quantity: 200,
       },
     ],

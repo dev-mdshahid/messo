@@ -1,5 +1,4 @@
 import React from "react";
-import { RiMessage3Fill } from "react-icons/ri";
 import Image from "next/image";
 import { ExerciseType } from "@/lib/type";
 import {
@@ -10,14 +9,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import ExerciseDetailModal from "../ExerciseDetailModal/ExerciseDetailModal";
-import { BiCommentDetail, BiDetail } from "react-icons/bi";
 import { BsTextParagraph } from "react-icons/bs";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import ExerciseDetailCard from "../ExerciseDetailCard/ExerciseDetailCard";
 
 type ExercisePreviewCardProps = {
   howLong?: number;
@@ -65,7 +63,7 @@ export default function ExercisePreviewCard({
               </div>
             </div>
           </div>
-          <div className="child:whitespace-nowrap flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <HoverCard>
               <HoverCardTrigger>
                 <div className="mr-2 hidden rounded-xl px-2  py-2 text-messo-900 transition hover:scale-105 sm:block">
@@ -93,7 +91,7 @@ export default function ExercisePreviewCard({
         </DialogHeader>
 
         {/* Dialog content */}
-        <ExerciseDetailModal exercise={exercise} />
+        <ExerciseDetailCard exercise={exercise} />
       </DialogContent>
     </Dialog>
   );

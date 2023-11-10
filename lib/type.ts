@@ -41,7 +41,7 @@ export type BeautyCollectedDataType = {
   faceConcern?: string;
 };
 
-// Exercise
+// ----------------- Exercise ----------------------
 
 export type ExercisePlanType = {
   id: string;
@@ -66,6 +66,52 @@ export type ExerciseType = {
   focusArea: string[];
   img: string;
   video: string;
+};
+
+// ----------------- Diet & nutrition ------------------
+
+export type FoodType = {
+  _id: string;
+  id: string;
+  category: "whole grain" | "fruit" | "lean protein" | "liquid" | "vegetable";
+  name: string;
+  img: string;
+  description: string;
+  calories: number;
+  nutrition: {
+    protein: number;
+    fat: number;
+    carbs: number;
+  };
+  type: "vegetarian" | "non_vegetarian";
+};
+
+export type MealType = {
+  title: string;
+  time: string;
+  calories: number;
+  foods: {
+    id: string;
+    quantity: number;
+  }[];
+};
+
+export type DietPlanType = {
+  id: string;
+  name: string;
+  createdOn: string;
+  client: string;
+  idealCalories: number;
+  targetedCalories: number;
+  water: number;
+  salt: number;
+  sugar: number;
+  oil: number;
+  breakfast: MealType;
+  snack1: MealType;
+  lunch: MealType;
+  snack2: MealType;
+  dinner: MealType;
 };
 
 // tailwind color

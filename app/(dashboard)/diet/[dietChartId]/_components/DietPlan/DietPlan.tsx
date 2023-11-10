@@ -2,11 +2,10 @@ import React from "react";
 import { sampleDietChart } from "@/data/sampleData";
 import MealContainer from "./MealContainer/MealContainer";
 import DietSummary from "./DietSummary/DietSummary";
+import { DietPlanType } from "@/lib/type";
 
 type DietPlanProps = {
-  data?: {
-    [key: string]: any;
-  };
+  data?: DietPlanType;
   id?: string;
 };
 
