@@ -37,7 +37,7 @@ export default function DietPlanSummaryCard({
     >
       <div className="grid grid-cols-[1fr_auto] items-center justify-between">
         <div>
-          <h3 className="mb-1 rounded border-l-4 border-blue-600 px-4 text-base font-semibold capitalize text-blue-900 sm:text-[18px]">
+          <h3 className="mb-1 rounded border-l-4 border-messo-600 px-4 text-base font-semibold capitalize text-messo-900 sm:text-[18px]">
             {name}
           </h3>
           <p className="px-5 text-xs text-gray-500 sm:text-[13px]">
@@ -51,10 +51,10 @@ export default function DietPlanSummaryCard({
       <div className="px-5">
         <div className="my-5 grid grid-cols-2">
           <div className="border-r text-center">
-            <h2 className="mb-1 text-2xl font-semibold text-blue-700 sm:text-3xl">
+            <h2 className="mb-1 text-2xl font-semibold text-messo-700 sm:text-3xl">
               {targetedCalories}
             </h2>
-            <p className="text-[13px] capitalize text-gray-500">
+            <p className="text-xs capitalize text-gray-500 sm:text-[13px]">
               total calories
             </p>
           </div>

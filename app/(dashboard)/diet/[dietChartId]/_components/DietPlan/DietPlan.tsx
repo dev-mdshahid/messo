@@ -1,16 +1,21 @@
+"use client";
 import React from "react";
 import { sampleDietChart } from "@/data/sampleData";
 import MealContainer from "./MealContainer/MealContainer";
 import DietSummary from "./DietSummary/DietSummary";
-import { DietPlanType } from "@/lib/type";
+import { DietCollectedDataType, DietPlanType } from "@/lib/type";
+import { useNutritionRequirements } from "@/hooks/useNutritionRequirements";
 
 type DietPlanProps = {
-  data?: DietPlanType;
+  data?: DietCollectedDataType;
   id?: string;
 };
 
 export default function DietPlan({ data, id }: DietPlanProps) {
+  const { targetCalories, idealCalories, protein, carbohydrate, fat } =
+    useNutritionRequirements(data as DietCollectedDataType);
   console.log(data);
+
   return (
     <main>
       <div>
@@ -63,8 +68,11 @@ export default function DietPlan({ data, id }: DietPlanProps) {
             </div>
 
             <DietSummary
-              idealCalories={sampleDietChart?.idealCalories}
-              targetedCalories={sampleDietChart?.targetedCalories}
+              idealCalories={idealCalories}
+              targetedCalories={targetCalories}
+              protein={protein}
+              carbohydrate={carbohydrate}
+              fat={fat}
               className="order-1 lg:order-2"
             />
           </div>

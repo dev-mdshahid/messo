@@ -29,6 +29,23 @@ export type SuggestionsType = {
   face_concern?: string;
 };
 
+// diet collected data type
+export type DietCollectedDataType = {
+  goal: "loseWeight" | "gainWeight" | "maintainWeight";
+  gainWeight?: string;
+  loseWeight?: string;
+  changeDuration?: string;
+  secondaryGoals: string[];
+  bodyType: "endomorph" | "mesomorph" | "ectomorph";
+  activityLevel: "inactive" | "slightlyActive" | "veryActive";
+  energyLevel: string;
+  healthIssue: string[];
+  stomachDiscomfort: boolean;
+  mealFrequency: number;
+  waterIntake: string;
+  dietaryRestrictions: string[];
+};
+
 // beauty collected data type
 export type BeautyCollectedDataType = {
   problemSource?: string;
@@ -73,7 +90,14 @@ export type ExerciseType = {
 export type FoodType = {
   _id: string;
   id: string;
-  category: "whole grain" | "fruit" | "lean protein" | "liquid" | "vegetable";
+  category:
+    | "whole grain"
+    | "fruit"
+    | "lean protein"
+    | "liquid"
+    | "vegetable"
+    | "veg_protein"
+    | "fat";
   name: string;
   img: string;
   description: string;

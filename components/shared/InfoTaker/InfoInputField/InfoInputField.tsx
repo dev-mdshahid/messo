@@ -45,11 +45,11 @@ export default function InfoInputField({
     setStep(step + jump);
   };
   return (
-    <form onSubmit={handleSubmit} className="mt-10 space-y-5 px-5">
+    <form onSubmit={handleSubmit} className="mt-5 space-y-5 px-5">
       <InputField
         name="info"
         label={label}
-        type={type ?? ""}
+        type={type ?? "number"}
         placeholder={placeholder}
         min={min}
         max={max}

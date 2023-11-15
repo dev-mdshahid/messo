@@ -4,12 +4,18 @@ import React from "react";
 type DietSummaryProps = {
   targetedCalories: number;
   idealCalories: number;
+  protein: number;
+  carbohydrate: number;
+  fat: number;
   className?: string;
 };
 
 export default function DietSummary({
   targetedCalories,
   idealCalories,
+  protein,
+  carbohydrate,
+  fat,
   className,
 }: DietSummaryProps) {
   return (
@@ -42,8 +48,8 @@ export default function DietSummary({
             </p>
             <p className="pr-1 font-semibold">
               {targetedCalories > idealCalories
-                ? targetedCalories - idealCalories
-                : idealCalories - targetedCalories}{" "}
+                ? (targetedCalories - idealCalories).toFixed(1)
+                : (idealCalories - targetedCalories).toFixed(1)}{" "}
               cal
             </p>
           </div>
@@ -55,16 +61,19 @@ export default function DietSummary({
         <h3 className="mb-2 font-bold text-purple-900">Nutrition facts</h3>
         <div className="text-purple-900">
           <div className="flex justify-between">
-            <h5 className="pl-4 text-purple-900">Protein</h5>
-            <p className="pr-1 font-semibold">34g</p>
+            <h5 className="pl-4 text-purple-900">Carbs</h5>
+            <p className="pr-1 font-semibold">
+              {(carbohydrate / 4).toFixed(1)} g
+            </p>
           </div>
           <div className="flex justify-between">
-            <h5 className="pl-4 text-purple-900">Carbs</h5>
-            <p className="pr-1 font-semibold">123g</p>
+            <h5 className="pl-4 text-purple-900">Protein</h5>
+            <p className="pr-1 font-semibold">{(protein / 4).toFixed(1)} g</p>
           </div>
+
           <div className="flex justify-between">
             <h5 className="pl-4 text-purple-900">Fat</h5>
-            <p className="pr-1 font-semibold">12.3g</p>
+            <p className="pr-1 font-semibold">{(fat / 9).toFixed(1)} g</p>
           </div>
         </div>
       </div>

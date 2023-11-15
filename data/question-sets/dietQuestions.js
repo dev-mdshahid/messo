@@ -38,6 +38,7 @@ Question types are :
 */
 
 export const dietQuestions = [
+  // primary goal
   {
     type: "select-single-card-default",
     question: "What is your primary goal?",
@@ -64,10 +65,11 @@ export const dietQuestions = [
         icon: maintainWeight,
         text: "Maintain Weight",
         description: "Happy with the current weight",
-        jump: 3,
+        jump: 4,
       },
     ],
   },
+  // gain weight amount
   {
     type: "input-number",
     label: "Gain weight(kg)",
@@ -80,6 +82,7 @@ export const dietQuestions = [
     id: "gainWeight",
     jump: 2,
   },
+  // lose weight amount
   {
     type: "input-number",
     label: "Lose weight(kg)",
@@ -92,6 +95,20 @@ export const dietQuestions = [
     id: "loseWeight",
     jump: 1,
   },
+  // duration
+  {
+    type: "input-number",
+    label: "Duration (In months)",
+    placeholder: "Enter the months",
+    min: 1,
+    max: 10,
+    question: "In how many months?",
+    description:
+      "We recommend taking it slow. Set a realistic duration to gain your goal.",
+    id: "changeDuration",
+    jump: 1,
+  },
+  // what do u want to achieve
   {
     type: "select-multi-list-mini",
     question: "What do you want to achieve?",
@@ -125,7 +142,7 @@ export const dietQuestions = [
       {
         value: "sleepBetter",
         icon: sleepBetter,
-        text: "Seelp better",
+        text: "Sleep better",
         jump: 1,
       },
       {
@@ -142,6 +159,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // body type
   {
     type: "select-single-list-default",
     question: "What is your body type?",
@@ -149,29 +167,29 @@ export const dietQuestions = [
       "Your body type tells us how your body behaves with foods and stores fat",
     id: "bodyType",
     options: [
+      // {
+      //   value: "appleShaped",
+      //   icon: appleShaped,
+      //   text: "Apple-shaped",
+      //   description: "Large bust, narrow hips, and rounded midsection",
+      //   jump: 1,
+      // },
       {
-        value: "appleShaped",
-        icon: appleShaped,
-        text: "Apple-shaped",
-        description: "Large bust, narrow hips, and rounded midsection",
-        jump: 1,
-      },
-      {
-        value: "pearShaped",
+        value: "endomorph",
         icon: pearShaped,
         text: "Pear-shaped",
         description: "Narrow waist, hips are wider than shoulders",
         jump: 1,
       },
       {
-        value: "hourglassShaped",
+        value: "mesomorph",
         icon: hourglassShaped,
         text: "Hourglass-shaped",
         description: "Well-defined waist, shoulders are the same width as hips",
         jump: 1,
       },
       {
-        value: "rectangleShaped",
+        value: "ectomorph",
         icon: rectangleShaped,
         text: "Rectangle-shaped",
         description: "Bust, waist and hips are almost the same width",
@@ -179,6 +197,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // activity level
   {
     type: "select-single-card-default",
     question: "How active are you during the day?",
@@ -208,6 +227,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // energy level
   {
     type: "select-single-list-mini",
     question: "How energetic do you feel?",
@@ -241,6 +261,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // health condition
   {
     type: "select-multi-list-mini",
     question: "Do you suffer from any of the following conditions?",
@@ -290,6 +311,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // stomach discomfort
   {
     type: "select-single-list-mini",
     question: "Do you experience stomach discomfort during the day?",
@@ -311,6 +333,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // meal qty
   {
     type: "select-single-list-default",
     question: "How many meals a day would you like to have?",
@@ -343,6 +366,7 @@ export const dietQuestions = [
       },
     ],
   },
+  // water
   {
     type: "select-single-list-default",
     question: "How much water do you drink daily?",
@@ -375,7 +399,7 @@ export const dietQuestions = [
       },
     ],
   },
-
+  // dietary restrictions
   {
     type: "select-multi-card-default",
     question: "Do you have any dietary restrictions?",

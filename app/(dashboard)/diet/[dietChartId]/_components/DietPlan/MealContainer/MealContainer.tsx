@@ -1,6 +1,6 @@
 import React from "react";
-import FoodPreviewCard from "./FoodPreviewCard/FoodPreviewCard";
 import { BiFoodMenu } from "react-icons/bi";
+import CategorizedFoodList from "./CategorizedFoodList/CategorizedFoodList";
 
 type MealContainerProps = {
   title: string;
@@ -20,11 +20,18 @@ export default function MealContainer({
 }: MealContainerProps) {
   return (
     <div className="overflow-hidden rounded-xl border border-messo-100 bg-white">
-      <h2 className="flex items-center gap-2 p-5 pb-3 text-lg font-bold capitalize text-blue-900 sm:text-xl">
-        <BiFoodMenu className="text-2xl" /> {title}
-      </h2>
+      <div className="flex items-center justify-between">
+        <h2 className="flex items-center gap-2 p-5 text-lg font-bold capitalize text-blue-900 sm:text-xl">
+          <BiFoodMenu className="text-2xl" /> {title}
+        </h2>
+        {/* <Button className="mr-3 flex items-center gap-2 bg-messo-800 hover:bg-messo-900">
+          <FiEdit size={20} />
+          Edit
+        </Button> */}
+      </div>
+
       <div className="h-px w-full bg-messo-900 opacity-20"></div>
-      <div className="m-3 rounded-xl bg-orange-50 p-5 text-orange-900">
+      <div className="m-5 rounded-lg bg-messo-100 p-5 text-messo-900">
         <div className="flex items-center gap-2 pb-1">
           <h1 className="font-semibold">Time: </h1>
           <span>{time}</span>
@@ -39,41 +46,13 @@ export default function MealContainer({
         </div>
       </div>
       <div className="h-px w-full bg-blue-900 opacity-20"></div>
-      <h1 className="pl-5 pt-4 text-lg font-semibold text-messo-900 sm:text-xl">
-        Recommended Foods
-      </h1>
-      <div className="grid gap-3 p-3 pt-3 sm:p-5">
-        {foods?.map((food, index) => {
-          // const result = allFoods.find(
-          //   (element) => element.id.trim() === food.id.trim(),
-          // );
-          const result = {
-            _id: "637905f8de7d558975f15b6f",
-            id: "lp-9",
-            category: "lean protein",
-            name: "Shrimp",
-            img: "https://i.pinimg.com/736x/ae/05/d0/ae05d0809792f85abbc3c4094a98997b.jpg",
-            description:
-              "Because they're low in carbs and calories and packed with nutrients, shrimp are an ideal choice if you're trying to shed some pounds. \nBut be careful how you cook it. If you prepare shrimp in a deep fryer or add it to a creamy sauce, you end up tipping the scale in the wrong direction.\n\nThe antioxidants in shrimp are good for your health. These substances can protect your cells against damage. Studies suggest that the antioxidant astaxanthin helps prevent wrinkles and lessens sun damage.",
-            calories: 99,
-            nutrition: {
-              protein: 24,
-              fat: 0.3,
-              carbs: 0.2,
-            },
-            type: "non_vegetarian",
-          };
-          console.log(food);
-          return (
-            <FoodPreviewCard
-              key={food.id}
-              index={index}
-              food={result}
-              quantity={food.quantity}
-              color="yellow"
-            />
-          );
-        })}
+      {/* <h1 className="pl-5 pt-4 text-lg font-semibold text-messo-900 sm:text-xl">
+        Food list
+      </h1> */}
+      <div className="grid gap-5 p-3 pt-3 sm:p-5">
+        <CategorizedFoodList category="carbohydrate" foodList={foods} />
+        <CategorizedFoodList category="protein" foodList={foods} />
+        <CategorizedFoodList category="fat" foodList={foods} />
       </div>
     </div>
   );

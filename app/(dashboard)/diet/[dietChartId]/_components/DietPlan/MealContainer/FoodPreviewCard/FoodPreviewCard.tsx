@@ -11,17 +11,20 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { ColorType, FoodType } from "@/lib/type";
-import Image from "next/image";
 import React from "react";
 import { BsTextParagraph } from "react-icons/bs";
 import colors from "tailwindcss/colors";
 import FoodDetailCard from "../FoodDetailCard/FoodDetailCard";
+import { TbPlus } from "react-icons/tb";
 
 type FoodPreviewCardProps = {
   food: FoodType;
-  quantity: number;
+  quantity?: number;
   index: number;
   color?: ColorType;
+  addable?: boolean;
+  existingFoods?: FoodType[];
+  addNewFood?: (newFood: { id: string; quantity: number }) => void;
 };
 
 export default function FoodPreviewCard({
@@ -29,9 +32,14 @@ export default function FoodPreviewCard({
   quantity,
   index,
   color,
+  addable,
+  existingFoods,
+  addNewFood,
 }: FoodPreviewCardProps) {
-  const { name, img, category, description, calories, nutrition } = food;
+  const { name, img, category, calories, nutrition } = food;
   const { protein, fat, carbs } = nutrition;
+
+  quantity = quantity ?? 100;
   return (
     <Dialog>
       <DialogTrigger>
@@ -57,13 +65,7 @@ export default function FoodPreviewCard({
           >
             {index + 1}
           </h1>
-          <Image
-            src={img}
-            alt={name}
-            height={48}
-            width={48}
-            className="w-12 rounded-full"
-          />
+          <img src={img} alt={name} className="w-12 rounded-full" />
           <div>
             <h1
               style={
@@ -93,8 +95,8 @@ export default function FoodPreviewCard({
               {/* <span className="rounded bg-orange-100  px-2 py-px font-medium text-orange-800">
             {calories} cal
           </span> */}
-              <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-green-100  px-2 py-px font-medium text-green-800">
-                <span className="block h-1.5 w-1.5 rounded-full bg-green-600"></span>
+              <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-orange-100  px-2 py-px font-medium text-orange-800">
+                <span className="block h-1.5 w-1.5 rounded-full bg-orange-600"></span>
                 C : {((carbs / 900) * quantity).toFixed(2)}g
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-red-100  px-2 py-px font-medium text-red-800">
@@ -126,7 +128,11 @@ export default function FoodPreviewCard({
                   }
                   className="mr-2 hidden rounded-xl px-2  py-2 text-messo-900 transition hover:scale-105 sm:block"
                 >
-                  <BsTextParagraph size={30} />
+                  {addable ? (
+                    <TbPlus size={30} />
+                  ) : (
+                    <BsTextParagraph size={30} />
+                  )}
                 </div>
               </HoverCardTrigger>
               <HoverCardContent className="w-fit py-2">
