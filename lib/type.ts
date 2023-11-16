@@ -29,6 +29,23 @@ export type SuggestionsType = {
   face_concern?: string;
 };
 
+// diet collected data type
+export type DietCollectedDataType = {
+  goal: "loseWeight" | "gainWeight" | "maintainWeight";
+  gainWeight?: string;
+  loseWeight?: string;
+  changeDuration?: string;
+  secondaryGoals: string[];
+  bodyType: "endomorph" | "mesomorph" | "ectomorph";
+  activityLevel: "inactive" | "slightlyActive" | "veryActive";
+  energyLevel: string;
+  healthIssue: string[];
+  stomachDiscomfort: boolean;
+  mealFrequency: number;
+  waterIntake: string;
+  dietaryRestrictions: string[];
+};
+
 // beauty collected data type
 export type BeautyCollectedDataType = {
   problemSource?: string;
@@ -41,7 +58,7 @@ export type BeautyCollectedDataType = {
   faceConcern?: string;
 };
 
-// Exercise
+// ----------------- Exercise ----------------------
 
 export type ExercisePlanType = {
   id: string;
@@ -67,6 +84,68 @@ export type ExerciseType = {
   img: string;
   video: string;
 };
+
+// ----------------- Diet & nutrition ------------------
+
+export type FoodCategoryType =
+  | "whole_grain"
+  | "fruit"
+  | "lean_protein"
+  | "liquid"
+  | "vegetable"
+  | "vegetarian_protein"
+  | "fat";
+
+export type FoodType = {
+  _id: string;
+  id: string;
+  category: FoodCategoryType;
+  name: string;
+  img: string;
+  description: string;
+  calories: number;
+  nutrition: {
+    protein: number;
+    fat: number;
+    carbs: number;
+  };
+  type: "vegetarian" | "non_vegetarian";
+};
+
+export type MealType = {
+  title: string;
+  time: string;
+  calories: number;
+  foods: {
+    id: string;
+    quantity: number;
+  }[];
+};
+
+export type DietPlanType = {
+  id: string;
+  name: string;
+  createdOn: string;
+  client: string;
+  idealCalories: number;
+  targetedCalories: number;
+  water: number;
+  salt: number;
+  sugar: number;
+  oil: number;
+  breakfast: MealType;
+  snack1: MealType;
+  lunch: MealType;
+  snack2: MealType;
+  dinner: MealType;
+};
+
+export type MealTimeType =
+  | "breakfast"
+  | "snack1"
+  | "lunch"
+  | "snack2"
+  | "dinner";
 
 // tailwind color
 export type ColorValueType =

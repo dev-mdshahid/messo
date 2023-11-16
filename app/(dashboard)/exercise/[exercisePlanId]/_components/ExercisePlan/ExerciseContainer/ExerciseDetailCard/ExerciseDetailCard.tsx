@@ -4,13 +4,13 @@ import { ExerciseType } from "@/lib/type";
 import Image from "next/image";
 import React from "react";
 
-type ExerciseDetailModalProps = {
+type ExerciseDetailCardProps = {
   exercise: ExerciseType;
 };
 
-export default function ExerciseDetailModal({
+export default function ExerciseDetailCard({
   exercise,
-}: ExerciseDetailModalProps) {
+}: ExerciseDetailCardProps) {
   const { target, name, howTo, focusArea, img, video } = exercise;
 
   const bgColorList = getColorList(100);

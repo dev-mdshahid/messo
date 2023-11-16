@@ -1133,7 +1133,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/y01ri_43G50?si=TXHx-ax8PnAGMzE0",
   },
   {
-    id: "sholder-back-100",
+    id: "shoulder-back-100",
     target: "shoulder-back",
     name: "rhomboid pulls",
     howTo: [
@@ -1148,7 +1148,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/8HLhv3vekwc?si=g_-9Gt4lezpmDgLL",
   },
   {
-    id: "sholder-back-101",
+    id: "shoulder-back-101",
     target: "shoulder-back",
     name: "cat cow pose",
     howTo: [
@@ -1163,7 +1163,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/vuyUwtHl694?si=aXE3kVH2TmnYNrBU",
   },
   {
-    id: "sholder-back-102",
+    id: "shoulder-back-102",
     target: "shoulder-back",
     name: "child's pose",
     howTo: [
@@ -1177,7 +1177,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/qYvYsFrTI0U?si=k1Pt2Z4z9ykYrJo8",
   },
   {
-    id: "sholder-back-103",
+    id: "shoulder-back-103",
     target: "shoulder-back",
     name: "side lying floor stretch",
     howTo: [
@@ -1193,7 +1193,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/DMlSdmsHEeI?si=1MUOatdEDRZoS2rn",
   },
   {
-    id: "sholder-back-104",
+    id: "shoulder-back-104",
     target: "shoulder-back",
     name: "triceps kickbacks",
     howTo: [
@@ -1206,7 +1206,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/f3E7eEq2c6c?si=VKL7YzN_ZAF0SscZ",
   },
   {
-    id: "sholder-back-200",
+    id: "shoulder-back-200",
     target: "shoulder-back",
     name: "hip hinge",
     howTo: [
@@ -1219,7 +1219,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/sinpFajtRPw?si=0MD0ydxyb3_dWkzK",
   },
   {
-    id: "sholder-back-201",
+    id: "shoulder-back-201",
     target: "shoulder-back",
     name: "hover push up",
     howTo: [
@@ -1234,7 +1234,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/6wdVoBSkU0Y?si=pJCsUak52xiY5z5B",
   },
   {
-    id: "sholder-back-300",
+    id: "shoulder-back-300",
     target: "shoulder-back",
     name: "hyperextension",
     howTo: [
@@ -1249,7 +1249,7 @@ export const exerciseData = [
     video: "https://www.youtube.com/embed/W9y8xq4Ya_E?si=tiLYtLJMbiHWW5yb",
   },
   {
-    id: "sholder-back-400",
+    id: "shoulder-back-400",
     target: "shoulder-back",
     name: "reverse pushups",
     howTo: [

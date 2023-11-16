@@ -109,7 +109,10 @@ export default function Topbar() {
                         <span className="loader"></span>
                       ) : (
                         <span className="flex items-center gap-2">
-                          <FaArrowRightFromBracket size={16} />
+                          <FaArrowRightFromBracket
+                            size={16}
+                            className="rotate-180"
+                          />
                           Logout
                         </span>
                       )}

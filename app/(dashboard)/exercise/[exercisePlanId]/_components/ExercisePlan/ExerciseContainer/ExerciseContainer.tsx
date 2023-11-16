@@ -11,7 +11,7 @@ type ExerciseContainerProps = {
 export default function ExerciseContainer({
   planData,
 }: ExerciseContainerProps) {
-  const { id, title, target, level, duration, img, workouts } = planData;
+  const { title, workouts } = planData;
   return (
     <div className="mb-5">
       <div className="overflow-hidden rounded-xl border border-messo-100 bg-white">

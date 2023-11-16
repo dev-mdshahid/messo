@@ -8,7 +8,7 @@ import InfoSelect from "./InfoSelect/InfoSelect";
 import DietPlan from "@/app/(dashboard)/diet/[dietChartId]/_components/DietPlan/DietPlan";
 import ExercisePlan from "@/app/(dashboard)/exercise/[exercisePlanId]/_components/ExercisePlan/ExercisePlan";
 import BeautySuggestions from "@/app/(dashboard)/beautycare/[beautySuggestionsId]/_components/BeautySuggestions/BeautySuggestions";
-import { ExercisePlanType } from "@/lib/type";
+import { DietCollectedDataType, ExercisePlanType } from "@/lib/type";
 
 type InfoTakerProps = {
   variant: "diet" | "exercise" | "beauty";
@@ -54,6 +54,7 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
           placeholder={question.placeholder ?? ""}
           min={question.min}
           max={question.max}
+          jump={question.jump ?? 1}
           data={data}
           setData={setData}
           step={step}
@@ -84,7 +85,7 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
     ) : variant === "beauty" ? (
       <BeautySuggestions data={data} />
     ) : (
-      <DietPlan data={data} />
+      <DietPlan data={data as DietCollectedDataType} />
     )
   ) : (
     <section className="mx-auto flex h-full w-full max-w-[800px] justify-center">
