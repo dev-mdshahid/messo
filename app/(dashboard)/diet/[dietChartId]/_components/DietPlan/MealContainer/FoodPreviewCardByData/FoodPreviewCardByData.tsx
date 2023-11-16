@@ -10,86 +10,52 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { ColorType, FoodType, MealTimeType } from "@/lib/type";
+import { ColorType, FoodType } from "@/lib/type";
 import React, { useState } from "react";
 import { BsTextParagraph } from "react-icons/bs";
 import colors from "tailwindcss/colors";
 import FoodDetailCard from "../FoodDetailCard/FoodDetailCard";
-import { TbPlus } from "react-icons/tb";
-import { useGetSingleFood } from "@/hooks/useGetSingleFood";
-import FoodPreviewCardSkeleton from "./FoodPreviewCardSkeleton";
-import { MdOutlineNoFood } from "react-icons/md";
+import { TbCheck, TbPlus } from "react-icons/tb";
 
-type FoodPreviewCardProps = {
-  id: string;
+type FoodPreviewCardByDataProps = {
+  data: FoodType;
   quantity?: number;
   index: number;
   color?: ColorType;
   addable?: boolean;
-  mealTime: MealTimeType;
-  foods: { id: string; quantity: number }[];
-  setFoods: (newFood: { id: string; quantity: number }[]) => void;
+  existingFoods: { id: string; quantity: number }[];
+  setExistingFoods: (newFood: { id: string; quantity: number }[]) => void;
 };
 
-export default function FoodPreviewCard({
-  id,
+export default function FoodPreviewCardByData({
+  data,
   quantity,
   index,
   color,
   addable,
-  mealTime,
-  foods,
-  setFoods,
-}: FoodPreviewCardProps) {
-  const { data, status } = useGetSingleFood(id);
-  // const food = {
-  //   _id: "637905f8de7d558975f15b6f",
-  //   id: "lp-9",
-  //   category: "lean protein",
-  //   name: "Shrimp",
-  //   img: "https://i.pinimg.com/736x/ae/05/d0/ae05d0809792f85abbc3c4094a98997b.jpg",
-  //   description:
-  //     "Because they're low in carbs and calories and packed with nutrients, shrimp are an ideal choice if you're trying to shed some pounds. \nBut be careful how you cook it. If you prepare shrimp in a deep fryer or add it to a creamy sauce, you end up tipping the scale in the wrong direction.\n\nThe antioxidants in shrimp are good for your health. These substances can protect your cells against damage. Studies suggest that the antioxidant astaxanthin helps prevent wrinkles and lessens sun damage.",
-  //   calories: 99,
-  //   nutrition: {
-  //     protein: 24,
-  //     fat: 0.3,
-  //     carbs: 0.2,
-  //   },
-  //   type: "non_vegetarian",
-  // };
+  existingFoods,
+  setExistingFoods,
+}: FoodPreviewCardByDataProps) {
+  const [added, setAdded] = useState(false);
+  const {
+    id,
+    name,
+    category,
+    img,
+    description,
+    calories,
+    nutrition: { protein, fat, carbs },
+  } = data;
 
-  let foodData;
-  if (data && status === "success") {
-    const {
-      name,
-      category,
-      img,
-      description,
-      calories,
-      nutrition: { protein, fat, carbs },
-    } = data.food;
-
-    foodData = {
-      category,
-      name,
-      img,
-      description,
-      calories,
-      nutrition: {
-        protein,
-        fat,
-        carbs,
-      },
-    };
-  }
   quantity = quantity ?? 100;
 
-  const handleFoodAdd = () => {
-    // setFoods([...foods, { id: id, quantity: 100 }]);
+  const handleFoodAdd = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    setExistingFoods([...existingFoods, { id: id, quantity: 200 }]);
+    setAdded(true);
   };
 
-  return foodData && data && status === "success" ? (
+  return (
     <Dialog>
       <DialogTrigger>
         <div
@@ -117,11 +83,7 @@ export default function FoodPreviewCard({
           >
             {index + 1}
           </h1>
-          <img
-            src={foodData.img}
-            alt={foodData.name}
-            className="w-12 rounded-full"
-          />
+          <img src={img} alt={name} className="w-12 rounded-full" />
           <div>
             <h1
               style={
@@ -133,7 +95,7 @@ export default function FoodPreviewCard({
               }
               className="text-medium font-semibold"
             >
-              {foodData.name}{" "}
+              {name}{" "}
               <span
                 style={
                   color
@@ -144,32 +106,31 @@ export default function FoodPreviewCard({
                 }
                 className="text-sm font-medium text-messo-900"
               >
-                ({quantity} g - {foodData.calories} cal)
+                ({quantity} g - {calories} cal)
               </span>
             </h1>
             <h3 className="mt-1 flex items-center gap-2 text-xs text-gray-600">
               {/* <span className="rounded bg-orange-100  px-2 py-px font-medium text-orange-800">
-            {calories} cal
-          </span> */}
+              {calories} cal
+            </span> */}
               <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-orange-100  px-2 py-px font-medium text-orange-800">
                 <span className="block h-1.5 w-1.5 rounded-full bg-orange-600"></span>
-                C : {((foodData.nutrition.carbs / 900) * quantity).toFixed(2)}g
+                C : {((carbs / 900) * quantity).toFixed(2)}g
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-red-100  px-2 py-px font-medium text-red-800">
                 <span className="block h-1.5 w-1.5 rounded-full bg-red-600"></span>
-                P : {((foodData.nutrition.protein / 400) * quantity).toFixed(2)}
-                g
+                P : {((protein / 400) * quantity).toFixed(2)}g
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-yellow-100  px-2 py-px font-medium text-yellow-800">
                 <span className="block h-1.5 w-1.5 rounded-full bg-yellow-600"></span>
-                F : {((foodData.nutrition.fat / 900) * quantity).toFixed(2)}g
+                F : {((fat / 900) * quantity).toFixed(2)}g
               </span>
               {/* <span className="whitespace-nowrap rounded-xl  bg-red-100  px-2 py-px font-medium text-red-800">
-            {((protein / 400) * quantity).toFixed(2)}g protein
-          </span> */}
+              {((protein / 400) * quantity).toFixed(2)}g protein
+            </span> */}
               {/* <span className="whitespace-nowrap rounded-xl  bg-yellow-100  px-2 py-px font-medium text-yellow-800">
-            {((fat / 900) * quantity).toFixed(2)}g fat
-          </span> */}
+              {((fat / 900) * quantity).toFixed(2)}g fat
+            </span> */}
             </h3>
           </div>
           <div className="ml-auto hidden items-center gap-3 sm:flex">
@@ -184,10 +145,13 @@ export default function FoodPreviewCard({
                       : {}
                   }
                   className="mr-2 hidden rounded-xl px-2  py-2 text-messo-900 transition hover:scale-105 sm:block"
-                  onClick={() => handleFoodAdd()}
                 >
                   {addable ? (
-                    <TbPlus size={30} />
+                    added ? (
+                      <TbCheck size={30} />
+                    ) : (
+                      <TbPlus size={30} onClick={handleFoodAdd} />
+                    )
                   ) : (
                     <BsTextParagraph size={30} />
                   )}
@@ -204,7 +168,8 @@ export default function FoodPreviewCard({
                   }
                   className="text-sm font-medium text-messo-900"
                 >
-                  See full detail
+                  {" "}
+                  {addable ? "Add this food" : "See details"}
                 </div>
               </HoverCardContent>
             </HoverCard>
@@ -214,18 +179,11 @@ export default function FoodPreviewCard({
       <DialogContent className="no-scrollbar max-h-[100dvh] overflow-y-auto sm:max-h-[600px]">
         <DialogHeader>
           <DialogTitle>
-            {foodData.name} ({foodData.category})
+            {name} ({category})
           </DialogTitle>
         </DialogHeader>
-        <FoodDetailCard data={data.food} />
+        <FoodDetailCard data={data} />
       </DialogContent>
     </Dialog>
-  ) : status === "loading" ? (
-    <FoodPreviewCardSkeleton />
-  ) : (
-    <div className="mt-5 flex flex-col items-center py-10 text-center text-lg font-semibold text-messo-900/60">
-      <MdOutlineNoFood className={"mb-2 text-3xl"} />
-      <p>Sorry! Couldn&apos;t fetch the food!</p>
-    </div>
   );
 }

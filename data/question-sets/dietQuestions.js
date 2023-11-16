@@ -414,13 +414,13 @@ export const dietQuestions = [
         description: "Eat only vegetables",
         jump: 1,
       },
-      {
-        value: "vegan",
-        icon: vegan,
-        text: "Vegan",
-        description: "Strictly avoid animal food",
-        jump: 1,
-      },
+      // {
+      //   value: "vegan",
+      //   icon: vegan,
+      //   text: "Vegan",
+      //   description: "Strictly avoid animal food",
+      //   jump: 1,
+      // },
       {
         value: "lactoseIntolerance",
         icon: lactoseIntolerance,

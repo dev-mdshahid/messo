@@ -10,7 +10,7 @@ export default function FoodPreviewCardSkeleton({
   color,
 }: FoodPreviewCardSkeletonProps) {
   return (
-    <div className="no-scrollbar flex cursor-pointer items-center gap-3 overflow-x-auto rounded-xl bg-messo-50 p-3 text-left hover:shadow-lg">
+    <div className="no-scrollbar grid cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-3 overflow-x-auto rounded-xl bg-white p-3 text-left hover:shadow-lg">
       <Skeleton className="h-12 w-12 rounded-full bg-messo-100" />
       <div className="w-full max-w-[500px]">
         <Skeleton className="h-5 rounded-xl bg-messo-100" />

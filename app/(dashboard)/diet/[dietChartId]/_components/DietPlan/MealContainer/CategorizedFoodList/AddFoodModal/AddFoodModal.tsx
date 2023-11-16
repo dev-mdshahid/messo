@@ -14,34 +14,34 @@ import FoodPreviewCard from "../../FoodPreviewCard/FoodPreviewCard";
 import { toast } from "@/components/ui/use-toast";
 import FoodPreviewCardSkeleton from "../../FoodPreviewCard/FoodPreviewCardSkeleton";
 import { MdOutlineNoFood } from "react-icons/md";
+import { FoodCategoryType, FoodType } from "@/lib/type";
+import FoodPreviewCardByData from "../../FoodPreviewCardByData/FoodPreviewCardByData";
 
 type AddFoodModalProps = {
-  category:
-    | "carbohydrate"
-    | "protein"
-    | "veg_protein"
-    | "fat"
-    | "vegetables"
-    | "fruits"
-    | "liquid";
+  category: any;
+  existingFoods: { id: string; quantity: number }[];
+  setExistingFoods: (newFood: { id: string; quantity: number }[]) => void;
 };
 
-export default function AddFoodModal({ category }: AddFoodModalProps) {
-  const [foods, setFoods] = useState([]);
+export default function AddFoodModal({
+  category,
+  existingFoods,
+  setExistingFoods,
+}: AddFoodModalProps) {
+  const [foods, setFoods] = useState<FoodType[]>([]);
   const [loading, setLoading] = useState<boolean>();
 
-  const foodCategoryMap = {
-    carbohydrate: "whole-grain",
-    protein: "lean-protein",
-    veg_protein: "veg_protein",
-    fat: "fat",
-    vegetables: "vegetables",
-    fruits: "fruit",
-    liquid: "liquid",
-  };
-  const [selectedCategory, setSelectedCategory] = useState(
-    foodCategoryMap[category],
-  );
+  // const foodCategoryMap = {
+  //   carbohydrate: "whole_grain",
+  //   protein: "lean_protein",
+  //   veg_protein: "veg_protein",
+  //   fat: "fat",
+  //   vegetables: "vegetables",
+  //   fruits: "fruit",
+  //   liquid: "liquid",
+  // };
+  const [selectedCategory, setSelectedCategory] = useState(category);
+  console.log(selectedCategory);
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -83,9 +83,9 @@ export default function AddFoodModal({ category }: AddFoodModalProps) {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Categories</SelectLabel>
-              <SelectItem value="whole-grain">Carbohydrate</SelectItem>
-              <SelectItem value="lean-protein">Protein</SelectItem>
-              <SelectItem value="veg_protein">Veg protein</SelectItem>
+              <SelectItem value="whole_grain">Carbohydrate</SelectItem>
+              <SelectItem value="lean_protein">Protein</SelectItem>
+              <SelectItem value="vegetarian_protein">Veg protein</SelectItem>
               <SelectItem value="fat">Fat</SelectItem>
               <SelectItem value="vegetable">Vegetable</SelectItem>
               <SelectItem value="fruit">Fruit</SelectItem>
@@ -106,7 +106,14 @@ export default function AddFoodModal({ category }: AddFoodModalProps) {
       ) : foods.length ? (
         <div className="mt-5 grid gap-3">
           {foods.map((food, index) => (
-            <FoodPreviewCard key={index} addable index={index} food={food} />
+            <FoodPreviewCardByData
+              key={index}
+              addable
+              index={index}
+              data={food}
+              existingFoods={existingFoods}
+              setExistingFoods={setExistingFoods}
+            />
           ))}
         </div>
       ) : (

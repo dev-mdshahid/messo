@@ -87,17 +87,19 @@ export type ExerciseType = {
 
 // ----------------- Diet & nutrition ------------------
 
+export type FoodCategoryType =
+  | "whole_grain"
+  | "fruit"
+  | "lean_protein"
+  | "liquid"
+  | "vegetable"
+  | "vegetarian_protein"
+  | "fat";
+
 export type FoodType = {
   _id: string;
   id: string;
-  category:
-    | "whole grain"
-    | "fruit"
-    | "lean protein"
-    | "liquid"
-    | "vegetable"
-    | "veg_protein"
-    | "fat";
+  category: FoodCategoryType;
   name: string;
   img: string;
   description: string;
@@ -137,6 +139,13 @@ export type DietPlanType = {
   snack2: MealType;
   dinner: MealType;
 };
+
+export type MealTimeType =
+  | "breakfast"
+  | "snack1"
+  | "lunch"
+  | "snack2"
+  | "dinner";
 
 // tailwind color
 export type ColorValueType =

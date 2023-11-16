@@ -1,6 +1,6 @@
 import { DietPlanType } from "@/lib/type";
 
-export const sampleDietChart: DietPlanType = {
+export const sampleDietChart = {
   id: "1",
   client: "mdshahidulridoy@gmail.com",
   name: "Weight Loss plan",

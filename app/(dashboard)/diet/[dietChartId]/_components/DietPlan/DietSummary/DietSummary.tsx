@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { LucideCalculator } from "lucide-react";
 import React from "react";
 
@@ -77,6 +78,7 @@ export default function DietSummary({
           </div>
         </div>
       </div>
+      <Button className="my-5 w-full">Save this plan</Button>
     </div>
   );
 }

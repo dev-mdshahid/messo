@@ -1,5 +1,5 @@
 "use client";
-import { FoodType } from "@/lib/type";
+import { FoodCategoryType, FoodType, MealTimeType } from "@/lib/type";
 import React, { useState } from "react";
 import FoodPreviewCard from "../FoodPreviewCard/FoodPreviewCard";
 import { PiGrainsFill } from "react-icons/pi";
@@ -10,36 +10,47 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import AddFoodModal from "./AddFoodModal/AddFoodModal";
 import FoodPreviewCardSkeleton from "../FoodPreviewCard/FoodPreviewCardSkeleton";
+import { MdOutlineNoFood } from "react-icons/md";
 
 export type CategorizedFoodListProps = {
-  category:
-    | "liquid"
-    | "carbohydrate"
-    | "protein"
-    | "veg_protein"
-    | "fat"
-    | "vegetables"
-    | "fruits";
-  foodList: FoodType[];
+  // title:
+  //   | "liquid"
+  //   | "carbohydrate"
+  //   | "protein"
+  //   | "vegprotein"
+  //   | "fat"
+  //   | "vegetables"
+  //   | "fruits";
+  category: FoodCategoryType;
+  foodList: {
+    id: string;
+    quantity: number;
+  }[];
+  categorizedFoods: { [key: string]: any };
+  setCategorizedFoods: (food: { [key: string]: any }) => void;
+  mealTime: MealTimeType;
 };
 
 export default function CategorizedFoodList({
-  category,
+  // title,
   foodList,
+  category,
+  mealTime,
 }: CategorizedFoodListProps) {
+  const [foods, setFoods] = useState(foodList);
   const [editable, setEditable] = useState(false);
   const color =
-    category === "carbohydrate"
+    category === "whole_grain"
       ? "orange"
-      : category === "protein"
+      : category === "lean_protein"
       ? "red"
       : category === "fat"
       ? "yellow"
-      : category === "vegetables"
+      : category === "vegetable"
       ? "green"
-      : category === "veg_protein"
+      : category === "vegetarian_protein"
       ? "lime"
-      : category === "fruits"
+      : category === "fruit"
       ? "emerald"
       : "blue";
 
@@ -62,7 +73,7 @@ export default function CategorizedFoodList({
           className=" flex items-center gap-1 text-lg font-bold capitalize text-green-900"
         >
           <PiGrainsFill />
-          {category}
+          {category.split("_").join(" ")}
         </h2>
         <button
           onClick={handleEdit}
@@ -80,36 +91,36 @@ export default function CategorizedFoodList({
       </div>
 
       <div className="grid w-full gap-3">
-        {foodList?.map((food, index) => {
-          // const result = allFoods.find(
-          //   (element) => element.id.trim() === food.id.trim(),
-          // );
-          const result = {
-            _id: "637905f8de7d558975f15b6f",
-            id: "lp-9",
-            category: "lean protein",
-            name: "Shrimp",
-            img: "https://i.pinimg.com/736x/ae/05/d0/ae05d0809792f85abbc3c4094a98997b.jpg",
-            description:
-              "Because they're low in carbs and calories and packed with nutrients, shrimp are an ideal choice if you're trying to shed some pounds. \nBut be careful how you cook it. If you prepare shrimp in a deep fryer or add it to a creamy sauce, you end up tipping the scale in the wrong direction.\n\nThe antioxidants in shrimp are good for your health. These substances can protect your cells against damage. Studies suggest that the antioxidant astaxanthin helps prevent wrinkles and lessens sun damage.",
-            calories: 99,
-            nutrition: {
-              protein: 24,
-              fat: 0.3,
-              carbs: 0.2,
-            },
-            type: "non_vegetarian",
-          };
-          return (
-            <FoodPreviewCard
-              key={food.id}
-              index={index}
-              food={result}
-              quantity={200}
-              color={color}
-            />
-          );
-        })}
+        {foods.length ? (
+          foods?.map(({ id, quantity }, index) => {
+            // const result = allFoods.find(
+            //   (element) => element.id.trim() === food.id.trim(),
+            // );
+            return (
+              <FoodPreviewCard
+                mealTime={mealTime}
+                key={id}
+                index={index}
+                id={id}
+                quantity={quantity}
+                color={color}
+                foods={foods}
+                setFoods={setFoods}
+              />
+            );
+          })
+        ) : (
+          <div
+            style={{
+              color: colors[color][900],
+              opacity: 0.5,
+            }}
+            className="flex flex-col items-center p-5 text-center font-semibold text-messo-900/60"
+          >
+            <MdOutlineNoFood className={"mb-2 text-3xl"} />
+            <p>No food has been added yet!</p>
+          </div>
+        )}
 
         {/* Add food button */}
 
@@ -131,7 +142,11 @@ export default function CategorizedFoodList({
             </DialogTrigger>
             <DialogContent className="no-scrollbar max-h-[100dvh] overflow-y-auto sm:max-h-[600px]">
               <DialogTitle>Add new food</DialogTitle>
-              <AddFoodModal category={category} />
+              <AddFoodModal
+                existingFoods={foods}
+                setExistingFoods={setFoods}
+                category={category}
+              />
             </DialogContent>
           </Dialog>
         ) : null}

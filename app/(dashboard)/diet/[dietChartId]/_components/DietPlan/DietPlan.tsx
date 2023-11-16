@@ -5,6 +5,10 @@ import MealContainer from "./MealContainer/MealContainer";
 import DietSummary from "./DietSummary/DietSummary";
 import { DietCollectedDataType, DietPlanType } from "@/lib/type";
 import { useNutritionRequirements } from "@/hooks/useNutritionRequirements";
+import { useGetUser } from "@/context/UserProvider";
+import { getNutritionRequirements } from "@/helpers/getNutritionRequirements";
+import { getDietTemplate } from "@/helpers/getDietTemplate";
+import { Button } from "@/components/ui/button";
 
 type DietPlanProps = {
   data?: DietCollectedDataType;
@@ -12,9 +16,28 @@ type DietPlanProps = {
 };
 
 export default function DietPlan({ data, id }: DietPlanProps) {
-  const { targetCalories, idealCalories, protein, carbohydrate, fat } =
-    useNutritionRequirements(data as DietCollectedDataType);
-  console.log(data);
+  let targetedCalories = 0,
+    idealCalories = 0,
+    protein = 0,
+    carbohydrate = 0,
+    fat = 0;
+  let dietPlan;
+
+  const {
+    user: { email, height, weight, age },
+  } = useGetUser();
+
+  if (data) {
+    dietPlan = getDietTemplate(email, data, height, weight, age);
+    targetedCalories = dietPlan.targetedCalories;
+    idealCalories = dietPlan.idealCalories;
+    protein = dietPlan.protein;
+    carbohydrate = dietPlan.carbohydrate;
+    fat = dietPlan.fat;
+  } else {
+  }
+
+  useNutritionRequirements(data as DietCollectedDataType);
 
   return (
     <main>
@@ -42,40 +65,41 @@ export default function DietPlan({ data, id }: DietPlanProps) {
           strengthen the crucial muscle groups. */}
             </p>
           </div>
+          {dietPlan ? (
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_auto]">
+              <div className="order-2 grid gap-5 lg:order-1">
+                {/* Breakfast */}
+                <MealContainer
+                  mealPlan={dietPlan?.breakfast}
+                  mealTime="breakfast"
+                />
 
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_auto]">
-            <div className="order-2 grid gap-5 lg:order-1">
-              {/* One for breakfast */}
-              <MealContainer {...sampleDietChart.breakfast} />
+                {/* Snack 1 */}
+                <MealContainer mealPlan={dietPlan?.snack1} mealTime="snack1" />
 
-              {/* Mid Meal */}
-              <MealContainer {...sampleDietChart.midMeal} />
+                {/* Lunch */}
+                <MealContainer mealPlan={dietPlan?.lunch} mealTime="lunch" />
 
-              {/* Before lunch */}
-              <MealContainer {...sampleDietChart.beforeLunch} />
+                {/* Snack 2 */}
+                <MealContainer mealPlan={dietPlan?.snack2} mealTime="snack2" />
 
-              {/* Lunch */}
-              <MealContainer {...sampleDietChart.lunch} />
-
-              {/* Evening */}
-              <MealContainer {...sampleDietChart.evening} />
-
-              {/* Dinner */}
-              <MealContainer {...sampleDietChart.dinner} />
-
-              {/* After Dinner */}
-              <MealContainer {...sampleDietChart.afterDinner} />
+                {/* Dinner */}
+                <MealContainer mealPlan={dietPlan?.dinner} mealTime="dinner" />
+              </div>
+              <DietSummary
+                idealCalories={idealCalories}
+                targetedCalories={targetedCalories}
+                protein={protein}
+                carbohydrate={carbohydrate}
+                fat={fat}
+                className="order-1 lg:order-2"
+              />
             </div>
-
-            <DietSummary
-              idealCalories={idealCalories}
-              targetedCalories={targetCalories}
-              protein={protein}
-              carbohydrate={carbohydrate}
-              fat={fat}
-              className="order-1 lg:order-2"
-            />
-          </div>
+          ) : (
+            <div className="px-5 py-10 text-center text-red-500">
+              No Diet plan has been found!
+            </div>
+          )}
         </div>
       </div>
     </main>
