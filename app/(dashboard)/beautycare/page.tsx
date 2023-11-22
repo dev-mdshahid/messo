@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import InfoTaker from "@/components/shared/InfoTaker/InfoTaker";
+
 import React from "react";
 
 export default function BeautyCarePage() {
-  return (
-    <Button>
-      <Link href={"beautycare/get-beauty-suggestions"}>Get suggestion</Link>
-    </Button>
-  );
+  return <InfoTaker variant="beauty" />;
 }
