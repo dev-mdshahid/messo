@@ -85,6 +85,14 @@ export type ExerciseType = {
   video: string;
 };
 
+export type ExerciseCollectedDataType = {
+  goal: "loseWeight" | "getToned" | "buildMuscle";
+  focusArea: string[];
+  motivation: string[];
+  level: string;
+  activityLevel: string;
+};
+
 // ----------------- Diet & nutrition ------------------
 
 export type FoodCategoryType =

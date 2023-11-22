@@ -1,18 +1,60 @@
 import { ColorType, ExercisePlanType } from "@/lib/type";
-import React from "react";
+import React, { useState } from "react";
 import { BsClockHistory } from "react-icons/bs";
 import { GiBiceps } from "react-icons/gi";
 import { TbTargetArrow } from "react-icons/tb";
 import { VscGraph } from "react-icons/vsc";
 import SummaryPropertyValue from "./SummaryPropertyValue/SummaryPropertyValue";
+import { Button } from "@/components/ui/button";
+import ButtonLoader from "@/components/shared/ButtonLoader/ButtonLoader";
+import { toast } from "@/components/ui/use-toast";
 
 type ExercisePlanSummaryProps = {
   planData: ExercisePlanType;
+  saved?: boolean;
 };
 
 export default function ExercisePlanSummary({
   planData,
+  saved,
 }: ExercisePlanSummaryProps) {
+  const [status, setStatus] = useState<"saving" | "saved" | null>(
+    saved ? "saved" : null,
+  );
+
+  // save diet plan
+  const handleSave = async () => {
+    // setStatus("saving");
+    // const url = `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/saveDietPlan`;
+    // try {
+    //   const res = await fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(planData),
+    //   });
+    //   const data = await res.json();
+    //   if (data.ok) {
+    //     setStatus("saved");
+    //     toast({
+    //       description: data.message,
+    //     });
+    //   } else {
+    //     setStatus(null);
+    //     toast({
+    //       description: data.message,
+    //       variant: "destructive",
+    //     });
+    //   }
+    // } catch (error) {
+    //   toast({
+    //     description: "Couldn't connect the database!",
+    //     variant: "destructive",
+    //   });
+    // }
+  };
+
   const { target, level, duration, img, workouts } = planData;
   return (
     <div className="h-fit min-w-[280px] max-w-[500px] rounded-xl border border-messo-100 bg-white">
@@ -52,6 +94,21 @@ export default function ExercisePlanSummary({
           icon={<BsClockHistory />}
           color="purple"
         />
+      </div>
+      <div className="p-5 pt-0">
+        <Button
+          disabled={status === "saving" || status === "saved"}
+          className=" w-full"
+          onClick={handleSave}
+        >
+          {status === "saving" ? (
+            <ButtonLoader text="Saving plan..." />
+          ) : status === "saved" ? (
+            "Saved"
+          ) : (
+            "Save this plan"
+          )}
+        </Button>
       </div>
     </div>
   );

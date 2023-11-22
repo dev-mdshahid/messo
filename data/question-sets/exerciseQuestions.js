@@ -82,7 +82,7 @@ export const exerciseQuestions = [
         jump: 1,
       },
       {
-        value: "legs",
+        value: "leg",
         icon: legs,
         text: "Legs",
         description: "Stronger Legs",
@@ -96,7 +96,7 @@ export const exerciseQuestions = [
         jump: 1,
       },
       {
-        value: "shoulders",
+        value: "shoulder",
         icon: shoulders,
         text: "Shoulders",
         description: "To make you look wider",
