@@ -8,7 +8,13 @@ import InfoSelect from "./InfoSelect/InfoSelect";
 import DietPlan from "@/app/(dashboard)/diet/[dietChartId]/_components/DietPlan/DietPlan";
 import ExercisePlan from "@/app/(dashboard)/exercise/[exercisePlanId]/_components/ExercisePlan/ExercisePlan";
 import BeautySuggestions from "@/app/(dashboard)/beautycare/[beautySuggestionsId]/_components/BeautySuggestions/BeautySuggestions";
-import { DietCollectedDataType, ExercisePlanType } from "@/lib/type";
+import {
+  DietCollectedDataType,
+  ExerciseCollectedDataType,
+  ExercisePlanType,
+} from "@/lib/type";
+import { getExerciseTemplate } from "@/helpers/getExerciseTemplate";
+import { useSession } from "next-auth/react";
 
 type InfoTakerProps = {
   variant: "diet" | "exercise" | "beauty";
@@ -25,6 +31,7 @@ type InfoTakerProps = {
 export default function InfoTaker({ variant }: InfoTakerProps) {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
+  // const {data} = useSession();
   console.log(data);
 
   // Selecting question set
@@ -79,26 +86,37 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
     }
   }
 
-  return step > numOfQuestions ? (
-    variant === "exercise" ? (
-      <ExercisePlan planData={data as ExercisePlanType} />
+  if (step > numOfQuestions) {
+    let exercisePlan;
+    if (variant === "exercise") {
+      exercisePlan = getExerciseTemplate(
+        data as ExerciseCollectedDataType,
+        "demo@gmail.com",
+      );
+      console.log(exercisePlan);
+    }
+
+    return variant === "exercise" ? (
+      <ExercisePlan planData={exercisePlan as ExercisePlanType} />
     ) : variant === "beauty" ? (
       <BeautySuggestions data={data} />
     ) : (
       <DietPlan data={data as DietCollectedDataType} />
-    )
-  ) : (
-    <section className="mx-auto flex h-full w-full max-w-[800px] justify-center">
-      <div className="mt-5 lg:mt-20">
-        {/* Question */}
-        <h1 className="mb-2 px-2 text-center text-xl font-bold leading-relaxed text-messo-900 sm:text-3xl">
-          {question.question}
-        </h1>
-        <p className="mx-auto px-6 text-center text-sm font-medium leading-relaxed text-gray-600 sm:text-[15px]">
-          {question.description}
-        </p>
-        <div className="pb-5">{QuestionComponent}</div>
-      </div>
-    </section>
-  );
+    );
+  } else {
+    return (
+      <section className="mx-auto flex h-full w-full max-w-[800px] justify-center">
+        <div className="mt-5 lg:mt-20">
+          {/* Question */}
+          <h1 className="mb-2 px-2 text-center text-xl font-bold leading-relaxed text-messo-900 sm:text-3xl">
+            {question.question}
+          </h1>
+          <p className="mx-auto px-6 text-center text-sm font-medium leading-relaxed text-gray-600 sm:text-[15px]">
+            {question.description}
+          </p>
+          <div className="pb-5">{QuestionComponent}</div>
+        </div>
+      </section>
+    );
+  }
 }
