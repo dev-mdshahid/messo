@@ -39,6 +39,8 @@ export default function SignupForm() {
       height: parseInt(formElement.height?.value),
       weight: parseInt(formElement.weight?.value),
       img: "",
+      dietPlans: [],
+      exercisePlans: [],
     };
 
     try {

@@ -1,0 +1,6 @@
+export const dietPlanActionTypes = {
+  FETCH_LOADING: "FETCH_LOADING",
+  FETCH_SUCCESS: "FETCH_SUCCESS",
+  FETCH_ERROR: "FETCH_ERROR",
+  ADD_NEW_FOOD: "ADD_NEW_FOOD",
+};

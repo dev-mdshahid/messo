@@ -14,32 +14,24 @@ import FoodPreviewCard from "../../FoodPreviewCard/FoodPreviewCard";
 import { toast } from "@/components/ui/use-toast";
 import FoodPreviewCardSkeleton from "../../FoodPreviewCard/FoodPreviewCardSkeleton";
 import { MdOutlineNoFood } from "react-icons/md";
-import { FoodCategoryType, FoodType } from "@/lib/type";
+import { FoodCategoryType, FoodType, MealTimeType } from "@/lib/type";
 import FoodPreviewCardByData from "../../FoodPreviewCardByData/FoodPreviewCardByData";
 
 type AddFoodModalProps = {
   category: any;
-  existingFoods: { id: string; quantity: number }[];
-  setExistingFoods: (newFood: { id: string; quantity: number }[]) => void;
+  foodList: { id: string; quantity: number }[];
+
+  mealTime: MealTimeType;
 };
 
 export default function AddFoodModal({
   category,
-  existingFoods,
-  setExistingFoods,
+  foodList,
+  mealTime,
 }: AddFoodModalProps) {
   const [foods, setFoods] = useState<FoodType[]>([]);
   const [loading, setLoading] = useState<boolean>();
 
-  // const foodCategoryMap = {
-  //   carbohydrate: "whole_grain",
-  //   protein: "lean_protein",
-  //   veg_protein: "veg_protein",
-  //   fat: "fat",
-  //   vegetables: "vegetables",
-  //   fruits: "fruit",
-  //   liquid: "liquid",
-  // };
   const [selectedCategory, setSelectedCategory] = useState(category);
   console.log(selectedCategory);
 
@@ -111,8 +103,8 @@ export default function AddFoodModal({
               addable
               index={index}
               data={food}
-              existingFoods={existingFoods}
-              setExistingFoods={setExistingFoods}
+              foodList={foodList}
+              mealTime={mealTime}
             />
           ))}
         </div>

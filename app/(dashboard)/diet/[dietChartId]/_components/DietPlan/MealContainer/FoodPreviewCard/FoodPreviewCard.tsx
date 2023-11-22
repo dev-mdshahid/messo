@@ -27,8 +27,7 @@ type FoodPreviewCardProps = {
   color?: ColorType;
   addable?: boolean;
   mealTime: MealTimeType;
-  foods: { id: string; quantity: number }[];
-  setFoods: (newFood: { id: string; quantity: number }[]) => void;
+  foodList: { id: string; quantity: number }[];
 };
 
 export default function FoodPreviewCard({
@@ -38,26 +37,8 @@ export default function FoodPreviewCard({
   color,
   addable,
   mealTime,
-  foods,
-  setFoods,
 }: FoodPreviewCardProps) {
   const { data, status } = useGetSingleFood(id);
-  // const food = {
-  //   _id: "637905f8de7d558975f15b6f",
-  //   id: "lp-9",
-  //   category: "lean protein",
-  //   name: "Shrimp",
-  //   img: "https://i.pinimg.com/736x/ae/05/d0/ae05d0809792f85abbc3c4094a98997b.jpg",
-  //   description:
-  //     "Because they're low in carbs and calories and packed with nutrients, shrimp are an ideal choice if you're trying to shed some pounds. \nBut be careful how you cook it. If you prepare shrimp in a deep fryer or add it to a creamy sauce, you end up tipping the scale in the wrong direction.\n\nThe antioxidants in shrimp are good for your health. These substances can protect your cells against damage. Studies suggest that the antioxidant astaxanthin helps prevent wrinkles and lessens sun damage.",
-  //   calories: 99,
-  //   nutrition: {
-  //     protein: 24,
-  //     fat: 0.3,
-  //     carbs: 0.2,
-  //   },
-  //   type: "non_vegetarian",
-  // };
 
   let foodData;
   if (data && status === "success") {
@@ -148,9 +129,6 @@ export default function FoodPreviewCard({
               </span>
             </h1>
             <h3 className="mt-1 flex items-center gap-2 text-xs text-gray-600">
-              {/* <span className="rounded bg-orange-100  px-2 py-px font-medium text-orange-800">
-            {calories} cal
-          </span> */}
               <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-orange-100  px-2 py-px font-medium text-orange-800">
                 <span className="block h-1.5 w-1.5 rounded-full bg-orange-600"></span>
                 C : {((foodData.nutrition.carbs / 900) * quantity).toFixed(2)}g
@@ -164,12 +142,6 @@ export default function FoodPreviewCard({
                 <span className="block h-1.5 w-1.5 rounded-full bg-yellow-600"></span>
                 F : {((foodData.nutrition.fat / 900) * quantity).toFixed(2)}g
               </span>
-              {/* <span className="whitespace-nowrap rounded-xl  bg-red-100  px-2 py-px font-medium text-red-800">
-            {((protein / 400) * quantity).toFixed(2)}g protein
-          </span> */}
-              {/* <span className="whitespace-nowrap rounded-xl  bg-yellow-100  px-2 py-px font-medium text-yellow-800">
-            {((fat / 900) * quantity).toFixed(2)}g fat
-          </span> */}
             </h3>
           </div>
           <div className="ml-auto hidden items-center gap-3 sm:flex">

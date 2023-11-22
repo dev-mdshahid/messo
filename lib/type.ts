@@ -117,18 +117,23 @@ export type MealType = {
   time: string;
   calories: number;
   foods: {
-    id: string;
-    quantity: number;
-  }[];
+    [key: string]: {
+      id: string;
+      quantity: number;
+    }[];
+  };
 };
 
 export type DietPlanType = {
   id: string;
   name: string;
-  createdOn: string;
+  createdOn: Date;
   client: string;
   idealCalories: number;
   targetedCalories: number;
+  protein: number;
+  carbohydrate: number;
+  fat: number;
   water: number;
   salt: number;
   sugar: number;
@@ -146,6 +151,26 @@ export type MealTimeType =
   | "lunch"
   | "snack2"
   | "dinner";
+
+export type DietPlanStateType = {
+  loading: boolean;
+  error: boolean;
+  data: DietPlanType;
+};
+
+export type DietNewFoodType = {
+  id: string;
+  mealTime: MealTimeType;
+  category: FoodCategoryType;
+};
+
+export type DietPlanActionType = {
+  type: string;
+  payload: {
+    plan: DietPlanType;
+    newFood: DietNewFoodType;
+  };
+};
 
 // tailwind color
 export type ColorValueType =
@@ -177,3 +202,7 @@ export type ColorType =
   | "rose"
   | "sky"
   | "violet";
+
+export type ErrorType = {
+  message: string;
+};

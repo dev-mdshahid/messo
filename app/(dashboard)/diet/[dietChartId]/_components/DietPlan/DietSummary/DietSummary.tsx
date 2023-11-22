@@ -1,6 +1,13 @@
+"use client";
+import {
+  DietplanContextType,
+  useDietPlan,
+} from "@/app/(dashboard)/diet/_context/dietPlan/DietPlanProvider";
+import ButtonLoader from "@/components/shared/ButtonLoader/ButtonLoader";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
 import { LucideCalculator } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 type DietSummaryProps = {
   targetedCalories: number;
@@ -9,6 +16,7 @@ type DietSummaryProps = {
   carbohydrate: number;
   fat: number;
   className?: string;
+  saved?: boolean;
 };
 
 export default function DietSummary({
@@ -18,7 +26,48 @@ export default function DietSummary({
   carbohydrate,
   fat,
   className,
+  saved,
 }: DietSummaryProps) {
+  const [status, setStatus] = useState<"saving" | "saved" | null>(
+    saved ? "saved" : null,
+  );
+  const context = useDietPlan();
+  const { dietPlanState } = context as DietplanContextType;
+
+  // save diet plan
+  const handleSave = async () => {
+    setStatus("saving");
+    const url = `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/saveDietPlan`;
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dietPlanState.data),
+      });
+      const data = await res.json();
+
+      if (data.ok) {
+        setStatus("saved");
+        toast({
+          description: data.message,
+        });
+      } else {
+        setStatus(null);
+        toast({
+          description: data.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        description: "Couldn't connect the database!",
+        variant: "destructive",
+      });
+    }
+  };
   return (
     <div
       className={
@@ -35,17 +84,17 @@ export default function DietSummary({
 
         <div className="text-messo-900">
           <div className="flex justify-between gap-10">
-            <p className="pl-4 ">Total demand</p>
+            <p className="pl-4 ">Base calorie</p>
             <p className="pr-1 font-semibold">{idealCalories} cal</p>
           </div>
           <div className="flex justify-between gap-10">
-            <p className="pl-4">Total added</p>
+            <p className="pl-4">Target calorie</p>
             <p className="pr-1 font-semibold">- {targetedCalories} cal</p>
           </div>
           <div className="my-px ml-3 h-px bg-messo-900 opacity-20"></div>
           <div className="flex justify-between gap-10">
             <p className="pl-4">
-              {targetedCalories > idealCalories ? "Extra" : "Deficit"}
+              {targetedCalories > idealCalories ? "Surplus" : "Deficit"}
             </p>
             <p className="pr-1 font-semibold">
               {targetedCalories > idealCalories
@@ -78,7 +127,20 @@ export default function DietSummary({
           </div>
         </div>
       </div>
-      <Button className="my-5 w-full">Save this plan</Button>
+
+      <Button
+        disabled={status === "saving" || status === "saved"}
+        className="mt-5 w-full"
+        onClick={handleSave}
+      >
+        {status === "saving" ? (
+          <ButtonLoader text="Saving plan..." />
+        ) : status === "saved" ? (
+          "Saved"
+        ) : (
+          "Save this plan"
+        )}
+      </Button>
     </div>
   );
 }

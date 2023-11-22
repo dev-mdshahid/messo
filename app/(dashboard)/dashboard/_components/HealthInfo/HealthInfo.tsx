@@ -31,7 +31,7 @@ export default function HealthInfo() {
   bmi = parseFloat(bmi.toFixed(2));
   let bodyStatus;
   if (bmi < 18.5) {
-    bodyStatus = "Underweight";
+    bodyStatus = "underweight";
   } else if (bmi >= 18.5 && bmi <= 24.9) {
     bodyStatus = "normal";
   } else if (bmi >= 25 && bmi <= 29.9) {

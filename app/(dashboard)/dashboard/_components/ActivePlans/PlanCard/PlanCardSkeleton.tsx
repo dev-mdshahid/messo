@@ -1,9 +1,18 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
 
-export default function PlanCardSkeleton() {
+export default function PlanCardSkeleton({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <div className="cursor-pointer rounded-lg border bg-white py-4 transition hover:shadow-lg">
+    <div
+      className={
+        "cursor-pointer rounded-lg border bg-white py-4 transition hover:shadow-lg " +
+        className
+      }
+    >
       <div className="flex w-full items-center justify-between">
         <div className="w-full px-5">
           <Skeleton className="mb-2 h-4 w-1/2 rounded bg-messo-100"></Skeleton>

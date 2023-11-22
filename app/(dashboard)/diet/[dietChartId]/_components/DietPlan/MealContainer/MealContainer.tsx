@@ -16,15 +16,17 @@ type MealContainerProps = {
     };
   };
   mealTime: MealTimeType;
+  saved: boolean;
 };
 
 export default function MealContainer({
   mealPlan,
   mealTime,
+  saved,
 }: MealContainerProps) {
   let totalFoodCount = 0;
   const { title, calories, time, foods } = mealPlan;
-  const [categorizedFoods, setCategorizedFoods] = useState(foods);
+  // const [categorizedFoods, setCategorizedFoods] = useState(foods);
   const foodTypes = Object.keys(foods);
 
   // Counting total food number
@@ -70,24 +72,33 @@ export default function MealContainer({
         </div>
       </div>
       <div className="h-px w-full bg-blue-900 opacity-20"></div>
-      {/* <h1 className="pl-5 pt-4 text-lg font-semibold text-messo-900 sm:text-xl">
-        Food list
-      </h1> */}
       <div className="grid gap-5 p-3 pt-3 sm:p-5">
-        {foodTypes.map((category, index) => (
-          <CategorizedFoodList
-            key={index}
-            category={category as FoodCategoryType}
-            mealTime={mealTime}
-            // title={foodCategoryMap[category]}
-            foodList={foods[category]}
-            categorizedFoods={categorizedFoods}
-            setCategorizedFoods={setCategorizedFoods}
-          />
-        ))}
-        {/* <CategorizedFoodList category="carbohydrate" foodList={foods} />
-        <CategorizedFoodList category="protein" foodList={foods} />
-        <CategorizedFoodList category="fat" foodList={foods} /> */}
+        {foodTypes.map((category, index) => {
+          if (saved) {
+            if (foods[category].length > 0)
+              return (
+                <CategorizedFoodList
+                  key={index}
+                  category={category as FoodCategoryType}
+                  mealTime={mealTime}
+                  foodList={foods[category]}
+                  // categorizedFoods={categorizedFoods}
+                  // setCategorizedFoods={setCategorizedFoods}
+                />
+              );
+          } else {
+            return (
+              <CategorizedFoodList
+                key={index}
+                category={category as FoodCategoryType}
+                mealTime={mealTime}
+                foodList={foods[category]}
+                // categorizedFoods={categorizedFoods}
+                // setCategorizedFoods={setCategorizedFoods}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );

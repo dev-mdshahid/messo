@@ -1,5 +1,6 @@
 import React from "react";
 import DietPlan from "./_components/DietPlan/DietPlan";
+import DietPlanProvider from "../_context/dietPlan/DietPlanProvider";
 
 export default function DietChartPage({
   params,
@@ -7,5 +8,9 @@ export default function DietChartPage({
   params: { dietChartId: string };
 }) {
   const dietChartId = params.dietChartId;
-  return <DietPlan id={dietChartId} />;
+  return (
+    <DietPlanProvider>
+      <DietPlan id={dietChartId} />
+    </DietPlanProvider>
+  );
 }
