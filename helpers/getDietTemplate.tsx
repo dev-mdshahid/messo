@@ -12,6 +12,7 @@ export const getDietTemplate = (
   const { targetedCalories, idealCalories, protein, carbohydrate, fat } =
     getNutritionRequirements(data, height, weight, age);
   return {
+    id: Date.now().toString() + Math.floor(Math.random() * 1000),
     name:
       goal === "gainWeight"
         ? "Gain weight plan"
@@ -48,7 +49,7 @@ export const getDietTemplate = (
       time: "10:30AM to 11:00 AM",
       calories: targetedCalories * 0.1,
       foods: {
-        fruits: [],
+        fruit: [],
       },
     },
     lunch: {
@@ -70,7 +71,7 @@ export const getDietTemplate = (
       time: "5:00 PM to 5:30PM",
       calories: targetedCalories * 0.1,
       foods: {
-        fruits: [],
+        fruit: [],
       },
     },
     dinner: {

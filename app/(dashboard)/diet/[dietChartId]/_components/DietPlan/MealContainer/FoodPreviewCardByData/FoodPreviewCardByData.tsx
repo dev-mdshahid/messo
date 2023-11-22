@@ -10,12 +10,17 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { ColorType, FoodType } from "@/lib/type";
+import { ColorType, DietPlanType, FoodType, MealTimeType } from "@/lib/type";
 import React, { useState } from "react";
 import { BsTextParagraph } from "react-icons/bs";
 import colors from "tailwindcss/colors";
 import FoodDetailCard from "../FoodDetailCard/FoodDetailCard";
 import { TbCheck, TbPlus } from "react-icons/tb";
+import {
+  DietplanContextType,
+  useDietPlan,
+} from "@/app/(dashboard)/diet/_context/dietPlan/DietPlanProvider";
+import { dietPlanActionTypes } from "@/app/(dashboard)/diet/_state/dietPlan/dietPlanActionTypes";
 
 type FoodPreviewCardByDataProps = {
   data: FoodType;
@@ -23,8 +28,8 @@ type FoodPreviewCardByDataProps = {
   index: number;
   color?: ColorType;
   addable?: boolean;
-  existingFoods: { id: string; quantity: number }[];
-  setExistingFoods: (newFood: { id: string; quantity: number }[]) => void;
+  mealTime: MealTimeType;
+  foodList: { id: string; quantity: number }[];
 };
 
 export default function FoodPreviewCardByData({
@@ -33,9 +38,12 @@ export default function FoodPreviewCardByData({
   index,
   color,
   addable,
-  existingFoods,
-  setExistingFoods,
+  mealTime,
+  foodList,
 }: FoodPreviewCardByDataProps) {
+  const context = useDietPlan();
+  const { dietPlanState, dietPlanDispatch } = context as DietplanContextType;
+
   const [added, setAdded] = useState(false);
   const {
     id,
@@ -51,7 +59,18 @@ export default function FoodPreviewCardByData({
 
   const handleFoodAdd = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    setExistingFoods([...existingFoods, { id: id, quantity: 200 }]);
+    dietPlanDispatch({
+      type: dietPlanActionTypes.ADD_NEW_FOOD,
+      payload: {
+        plan: {} as DietPlanType,
+        newFood: {
+          id,
+          mealTime,
+          category,
+        },
+      },
+    });
+    console.log(dietPlanState.data);
     setAdded(true);
   };
 
@@ -110,9 +129,6 @@ export default function FoodPreviewCardByData({
               </span>
             </h1>
             <h3 className="mt-1 flex items-center gap-2 text-xs text-gray-600">
-              {/* <span className="rounded bg-orange-100  px-2 py-px font-medium text-orange-800">
-              {calories} cal
-            </span> */}
               <span className="flex items-center gap-1 whitespace-nowrap rounded-xl bg-orange-100  px-2 py-px font-medium text-orange-800">
                 <span className="block h-1.5 w-1.5 rounded-full bg-orange-600"></span>
                 C : {((carbs / 900) * quantity).toFixed(2)}g
@@ -125,12 +141,6 @@ export default function FoodPreviewCardByData({
                 <span className="block h-1.5 w-1.5 rounded-full bg-yellow-600"></span>
                 F : {((fat / 900) * quantity).toFixed(2)}g
               </span>
-              {/* <span className="whitespace-nowrap rounded-xl  bg-red-100  px-2 py-px font-medium text-red-800">
-              {((protein / 400) * quantity).toFixed(2)}g protein
-            </span> */}
-              {/* <span className="whitespace-nowrap rounded-xl  bg-yellow-100  px-2 py-px font-medium text-yellow-800">
-              {((fat / 900) * quantity).toFixed(2)}g fat
-            </span> */}
             </h3>
           </div>
           <div className="ml-auto hidden items-center gap-3 sm:flex">

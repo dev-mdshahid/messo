@@ -1,14 +1,24 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { sampleDietChart } from "@/data/sampleData";
 import MealContainer from "./MealContainer/MealContainer";
 import DietSummary from "./DietSummary/DietSummary";
-import { DietCollectedDataType, DietPlanType } from "@/lib/type";
+import {
+  DietCollectedDataType,
+  DietNewFoodType,
+  DietPlanType,
+} from "@/lib/type";
 import { useNutritionRequirements } from "@/hooks/useNutritionRequirements";
 import { useGetUser } from "@/context/UserProvider";
 import { getNutritionRequirements } from "@/helpers/getNutritionRequirements";
 import { getDietTemplate } from "@/helpers/getDietTemplate";
 import { Button } from "@/components/ui/button";
+import {
+  DietplanContextType,
+  useDietPlan,
+} from "../../../_context/dietPlan/DietPlanProvider";
+import { dietPlanActionTypes } from "../../../_state/dietPlan/dietPlanActionTypes";
+import { useGetSingleDietPlan } from "@/hooks/useGetSingleDietPlan";
 
 type DietPlanProps = {
   data?: DietCollectedDataType;
@@ -16,28 +26,49 @@ type DietPlanProps = {
 };
 
 export default function DietPlan({ data, id }: DietPlanProps) {
+  const saved = data ? false : true;
+  const context = useDietPlan();
+  const res = useGetSingleDietPlan(id ?? "");
+  console.log(res);
+  const { dietPlanState, dietPlanDispatch } = context as DietplanContextType;
   let targetedCalories = 0,
     idealCalories = 0,
     protein = 0,
     carbohydrate = 0,
     fat = 0;
-  let dietPlan;
 
+  // Collecting the data
+  const planData = dietPlanState.data;
+  targetedCalories = planData?.targetedCalories ?? 0;
+  idealCalories = planData?.idealCalories ?? 0;
+  protein = planData?.protein ?? 0;
+  carbohydrate = planData?.carbohydrate ?? 0;
+  fat = planData?.fat ?? 0;
   const {
     user: { email, height, weight, age },
   } = useGetUser();
 
-  if (data) {
-    dietPlan = getDietTemplate(email, data, height, weight, age);
-    targetedCalories = dietPlan.targetedCalories;
-    idealCalories = dietPlan.idealCalories;
-    protein = dietPlan.protein;
-    carbohydrate = dietPlan.carbohydrate;
-    fat = dietPlan.fat;
-  } else {
-  }
+  useEffect(() => {
+    if (data) {
+      let dietPlan = getDietTemplate(email, data, height, weight, age);
 
-  useNutritionRequirements(data as DietCollectedDataType);
+      dietPlanDispatch({
+        type: dietPlanActionTypes.FETCH_SUCCESS,
+        payload: {
+          plan: dietPlan,
+          newFood: {} as DietNewFoodType,
+        },
+      });
+    } else if (res.data) {
+      dietPlanDispatch({
+        type: dietPlanActionTypes.FETCH_SUCCESS,
+        payload: {
+          plan: res.data.plan,
+          newFood: {} as DietNewFoodType,
+        },
+      });
+    }
+  }, [res.data]);
 
   return (
     <main>
@@ -65,26 +96,43 @@ export default function DietPlan({ data, id }: DietPlanProps) {
           strengthen the crucial muscle groups. */}
             </p>
           </div>
-          {dietPlan ? (
+          {planData ? (
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_auto]">
               <div className="order-2 grid gap-5 lg:order-1">
                 {/* Breakfast */}
                 <MealContainer
-                  mealPlan={dietPlan?.breakfast}
+                  mealPlan={planData?.breakfast}
                   mealTime="breakfast"
+                  saved={saved}
                 />
 
                 {/* Snack 1 */}
-                <MealContainer mealPlan={dietPlan?.snack1} mealTime="snack1" />
+                <MealContainer
+                  mealPlan={planData?.snack1}
+                  mealTime="snack1"
+                  saved={saved}
+                />
 
                 {/* Lunch */}
-                <MealContainer mealPlan={dietPlan?.lunch} mealTime="lunch" />
+                <MealContainer
+                  mealPlan={planData?.lunch}
+                  mealTime="lunch"
+                  saved={saved}
+                />
 
                 {/* Snack 2 */}
-                <MealContainer mealPlan={dietPlan?.snack2} mealTime="snack2" />
+                <MealContainer
+                  mealPlan={planData?.snack2}
+                  mealTime="snack2"
+                  saved={saved}
+                />
 
                 {/* Dinner */}
-                <MealContainer mealPlan={dietPlan?.dinner} mealTime="dinner" />
+                <MealContainer
+                  mealPlan={planData?.dinner}
+                  mealTime="dinner"
+                  saved={saved}
+                />
               </div>
               <DietSummary
                 idealCalories={idealCalories}
@@ -93,10 +141,11 @@ export default function DietPlan({ data, id }: DietPlanProps) {
                 carbohydrate={carbohydrate}
                 fat={fat}
                 className="order-1 lg:order-2"
+                saved={saved}
               />
             </div>
           ) : (
-            <div className="px-5 py-10 text-center text-red-500">
+            <div className="rounded-xl bg-white px-5 py-10 text-center text-red-500">
               No Diet plan has been found!
             </div>
           )}

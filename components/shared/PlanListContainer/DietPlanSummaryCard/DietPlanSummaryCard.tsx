@@ -1,20 +1,29 @@
+import ActivePlansSkeleton from "@/app/(dashboard)/dashboard/_components/ActivePlans/ActivePlansSkeleton";
+import PlanCardSkeleton from "@/app/(dashboard)/dashboard/_components/ActivePlans/PlanCard/PlanCardSkeleton";
+import { sampleDietChart } from "@/data/diet/dietPlan";
+import { getDateTime } from "@/helpers/getDateTime";
+import { useGetSingleDietPlan } from "@/hooks/useGetSingleDietPlan";
 import { DietPlanType } from "@/lib/type";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaBowlFood } from "react-icons/fa6";
 
 // Icons
 import { MdOutlineDeleteOutline, MdOutlineIosShare } from "react-icons/md";
 
 type DietPlanSummaryCardProps = {
-  plan: DietPlanType;
+  // plan: DietPlanType;
+  planId: string;
 };
 
 export default function DietPlanSummaryCard({
-  plan,
+  // plan,
+  planId,
 }: DietPlanSummaryCardProps) {
-  const {
-    name,
+  const { data, status } = useGetSingleDietPlan(planId);
+  console.log(planId);
+  console.log(data);
+  let name,
     id,
     createdOn,
     targetedCalories,
@@ -22,15 +31,53 @@ export default function DietPlanSummaryCard({
     snack1,
     lunch,
     snack2,
-    dinner,
-  } = plan;
-  const foodNumber =
-    breakfast.foods.length +
-    snack1.foods.length +
-    lunch.foods.length +
-    snack2.foods.length +
-    dinner.foods.length;
-  return (
+    dinner;
+
+  // Counting total food number
+  let totalFoodCount = 0;
+
+  if (data?.plan) {
+    const { plan } = data;
+    name = plan.name;
+    id = plan.id;
+    createdOn = plan.createdOn;
+    targetedCalories = plan.targetedCalories;
+    breakfast = plan.breakfast;
+    snack1 = plan.snack1;
+    lunch = plan.lunch;
+    snack2 = plan.snack2;
+    dinner = plan.dinner;
+
+    let foodTypes = Object.keys(breakfast.foods);
+    for (let i = 0; i < foodTypes.length; i++) {
+      totalFoodCount += breakfast.foods[foodTypes[i]].length;
+    }
+
+    foodTypes = Object.keys(snack1.foods);
+    // Counting total food number
+    for (let i = 0; i < foodTypes.length; i++) {
+      totalFoodCount += snack1.foods[foodTypes[i]].length;
+    }
+
+    foodTypes = Object.keys(lunch.foods);
+    for (let i = 0; i < foodTypes.length; i++) {
+      totalFoodCount += lunch.foods[foodTypes[i]].length;
+    }
+
+    foodTypes = Object.keys(snack2.foods);
+    for (let i = 0; i < foodTypes.length; i++) {
+      totalFoodCount += snack2.foods[foodTypes[i]].length;
+    }
+
+    foodTypes = Object.keys(dinner.foods);
+    for (let i = 0; i < foodTypes.length; i++) {
+      totalFoodCount += dinner.foods[foodTypes[i]].length;
+    }
+  }
+
+  const date = getDateTime(createdOn);
+
+  return data ? (
     <Link
       href={`diet/${id}`}
       className="w-full min-w-fit max-w-[400px] cursor-pointer rounded-lg border border-messo-100 bg-white py-4 transition hover:border-messo-300 hover:shadow-lg hover:shadow-messo-100"
@@ -41,7 +88,7 @@ export default function DietPlanSummaryCard({
             {name}
           </h3>
           <p className="px-5 text-xs text-gray-500 sm:text-[13px]">
-            Created on {createdOn}
+            Created on {date}
           </p>
         </div>
 
@@ -60,7 +107,7 @@ export default function DietPlanSummaryCard({
           </div>
           <div className="border-l text-center">
             <h2 className="mb-1 text-2xl font-semibold text-green-700 sm:text-3xl">
-              {foodNumber}
+              {totalFoodCount}
             </h2>
             <p className="text-xs capitalize text-gray-500 sm:text-[13px]">
               Total Foods
@@ -74,5 +121,7 @@ export default function DietPlanSummaryCard({
         </div>
       </div>
     </Link>
+  ) : (
+    <PlanCardSkeleton className="w-full max-w-[400px]" />
   );
 }

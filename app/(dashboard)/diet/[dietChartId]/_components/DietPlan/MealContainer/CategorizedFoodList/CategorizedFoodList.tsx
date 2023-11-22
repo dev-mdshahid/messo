@@ -13,21 +13,12 @@ import FoodPreviewCardSkeleton from "../FoodPreviewCard/FoodPreviewCardSkeleton"
 import { MdOutlineNoFood } from "react-icons/md";
 
 export type CategorizedFoodListProps = {
-  // title:
-  //   | "liquid"
-  //   | "carbohydrate"
-  //   | "protein"
-  //   | "vegprotein"
-  //   | "fat"
-  //   | "vegetables"
-  //   | "fruits";
   category: FoodCategoryType;
   foodList: {
     id: string;
     quantity: number;
   }[];
-  categorizedFoods: { [key: string]: any };
-  setCategorizedFoods: (food: { [key: string]: any }) => void;
+
   mealTime: MealTimeType;
 };
 
@@ -37,7 +28,6 @@ export default function CategorizedFoodList({
   category,
   mealTime,
 }: CategorizedFoodListProps) {
-  const [foods, setFoods] = useState(foodList);
   const [editable, setEditable] = useState(false);
   const color =
     category === "whole_grain"
@@ -91,11 +81,8 @@ export default function CategorizedFoodList({
       </div>
 
       <div className="grid w-full gap-3">
-        {foods.length ? (
-          foods?.map(({ id, quantity }, index) => {
-            // const result = allFoods.find(
-            //   (element) => element.id.trim() === food.id.trim(),
-            // );
+        {foodList.length ? (
+          foodList?.map(({ id, quantity }, index) => {
             return (
               <FoodPreviewCard
                 mealTime={mealTime}
@@ -104,8 +91,7 @@ export default function CategorizedFoodList({
                 id={id}
                 quantity={quantity}
                 color={color}
-                foods={foods}
-                setFoods={setFoods}
+                foodList={foodList}
               />
             );
           })
@@ -143,9 +129,9 @@ export default function CategorizedFoodList({
             <DialogContent className="no-scrollbar max-h-[100dvh] overflow-y-auto sm:max-h-[600px]">
               <DialogTitle>Add new food</DialogTitle>
               <AddFoodModal
-                existingFoods={foods}
-                setExistingFoods={setFoods}
+                foodList={foodList}
                 category={category}
+                mealTime={mealTime}
               />
             </DialogContent>
           </Dialog>

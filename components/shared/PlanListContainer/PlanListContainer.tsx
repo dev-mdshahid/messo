@@ -10,7 +10,8 @@ import DietPlanSummaryCard from "./DietPlanSummaryCard/DietPlanSummaryCard";
 import { sampleDietChart } from "@/data/diet/dietPlan";
 
 type PlanListContainerProps = {
-  planList: ExercisePlanType[] | DietPlanType[];
+  // planList: ExercisePlanType[] | DietPlanType[];
+  planList: string[];
   title: string;
   variant: "diet" | "exercise";
   creatable?: boolean;
@@ -62,7 +63,7 @@ export default function PlanListContainer({
         >
           {planList.length ? (
             planList.map((plan) => (
-              <DietPlanSummaryCard key={plan.id} plan={plan as DietPlanType} />
+              <DietPlanSummaryCard key={plan} planId={plan} />
               //   <ExercisePlanCard key={plan.id} plan={plan} />
             ))
           ) : (

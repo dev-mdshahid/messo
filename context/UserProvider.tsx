@@ -21,6 +21,8 @@ type UserType = {
   weight: number;
   joinedAt: string;
   img: string;
+  dietPlans: string[];
+  exercisePlans: string[];
 };
 
 type FetchStatusType = "loading" | "success" | "error";
@@ -47,6 +49,8 @@ const USER_CONTEXT = createContext<DataType>({
     weight: 0,
     joinedAt: "",
     img: "",
+    dietPlans: [""],
+    exercisePlans: [""],
   },
   setUser: (data: object) => {},
   fetchStatus: "loading",
@@ -65,6 +69,8 @@ export default function UserProvider({ children }: UserProviderProps) {
     weight: 0,
     joinedAt: "",
     img: "",
+    dietPlans: [""],
+    exercisePlans: [""],
   });
   const session = useSession();
   const email = session.data?.user?.email;

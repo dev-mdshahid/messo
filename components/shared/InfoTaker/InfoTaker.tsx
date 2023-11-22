@@ -97,7 +97,7 @@ export default function InfoTaker({ variant }: InfoTakerProps) {
         <p className="mx-auto px-6 text-center text-sm font-medium leading-relaxed text-gray-600 sm:text-[15px]">
           {question.description}
         </p>
-        {QuestionComponent}
+        <div className="pb-5">{QuestionComponent}</div>
       </div>
     </section>
   );
