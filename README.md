@@ -1,4 +1,4 @@
-# 🧠 Messo – AI-Powered Fitness & Wellness Web App  
+# 🧠 Messo – Fitness & Wellness Web App  
 
 Messo is a full-stack **Next.js** web application designed to help users live healthier and more confident lives.  
 It provides **personalized exercise, diet, and beauty care plans** tailored to each user’s preferences, goals, and needs — all in one platform.  
